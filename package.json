@@ -5,11 +5,14 @@
   "description": "Remotion project for video editing and motion graphics",
   "scripts": {
     "dev": "remotion studio",
-    "render": "remotion render src/index.ts HelloWorld out/hello.mp4",
-    "still": "remotion still src/index.ts HelloWorld out/thumb.png --frame=30",
+    "phude": ".venv/bin/python scripts/phude.py",
+    "render": "remotion render src/index.ts BatDongSan out/bat-dong-san.mp4",
+    "still": "remotion still src/index.ts BatDongSan out/thumb.png --frame=60",
     "upgrade": "remotion upgrade"
   },
   "dependencies": {
+    "@fontsource/be-vietnam-pro": "5.3.0",
+    "@remotion/captions": "4.0.543",
     "@remotion/cli": "4.0.543",
     "react": "19.3.1",
     "react-dom": "19.3.1",
