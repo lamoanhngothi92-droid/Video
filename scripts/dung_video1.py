@@ -151,10 +151,11 @@ def main():
     kw("205945", 23, [["nho", "ngoài hồ Koi"], ["to", "CÒN GÌ?"]], den=("205945", 31), vt="phai")
     chum = [(36, "205624", "SUỐI CẠN"), (38, "205705", "VƯỜN YOGA"), (40, "205729", "TENNIS"),
             (42, "210308", "PICKLEBALL"), (46, "210213", None), (54, "205757", None)]
+    vao_rieng = {"210213": 9.6}  # MC chỉ tay ra xa từ giây ~10 (ý bạn chọn)
     for n, (i, src, chu) in enumerate(chum):
         a = moc[("205945", i)][0] - 0.05
         b = moc[("205945", chum[n + 1][0])][0] - 0.05 if n + 1 < len(chum) else t
-        cen_canh(src, a, b)
+        cen_canh(src, a, b, vao=vao_rieng.get(src, 0.4))
         if chu:
             ket = chum[n + 1][0] - 1
             kw("205945", i, [["to", chu]], den=("205945", ket), vt="giua")
