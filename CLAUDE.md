@@ -54,6 +54,8 @@
 - Tự giảm nhạc khi có tiếng nói
 - Nhạc trend có bản quyền: Claude không tự tải; chèn trong app TikTok/Reels lúc
   đăng, hoặc dùng file nhạc bạn đặt trong tainguyen/nhac/
+- Mặc định: nhạc tự soạn sôi động kiểu trend (dance/house 124 BPM) bằng
+  `.venv/bin/python scripts/taonhac.py public/nhac/<ten>.wav --giay <độ dài>`
 
 ## Motion graphic (Remotion)
 - Khung thông tin giá / diện tích trượt vào từ trái, hiện 2–3 giây
