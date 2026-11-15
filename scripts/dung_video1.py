@@ -98,7 +98,7 @@ def main():
         nonlocal t
         chu = doc_chu(k)
         for n, (a, b, ds) in enumerate(chia_doan(chu)):
-            canh.append({"src": f"v1/goc_{k}.mp4", "from": t, "in": a, "dur": b - a,
+            canh.append({"src": f"v1/goc_{k}.mp4", "from": t, "in": a, "dur": b - a, "dau": n == 0,
                          "zoom": 1.08 if (punch_in_doan_sau and n > 0) else 1.0})
             for w in ds:
                 ws, we = t + w["start"] - a, t + w["end"] - a
@@ -141,12 +141,13 @@ def main():
     kw("210027", 46, [["nho", "cùng chung một"], ["to", "VẬN KHÍ"]], den=("210027", 50), vt="giua")
     # --- Cảnh 6–8
     them_clip("205945")
-    # Cảnh 2 MC nhìn ra hồ + dãy nhà phố (210114) cho câu "Vịnh Xanh rộng 10,5 ha… 3 mặt giáp sông"
-    cen_canh("210114", moc[("205945", 0)][0] - 0.05, moc[("205945", 14)][0] - 0.05, vao=0.6)
+    # Giữ cảnh MC đi vào; khung thông tin dạng dải ngang phía trên để không che MC
     s = moc[("205945", 2)][0]
-    khung.append({"from": s, "dur": 2.8, "tieuDe": "VỊNH XANH",
+    khung.append({"from": s, "dur": 3.0, "tieuDe": "VỊNH XANH", "kieu": "ngang",
                   "muc": [["so", "10,5 ha"], ["so", "747 căn"], ["chu", "3 mặt giáp sông"]]})
-    kw("205945", 18, [["to", "AN NINH"], ["so", "24/7"]], den=("205945", 20), vt="phai")
+    # Cảnh 2 MC nhìn ra hồ + dãy nhà phố (210114) cho câu "compound khép kín, an ninh 24/7"
+    cen_canh("210114", moc[("205945", 14)][0] - 0.05, moc[("205945", 23)][0] - 0.05, vao=0.6)
+    kw("205945", 18, [["to", "AN NINH"], ["so", "24/7"]], den=("205945", 20), vt="trai")
     kw("205945", 23, [["nho", "ngoài hồ Koi"], ["to", "CÒN GÌ?"]], den=("205945", 31), vt="phai")
     chum = [(36, "205624", "SUỐI CẠN"), (38, "205705", "VƯỜN YOGA"), (40, "205729", "TENNIS"),
             (42, "210308", "PICKLEBALL"), (46, "210213", None), (54, "205757", None)]
@@ -178,8 +179,47 @@ def main():
     logo_tu = t
     t += 1.2
 
+    # 3) Hiệu ứng chuyển cảnh + âm thanh hiệu ứng (SFX)
+    chen.sort(key=lambda c: c["from"])
+    sfx, chuyen = [], []
+    for i, c in enumerate(chen):
+        lien = i > 0 and abs(chen[i - 1]["from"] + chen[i - 1]["dur"] - c["from"]) < 0.05
+        c["mo"] = not lien
+        if lien:
+            sfx.append({"ten": "swish", "from": c["from"] - 0.05, "vol": 0.35})
+        else:
+            sfx.append({"ten": "whoosh", "from": c["from"] - 0.2, "vol": 0.4})
+    for c in canh:  # đầu mỗi đoạn MC mới (trừ đoạn đầu) có vệt sáng chuyển cảnh
+        if c["src"] and c["from"] > 0 and c.get("dau"):
+            chuyen.append({"from": c["from"]})
+            sfx.append({"ten": "whoosh", "from": c["from"] - 0.25, "vol": 0.35})
+    for n, k in enumerate(chukhoa):
+        loai = [d[0] for d in k["dong"]]
+        if n == 0:
+            sfx.append({"ten": "impact", "from": k["from"], "vol": 0.55})
+        elif "tay" in loai:
+            sfx.append({"ten": "shimmer", "from": k["from"], "vol": 0.4})
+        elif "so" in loai:
+            sfx.append({"ten": "ding", "from": k["from"] + 0.1, "vol": 0.22})
+        elif len(k["dong"]) > 1:
+            sfx.append({"ten": "pop", "from": k["from"] + 0.1, "vol": 0.4})
+    for k in khung:
+        sfx.append({"ten": "whoosh", "from": k["from"] - 0.1, "vol": 0.35})
+        sfx.append({"ten": "ding", "from": k["from"] + 0.35, "vol": 0.22})
+    sfx.append({"ten": "whoosh", "from": ten_tu - 0.1, "vol": 0.25})
+    sfx.append({"ten": "chime", "from": logo_tu, "vol": 0.4})
+    # bỏ âm trùng nhau quá sát (< 0,15s)
+    sfx.sort(key=lambda x: x["from"])
+    loc_sfx = []
+    for x in sfx:
+        gan = 0.4 if x["ten"] == "whoosh" else 0.15
+        if loc_sfx and x["ten"] == loc_sfx[-1]["ten"] and x["from"] - loc_sfx[-1]["from"] < gan:
+            continue
+        loc_sfx.append({**x, "from": max(0.0, x["from"])})
+
     data = {
         "tongGiay": round(t, 3),
+        "sfx": loc_sfx, "chuyen": chuyen,
         "canh": canh, "chen": chen, "phuDe": phude, "chuKhoa": chukhoa, "khung": khung,
         "thanhTen": {"from": ten_tu, "dur": logo_tu - ten_tu},
         "logoCuoi": {"from": logo_tu, "dur": t - logo_tu},

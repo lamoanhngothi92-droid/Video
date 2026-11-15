@@ -1,5 +1,6 @@
 import {
   AbsoluteFill,
+  Audio,
   Img,
   OffthreadVideo,
   Sequence,
@@ -45,16 +46,20 @@ const CanhChinh: React.FC<{ src: string; vao: number; zoom: number; dai: number 
 const CanhChen: React.FC<{ src: string; vao: number; mo: boolean }> = ({ src, vao, mo }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
-  const zoom = interpolate(frame, [0, durationInFrames], [1.0, 1.07]);
-  // Chỉ mờ dần khi chuyển từ cảnh MC; cảnh chèn nối tiếp nhau thì cắt thẳng
-  const hien = mo ? interpolate(frame, [0, 6], [0, 1], { extrapolateRight: "clamp" }) : 1;
+  const cham = interpolate(frame, [0, durationInFrames], [1.0, 1.07]);
+  // Vào từ cảnh MC: hiệu ứng phóng + nhòe chuyển động (zoom blur) 10 khung.
+  // Cảnh chèn nối tiếp nhau (chùm nhanh): cắt thẳng, chỉ "giật" phóng nhẹ.
+  const vao10 = interpolate(frame, [0, mo ? 10 : 6], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const zoom = cham * (mo ? 1.18 - 0.18 * vao10 : 1.05 - 0.05 * vao10);
+  const nhoe = mo ? 14 * (1 - vao10) : 0;
+  const hien = mo ? Math.min(1, vao10 * 2) : 1;
   return (
     <AbsoluteFill style={{ opacity: hien }}>
       <OffthreadVideo
         src={staticFile(src)}
         startFrom={f(vao)}
         muted
-        style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})` }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})`, filter: `blur(${nhoe}px)` }}
       />
     </AbsoluteFill>
   );
@@ -108,6 +113,74 @@ const ChuKhoa: React.FC<{ dong: Dong[]; vt: string }> = ({ dong, vt }) => {
         );
       })}
     </div>
+  );
+};
+
+// ===== Khung dạng dải ngang phía trên (không che MC) =====
+const KhungNgang: React.FC<{ tieuDe: string; muc: Dong[] }> = ({ tieuDe, muc }) => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const vao = spring({ frame, fps, config: { damping: 200 } });
+  const ra = interpolate(frame, [durationInFrames - 0.35 * fps, durationInFrames], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.in(Easing.cubic),
+  });
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 90,
+        top: 60,
+        transform: `translateX(${(1 - vao) * -1500 + ra * -1500}px)`,
+        display: "flex",
+        alignItems: "center",
+        gap: 34,
+        background: "rgba(0, 45, 42, 0.82)",
+        borderLeft: `8px solid ${MAU.vangKim}`,
+        borderRadius: 14,
+        padding: "16px 40px 18px 30px",
+        boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+      }}
+    >
+      <div style={{ color: "#c9efe9", fontSize: 30, fontWeight: 600, letterSpacing: 3 }}>{tieuDe}</div>
+      {muc.map(([loai, chu], i) => {
+        const v = spring({ frame: frame - 8 - i * 6, fps, config: { damping: 200 } });
+        return (
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 34, opacity: v }}>
+            <span style={{ color: MAU.vangKim, fontSize: 30 }}>•</span>
+            <span
+              style={{
+                color: loai === "so" ? MAU.vangSo : "white",
+                fontSize: loai === "so" ? 56 : 40,
+                fontWeight: loai === "so" ? 800 : 600,
+              }}
+            >
+              {chu}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// ===== Vệt sáng ấm quét ngang khi chuyển đoạn (light leak) =====
+const VetSang: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  const p = frame / durationInFrames;
+  const x = interpolate(p, [0, 1], [-20, 120]);
+  const o = interpolate(p, [0, 0.3, 0.7, 1], [0, 1, 0.6, 0]);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        opacity: o,
+        background: `radial-gradient(38% 120% at ${x}% 45%, rgba(255,170,80,0.62), rgba(255,120,40,0.28) 50%, rgba(255,120,40,0) 78%)`,
+      }}
+    />
   );
 };
 
@@ -232,8 +305,18 @@ export const Video1: React.FC = () => {
           <CanhChen
             src={c.src}
             vao={c.in}
-            mo={i === 0 || Math.abs(data.chen[i - 1].from + data.chen[i - 1].dur - c.from) > 0.05}
+            mo={c.mo}
           />
+        </Sequence>
+      ))}
+      {data.chuyen.map((c, i) => (
+        <Sequence key={`l${i}`} from={Math.max(0, f(c.from) - 12)} durationInFrames={36} layout="none">
+          <VetSang />
+        </Sequence>
+      ))}
+      {data.sfx.map((x, i) => (
+        <Sequence key={`s${i}`} from={f(x.from)} layout="none">
+          <Audio src={staticFile(`sfx/${x.ten}.wav`)} volume={x.vol} />
         </Sequence>
       ))}
       {/* Tối nhẹ trên/dưới để chữ dễ đọc */}
@@ -245,7 +328,11 @@ export const Video1: React.FC = () => {
       />
       {data.khung.map((k, i) => (
         <Sequence key={`k${i}`} from={f(k.from)} durationInFrames={f(k.dur)} layout="none">
-          <Khung tieuDe={k.tieuDe} muc={k.muc as Dong[]} />
+          {(k as { kieu?: string }).kieu === "ngang" ? (
+            <KhungNgang tieuDe={k.tieuDe} muc={k.muc as Dong[]} />
+          ) : (
+            <Khung tieuDe={k.tieuDe} muc={k.muc as Dong[]} />
+          )}
         </Sequence>
       ))}
       {data.chuKhoa.map((k, i) => (
