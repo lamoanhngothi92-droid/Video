@@ -1,0 +1,121 @@
+[
+ {
+  "text": " Lâm",
+  "startMs": 50,
+  "endMs": 610,
+  "timestampMs": 50,
+  "confidence": 0.691
+ },
+ {
+  "text": " Oanh.",
+  "startMs": 610,
+  "endMs": 790,
+  "timestampMs": 610,
+  "confidence": 0.568
+ },
+ {
+  "text": " Đức",
+  "startMs": 870,
+  "endMs": 970,
+  "timestampMs": 870,
+  "confidence": 0.985
+ },
+ {
+  "text": " Thắng.",
+  "startMs": 970,
+  "endMs": 1230,
+  "timestampMs": 970,
+  "confidence": 0.861
+ },
+ {
+  "text": " Tư",
+  "startMs": 1470,
+  "endMs": 1810,
+  "timestampMs": 1470,
+  "confidence": 0.99
+ },
+ {
+  "text": " vấn",
+  "startMs": 1810,
+  "endMs": 1970,
+  "timestampMs": 1810,
+  "confidence": 0.999
+ },
+ {
+  "text": " trực",
+  "startMs": 1970,
+  "endMs": 2130,
+  "timestampMs": 1970,
+  "confidence": 0.974
+ },
+ {
+  "text": " tiếp",
+  "startMs": 2130,
+  "endMs": 2310,
+  "timestampMs": 2130,
+  "confidence": 1.0
+ },
+ {
+  "text": " từ",
+  "startMs": 2310,
+  "endMs": 2470,
+  "timestampMs": 2310,
+  "confidence": 0.953
+ },
+ {
+  "text": " văn",
+  "startMs": 2470,
+  "endMs": 2650,
+  "timestampMs": 2470,
+  "confidence": 0.892
+ },
+ {
+  "text": " phòng",
+  "startMs": 2650,
+  "endMs": 2770,
+  "timestampMs": 2650,
+  "confidence": 0.999
+ },
+ {
+  "text": " bán",
+  "startMs": 2770,
+  "endMs": 2950,
+  "timestampMs": 2770,
+  "confidence": 0.996
+ },
+ {
+  "text": " hàng",
+  "startMs": 2950,
+  "endMs": 3130,
+  "timestampMs": 2950,
+  "confidence": 1.0
+ },
+ {
+  "text": " Vinhomes.",
+  "startMs": 3130,
+  "endMs": 3630,
+  "timestampMs": 3130,
+  "confidence": 0.621
+ },
+ {
+  "text": " Xin",
+  "startMs": 3750,
+  "endMs": 3970,
+  "timestampMs": 3750,
+  "confidence": 0.969
+ },
+ {
+  "text": " kỳ",
+  "startMs": 3970,
+  "endMs": 4110,
+  "timestampMs": 3970,
+  "confidence": 0.751
+ },
+ {
+  "text": " chào.",
+  "startMs": 4110,
+  "endMs": 4350,
+  "timestampMs": 4110,
+  "confidence": 0.921
+ }
+]
