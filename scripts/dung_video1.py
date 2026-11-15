@@ -141,6 +141,8 @@ def main():
     kw("210027", 46, [["nho", "cùng chung một"], ["to", "VẬN KHÍ"]], den=("210027", 50), vt="giua")
     # --- Cảnh 6–8
     them_clip("205945")
+    # Cảnh 2 MC nhìn ra hồ + dãy nhà phố (210114) cho câu "Vịnh Xanh rộng 10,5 ha… 3 mặt giáp sông"
+    cen_canh("210114", moc[("205945", 0)][0] - 0.05, moc[("205945", 14)][0] - 0.05, vao=0.6)
     s = moc[("205945", 2)][0]
     khung.append({"from": s, "dur": 2.8, "tieuDe": "VỊNH XANH",
                   "muc": [["so", "10,5 ha"], ["so", "747 căn"], ["chu", "3 mặt giáp sông"]]})
@@ -169,6 +171,7 @@ def main():
     # --- Cảnh 11–13: kết
     them_clip("205807")
     ten_tu = moc[("205807", 0)][0]
+    kw("205807", 9, [["nho", "văn phòng bán hàng"], ["to", "VINHOMES"]], den=("205807", 16), vt="giua")
     cen_canh("210324", t, t + 4.5)
     canh.append({"src": None, "from": t, "dur": 4.5})
     t += 4.5

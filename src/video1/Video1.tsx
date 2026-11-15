@@ -156,32 +156,41 @@ const Khung: React.FC<{ tieuDe: string; muc: Dong[] }> = ({ tieuDe, muc }) => {
   );
 };
 
-// ===== Thanh tên + số điện thoại (đè lên cảnh MC chào) =====
+// ===== Thanh tên + số điện thoại (đè lên cảnh MC chào) – nhỏ gọn, tinh tế =====
 const ThanhTen: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const v = (tre: number) => spring({ frame: frame - tre, fps, config: { damping: 200 } });
+  const vach = interpolate(frame, [0, 0.5 * fps], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
   return (
     <div
       style={{
         position: "absolute",
         left: 90,
-        bottom: 190,
-        transform: `translateX(${(1 - v(0)) * -1000}px)`,
+        bottom: 170,
         display: "flex",
         alignItems: "stretch",
-        boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
-        borderRadius: 16,
-        overflow: "hidden",
+        gap: 18,
       }}
     >
-      <div style={{ width: 12, background: MAU.vangKim }} />
-      <div style={{ background: `linear-gradient(135deg, ${MAU.xanhNgoc}F2, ${MAU.xanhNgocDam}F5)`, padding: "22px 40px 24px" }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 28, opacity: v(8) }}>
-          <span style={{ color: "white", fontSize: 58, fontWeight: 800 }}>Lâm Oanh</span>
-          <span style={{ color: MAU.vangSo, fontSize: 64, fontWeight: 800, letterSpacing: 1 }}>0346 032 032</span>
+      <div style={{ width: 3, background: MAU.vangKim, transform: `scaleY(${vach})`, transformOrigin: "top" }} />
+      <div style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 18, opacity: v(6), transform: `translateX(${(1 - v(6)) * -24}px)` }}>
+          <span style={{ color: "white", fontSize: 36, fontWeight: 600, letterSpacing: 1 }}>Lâm Oanh</span>
+          <span style={{ color: MAU.vangKim, fontSize: 22 }}>|</span>
+          <span style={{ color: MAU.vangSo, fontSize: 36, fontWeight: 600, letterSpacing: 2 }}>0346 032 032</span>
         </div>
-        <div style={{ color: "#e6fffb", fontSize: 32, fontWeight: 400, marginTop: 4, opacity: v(16) }}>
+        <div
+          style={{
+            color: "rgba(255,255,255,0.88)",
+            fontSize: 22,
+            fontWeight: 400,
+            letterSpacing: 1.5,
+            marginTop: 4,
+            opacity: v(14),
+            transform: `translateX(${(1 - v(14)) * -24}px)`,
+          }}
+        >
           Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes
         </div>
       </div>
