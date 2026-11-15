@@ -25,9 +25,9 @@ Lần chạy Whisper đầu tiên sẽ tự tải mô hình (~1,6 GB).
    → ra `public/nha-q7.srt` (phụ đề thường) và `public/nha-q7.json` (cho Remotion).
    Mở file `.json` sửa lại chữ nếu nghe nhầm.
 3. Mở `src/Root.tsx`, đổi `video`, `tieuDe`, `gia`, `thongTin`, `hotline`, `phuDe`.
-4. Xem trước: `npm run dev` · Xuất video: `npm run render` → `out/bat-dong-san.mp4`
+4. Xem trước: `npm run dev` · Bản xem thử 720p: `npm run render:720` · Bản chính 1080p: `npm run render`
 
-Mẫu giao diện nằm ở `src/BatDongSan.tsx` (tiêu đề, khung giá, phụ đề nhấn chữ vàng, dải chữ chạy hotline).
+Mẫu giao diện ở `src/BatDongSan.tsx`: câu móc 3 giây đầu, khung giá trượt từ trái, phụ đề 2 dòng × 7 chữ (con số tô vàng), logo, cảnh kết 3 giây. Luật chi tiết xem `CLAUDE.md`.
 
 ## Lệnh FFmpeg hay dùng
 

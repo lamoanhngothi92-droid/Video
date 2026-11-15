@@ -1,7 +1,7 @@
 import { Composition } from "remotion";
 import { HelloWorld } from "./HelloWorld";
-import { BatDongSan } from "./BatDongSan";
-import phuDeMau from "../public/test/video-thu.json";
+import { BatDongSan, tinhThoiLuong } from "./BatDongSan";
+import phuDeMau from "../public/test/video-thu-2.json";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -9,17 +9,23 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="BatDongSan"
         component={BatDongSan}
-        durationInFrames={202}
+        calculateMetadata={tinhThoiLuong}
+        durationInFrames={300}
         fps={30}
         width={1080}
         height={1920}
         defaultProps={{
-          video: "test/video-thu.mp4",
-          tieuDe: "Căn hộ cao cấp Quận 7",
-          diaChi: "Đường Nguyễn Hữu Thọ, TP. Hồ Chí Minh",
-          gia: "4,2 tỷ",
-          thongTin: ["3 phòng ngủ", "85 m²", "View sông"],
-          hotline: "0909 xxx xxx",
+          video: "test/video-thu-2.mp4",
+          // logo: "tainguyen/logo.png",  // bật khi đã có logo trong public/tainguyen/
+          cauMoc: "Căn hộ view biển chỉ 2,5 tỷ?",
+          tieuDe: "Vinhomes Hạ Long Xanh",
+          diaChi: "Quảng Yên, Quảng Ninh",
+          gia: "2,5 tỷ",
+          thongTin: ["2 phòng ngủ", "70 m²", "Chiết khấu 12%"],
+          giaHienTuGiay: 3.2,
+          ten: "Lâm Oanh",
+          soDienThoai: "0346032032",
+          cauKetThuc: "Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes",
           phuDe: phuDeMau,
         }}
       />
