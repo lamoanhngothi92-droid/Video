@@ -234,7 +234,11 @@ const coChu = (dong: Caption[][]) => {
   return Math.min(64, Math.floor(1500 / (dai * 0.56)));
 };
 
-const PhuDe: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
+export const PhuDe: React.FC<{ phuDe: Caption[]; coToiDa?: number; day?: number }> = ({
+  phuDe,
+  coToiDa = 64,
+  day = 80,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const ms = (frame / fps) * 1000;
@@ -245,11 +249,11 @@ const PhuDe: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
     <div
       style={{
         position: "absolute",
-        bottom: 80, // 1/3 dưới khung ngang 1920x1080
+        bottom: day, // 1/3 dưới khung ngang 1920x1080
         left: 160,
         right: 160,
         textAlign: "center",
-        fontSize: coChu(t.dong),
+        fontSize: Math.min(coToiDa, coChu(t.dong)),
         fontWeight: 800,
         lineHeight: 1.3,
         whiteSpace: "nowrap",

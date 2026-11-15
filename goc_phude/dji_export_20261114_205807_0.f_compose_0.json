@@ -7,7 +7,7 @@
   "confidence": 0.691
  },
  {
-  "text": " Oanh.",
+  "text": " Oanh,",
   "startMs": 610,
   "endMs": 790,
   "timestampMs": 610,
@@ -15,24 +15,24 @@
  },
  {
   "text": " Đức",
-  "startMs": 870,
+  "startMs": 910,
   "endMs": 970,
-  "timestampMs": 870,
-  "confidence": 0.985
+  "timestampMs": 910,
+  "confidence": 0.865
  },
  {
-  "text": " Thắng.",
+  "text": " Thắng,",
   "startMs": 970,
   "endMs": 1230,
   "timestampMs": 970,
-  "confidence": 0.861
+  "confidence": 0.879
  },
  {
-  "text": " Tư",
-  "startMs": 1470,
+  "text": " tư",
+  "startMs": 1710,
   "endMs": 1810,
-  "timestampMs": 1470,
-  "confidence": 0.99
+  "timestampMs": 1710,
+  "confidence": 0.729
  },
  {
   "text": " vấn",
@@ -46,7 +46,7 @@
   "startMs": 1970,
   "endMs": 2130,
   "timestampMs": 1970,
-  "confidence": 0.974
+  "confidence": 0.975
  },
  {
   "text": " tiếp",
@@ -60,20 +60,20 @@
   "startMs": 2310,
   "endMs": 2470,
   "timestampMs": 2310,
-  "confidence": 0.953
+  "confidence": 0.898
  },
  {
   "text": " văn",
   "startMs": 2470,
-  "endMs": 2650,
+  "endMs": 2610,
   "timestampMs": 2470,
-  "confidence": 0.892
+  "confidence": 0.908
  },
  {
   "text": " phòng",
-  "startMs": 2650,
+  "startMs": 2610,
   "endMs": 2770,
-  "timestampMs": 2650,
+  "timestampMs": 2610,
   "confidence": 0.999
  },
  {
@@ -91,31 +91,31 @@
   "confidence": 1.0
  },
  {
-  "text": " Vinhomes.",
+  "text": " Vinhomes",
   "startMs": 3130,
-  "endMs": 3630,
+  "endMs": 3650,
   "timestampMs": 3130,
-  "confidence": 0.621
+  "confidence": 0.637
  },
  {
-  "text": " Xin",
-  "startMs": 3750,
-  "endMs": 3970,
-  "timestampMs": 3750,
-  "confidence": 0.969
+  "text": " xin",
+  "startMs": 3650,
+  "endMs": 4010,
+  "timestampMs": 3650,
+  "confidence": 0.554
  },
  {
   "text": " kỳ",
-  "startMs": 3970,
+  "startMs": 4010,
   "endMs": 4110,
-  "timestampMs": 3970,
-  "confidence": 0.751
+  "timestampMs": 4010,
+  "confidence": 0.821
  },
  {
   "text": " chào.",
   "startMs": 4110,
-  "endMs": 4350,
+  "endMs": 4370,
   "timestampMs": 4110,
-  "confidence": 0.921
+  "confidence": 0.867
  }
 ]

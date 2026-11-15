@@ -58,51 +58,51 @@
  {
   "text": " có",
   "startMs": 3190,
-  "endMs": 3330,
+  "endMs": 3350,
   "timestampMs": 3190,
   "confidence": 0.983
  },
  {
   "text": " cá",
-  "startMs": 3330,
+  "startMs": 3350,
   "endMs": 3470,
-  "timestampMs": 3330,
+  "timestampMs": 3350,
   "confidence": 0.987
  },
  {
-  "text": " coi",
+  "text": " Koi",
   "startMs": 3470,
-  "endMs": 3790,
+  "endMs": 3750,
   "timestampMs": 3470,
-  "confidence": 0.993
+  "confidence": 0.128
  },
  {
   "text": " là",
-  "startMs": 3790,
+  "startMs": 3750,
   "endMs": 4090,
-  "timestampMs": 3790,
-  "confidence": 0.999
+  "timestampMs": 3750,
+  "confidence": 0.991
  },
  {
   "text": " có",
   "startMs": 4090,
   "endMs": 4230,
   "timestampMs": 4090,
-  "confidence": 0.999
+  "confidence": 0.997
  },
  {
   "text": " tài",
   "startMs": 4230,
   "endMs": 4390,
   "timestampMs": 4230,
-  "confidence": 0.752
+  "confidence": 0.747
  },
  {
   "text": " lộc.",
   "startMs": 4390,
   "endMs": 4590,
   "timestampMs": 4390,
-  "confidence": 0.939
+  "confidence": 0.947
  },
  {
   "text": " Đúng",
@@ -123,7 +123,7 @@
   "startMs": 5710,
   "endMs": 5850,
   "timestampMs": 5710,
-  "confidence": 0.998
+  "confidence": 0.997
  },
  {
   "text": " Nhật",
@@ -135,65 +135,65 @@
  {
   "text": " xem",
   "startMs": 6030,
-  "endMs": 6190,
+  "endMs": 6210,
   "timestampMs": 6030,
   "confidence": 1.0
  },
  {
   "text": " cá",
-  "startMs": 6190,
+  "startMs": 6210,
   "endMs": 6370,
-  "timestampMs": 6190,
+  "timestampMs": 6210,
+  "confidence": 0.901
+ },
+ {
+  "text": " Koi",
+  "startMs": 6370,
+  "endMs": 6630,
+  "timestampMs": 6370,
   "confidence": 0.999
  },
  {
-  "text": " coi",
-  "startMs": 6370,
-  "endMs": 6650,
-  "timestampMs": 6370,
-  "confidence": 1.0
- },
- {
   "text": " là",
-  "startMs": 6650,
+  "startMs": 6630,
   "endMs": 6770,
-  "timestampMs": 6650,
-  "confidence": 1.0
+  "timestampMs": 6630,
+  "confidence": 0.999
  },
  {
   "text": " biểu",
   "startMs": 6770,
   "endMs": 6930,
   "timestampMs": 6770,
-  "confidence": 0.999
+  "confidence": 0.998
  },
  {
   "text": " tượng",
   "startMs": 6930,
   "endMs": 7070,
   "timestampMs": 6930,
-  "confidence": 0.937
+  "confidence": 0.927
  },
  {
   "text": " của",
   "startMs": 7070,
   "endMs": 7190,
   "timestampMs": 7070,
-  "confidence": 0.997
+  "confidence": 0.996
  },
  {
   "text": " sự",
   "startMs": 7190,
   "endMs": 7350,
   "timestampMs": 7190,
-  "confidence": 1.0
+  "confidence": 0.999
  },
  {
   "text": " thình",
   "startMs": 7350,
   "endMs": 7530,
   "timestampMs": 7350,
-  "confidence": 0.932
+  "confidence": 0.916
  },
  {
   "text": " vượng",
@@ -207,28 +207,28 @@
   "startMs": 7790,
   "endMs": 8050,
   "timestampMs": 7790,
-  "confidence": 1.0
+  "confidence": 0.999
  },
  {
   "text": " bền",
   "startMs": 8050,
   "endMs": 8210,
   "timestampMs": 8050,
-  "confidence": 0.938
+  "confidence": 0.931
  },
  {
   "text": " bỉ,",
   "startMs": 8210,
   "endMs": 8430,
   "timestampMs": 8210,
-  "confidence": 0.993
+  "confidence": 0.99
  },
  {
   "text": " mà",
   "startMs": 8870,
   "endMs": 9010,
   "timestampMs": 8870,
-  "confidence": 0.998
+  "confidence": 0.997
  },
  {
   "text": " ở",
@@ -242,14 +242,14 @@
   "startMs": 9130,
   "endMs": 9310,
   "timestampMs": 9130,
-  "confidence": 0.925
+  "confidence": 0.927
  },
  {
   "text": " Xanh,",
   "startMs": 9310,
   "endMs": 9550,
   "timestampMs": 9310,
-  "confidence": 0.963
+  "confidence": 0.967
  },
  {
   "text": " cộng",
@@ -284,7 +284,7 @@
   "startMs": 10510,
   "endMs": 10670,
   "timestampMs": 10510,
-  "confidence": 0.991
+  "confidence": 0.988
  },
  {
   "text": " chung",
@@ -298,41 +298,41 @@
   "startMs": 10810,
   "endMs": 10970,
   "timestampMs": 10810,
-  "confidence": 0.983
+  "confidence": 0.976
  },
  {
   "text": " hồ",
   "startMs": 10970,
   "endMs": 11130,
   "timestampMs": 10970,
-  "confidence": 0.978
+  "confidence": 0.979
  },
  {
   "text": " cá",
   "startMs": 11130,
   "endMs": 11310,
   "timestampMs": 11130,
-  "confidence": 0.999
+  "confidence": 0.62
  },
  {
-  "text": " coi,",
+  "text": " Koi,",
   "startMs": 11310,
-  "endMs": 11610,
+  "endMs": 11590,
   "timestampMs": 11310,
-  "confidence": 1.0
+  "confidence": 0.999
  },
  {
   "text": " cùng",
   "startMs": 11750,
-  "endMs": 11950,
+  "endMs": 11970,
   "timestampMs": 11750,
   "confidence": 0.999
  },
  {
   "text": " chung",
-  "startMs": 11950,
+  "startMs": 11970,
   "endMs": 12170,
-  "timestampMs": 11950,
+  "timestampMs": 11970,
   "confidence": 1.0
  },
  {
@@ -347,7 +347,7 @@
   "startMs": 12350,
   "endMs": 12550,
   "timestampMs": 12350,
-  "confidence": 0.969
+  "confidence": 0.964
  },
  {
   "text": " khí.",

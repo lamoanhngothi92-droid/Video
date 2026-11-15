@@ -2,10 +2,19 @@ import { Composition } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { BatDongSan, FPS, tinhThoiLuong } from "./BatDongSan";
 import phuDeMau from "../public/test/vinh-xanh.json";
+import { Video1, FPS as FPS1, TONG_KHUNG } from "./video1/Video1";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="Video1-VinhXanh-HoKoi"
+        component={Video1}
+        durationInFrames={TONG_KHUNG}
+        fps={FPS1}
+        width={1920}
+        height={1080}
+      />
       <Composition
         id="BatDongSan"
         component={BatDongSan}

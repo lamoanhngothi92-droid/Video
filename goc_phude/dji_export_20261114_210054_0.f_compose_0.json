@@ -65,127 +65,127 @@
  {
   "text": " cá",
   "startMs": 1850,
-  "endMs": 1970,
+  "endMs": 1990,
   "timestampMs": 1850,
   "confidence": 0.989
  },
  {
-  "text": " coi",
-  "startMs": 1970,
-  "endMs": 2230,
-  "timestampMs": 1970,
-  "confidence": 0.993
+  "text": " Koi",
+  "startMs": 1990,
+  "endMs": 2210,
+  "timestampMs": 1990,
+  "confidence": 0.226
  },
  {
   "text": " cho",
-  "startMs": 2230,
-  "endMs": 2390,
-  "timestampMs": 2230,
-  "confidence": 0.58
+  "startMs": 2210,
+  "endMs": 2410,
+  "timestampMs": 2210,
+  "confidence": 0.747
  },
  {
   "text": " biệt",
-  "startMs": 2390,
+  "startMs": 2410,
   "endMs": 2570,
-  "timestampMs": 2390,
-  "confidence": 0.985
+  "timestampMs": 2410,
+  "confidence": 0.977
  },
  {
   "text": " thự.",
   "startMs": 2570,
   "endMs": 2770,
   "timestampMs": 2570,
-  "confidence": 0.99
+  "confidence": 0.989
  },
  {
   "text": " Còn",
   "startMs": 3190,
   "endMs": 3550,
   "timestampMs": 3190,
-  "confidence": 0.985
+  "confidence": 0.969
  },
  {
   "text": " ở",
   "startMs": 3550,
   "endMs": 3690,
   "timestampMs": 3550,
-  "confidence": 0.999
+  "confidence": 0.997
  },
  {
-  "text": " đây",
+  "text": " đây,",
   "startMs": 3690,
   "endMs": 3890,
   "timestampMs": 3690,
-  "confidence": 1.0
+  "confidence": 0.998
  },
  {
   "text": " môi",
-  "startMs": 3890,
+  "startMs": 4110,
   "endMs": 4250,
-  "timestampMs": 3890,
-  "confidence": 0.68
+  "timestampMs": 4110,
+  "confidence": 0.934
  },
  {
   "text": " nhà",
   "startMs": 4250,
   "endMs": 4510,
   "timestampMs": 4250,
-  "confidence": 1.0
+  "confidence": 0.998
  },
  {
   "text": " là",
   "startMs": 4510,
   "endMs": 4750,
   "timestampMs": 4510,
-  "confidence": 0.986
+  "confidence": 0.952
  },
  {
   "text": " có",
   "startMs": 4750,
   "endMs": 4910,
   "timestampMs": 4750,
-  "confidence": 0.997
+  "confidence": 0.992
  },
  {
   "text": " hồ",
   "startMs": 4910,
   "endMs": 5090,
   "timestampMs": 4910,
-  "confidence": 0.999
+  "confidence": 0.993
  },
  {
   "text": " cá",
   "startMs": 5090,
-  "endMs": 5230,
+  "endMs": 5250,
   "timestampMs": 5090,
-  "confidence": 0.999
+  "confidence": 0.702
  },
  {
-  "text": " coi",
-  "startMs": 5230,
-  "endMs": 5570,
-  "timestampMs": 5230,
-  "confidence": 1.0
+  "text": " Koi",
+  "startMs": 5250,
+  "endMs": 5530,
+  "timestampMs": 5250,
+  "confidence": 0.997
  },
  {
   "text": " ngay",
-  "startMs": 5570,
+  "startMs": 5530,
   "endMs": 5750,
-  "timestampMs": 5570,
-  "confidence": 0.998
+  "timestampMs": 5530,
+  "confidence": 0.994
  },
  {
   "text": " trước",
   "startMs": 5750,
   "endMs": 5930,
   "timestampMs": 5750,
-  "confidence": 0.999
+  "confidence": 0.997
  },
  {
   "text": " cửa.",
   "startMs": 5930,
-  "endMs": 6310,
+  "endMs": 6270,
   "timestampMs": 5930,
-  "confidence": 0.999
+  "confidence": 0.998
  }
 ]
