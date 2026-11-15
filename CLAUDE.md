@@ -6,12 +6,25 @@
 - Định dạng mặc định: ngang 16:9, 1920x1080, 60fps, dài 60 giây – hơn 1 phút 30 giây
 - Luôn trả lời tôi bằng tiếng Việt, dễ hiểu
 
-## Phong cách học từ video tham khảo (thamkhao/)
-<!-- Chưa phân tích được: 4 video mẫu trên Drive đều > 10 MB. Sẽ điền sau. -->
-- Nhịp cắt cảnh: [... giây/cảnh]
-- Kiểu phụ đề: [font, màu, vị trí, số chữ mỗi dòng]
-- 3 giây đầu: [...]
-- Kết thúc: [...]
+## Phong cách học từ video tham khảo (thamkhao/, 4 video TikTok dọc 9:16)
+- Nhịp cắt cảnh: trung bình 3–4 giây/cảnh. Cảnh MC nói dài 5–10 giây, xen các
+  "chùm" cảnh minh họa nhanh 0,7–1,5 giây/cảnh khi liệt kê (tiện ích, nội thất).
+- Chữ trên màn hình: KHÔNG chạy phụ đề đủ câu. Chỉ hiện CHỮ KHÓA 2–5 chữ, hiện
+  từng chữ khớp lời nói, đặt ở khoảng trống cạnh MC (ngang ngực hoặc trên đầu),
+  giữ 1–2 giây rồi biến mất.
+  - Ghép 2 kiểu chữ: chữ nhỏ mảnh/nghiêng ("khám phá", "Chỉ khi") + chữ TO ĐẬM
+    IN HOA ("BÓC TÁCH", "KHÔNG HỀ RẺ").
+  - Chữ viết tay (script) cho từ cảm xúc ("Giá", "Không phải").
+  - Con số to, màu vàng/cam ("130–180/m²", "40 ha", "12x20").
+  - Tên dự án / chủ đầu tư hiện bằng logo khi được nhắc tới.
+- 3 giây đầu: MC xuất hiện ngay giây 0, nói thẳng câu móc (không có cảnh tựa
+  đề). Câu móc là 2–3 ý ngắn dồn dập ("Pháp lý chuẩn chỉnh, nhà đã có sẵn, giá
+  không hề rẻ") hoặc 1 câu gây tò mò ("Có những thứ không thể mua bằng tiền").
+  Mỗi ý bật 1 chữ khóa to ngay khi nói.
+- Kết thúc: nhẹ nhàng, không cảnh bảng giá. MC nói câu chốt + kêu gọi nhắn tin
+  ("đừng ngần ngại nhắn tin…", "Để SSM lo"), kèm logo thương hiệu; hoặc cảnh
+  flycam / logo trên nền đen 1 giây.
+- Logo thương hiệu nhỏ ở góc trên suốt video.
 
 ## Cắt ghép
 - Cắt hết khoảng lặng dài hơn 0,4 giây và các tiếng "à, ừ, ơ"
