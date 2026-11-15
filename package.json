@@ -9,7 +9,9 @@
     "render": "remotion render src/index.ts BatDongSan out/bat-dong-san.mp4",
     "render:720": "remotion render src/index.ts BatDongSan out/.tam.mp4 && ffmpeg -v error -y -i out/.tam.mp4 -vf scale=1280:720 -c:v libx264 -crf 23 -c:a copy out/bat-dong-san-720p.mp4 && rm out/.tam.mp4",
     "still": "remotion still src/index.ts BatDongSan out/thumb.png --frame=60",
-    "upgrade": "remotion upgrade"
+    "upgrade": "remotion upgrade",
+    "v1:720": "remotion render src/index.ts Video1-VinhXanh-HoKoi out/.v1_1080.mp4 && remotion render src/index.ts Video1-VinhXanh-HoKoi out/.v1_a.wav --codec=wav && ffmpeg -v error -y -i out/.v1_1080.mp4 -i out/.v1_a.wav -map 0:v -map 1:a -af loudnorm=I=-16:TP=-1.5:LRA=11 -vf scale=1280:720:flags=lanczos -c:v libx264 -crf 21 -c:a aac -b:a 160k -shortest out/video1-720p.mp4",
+    "v1:1080": "remotion render src/index.ts Video1-VinhXanh-HoKoi out/.v1_1080.mp4 && remotion render src/index.ts Video1-VinhXanh-HoKoi out/.v1_a.wav --codec=wav && ffmpeg -v error -y -i out/.v1_1080.mp4 -i out/.v1_a.wav -map 0:v -map 1:a -af loudnorm=I=-16:TP=-1.5:LRA=11 -c:v copy -c:a aac -b:a 192k -shortest out/video1-1080p.mp4"
   },
   "dependencies": {
     "@fontsource/be-vietnam-pro": "5.3.0",

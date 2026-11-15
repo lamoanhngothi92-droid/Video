@@ -215,7 +215,8 @@ def main():
         gan = 0.4 if x["ten"] == "whoosh" else 0.15
         if loc_sfx and x["ten"] == loc_sfx[-1]["ten"] and x["from"] - loc_sfx[-1]["from"] < gan:
             continue
-        loc_sfx.append({**x, "from": max(0.0, x["from"])})
+        # tiếng hiệu ứng nhỏ hơn giọng MC khoảng 8–10 dB
+        loc_sfx.append({**x, "from": max(0.0, x["from"]), "vol": round(x["vol"] * (0.25 if x["ten"] == "impact" else 0.33), 3)})
 
     data = {
         "tongGiay": round(t, 3),
