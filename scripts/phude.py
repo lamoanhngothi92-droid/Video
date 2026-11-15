@@ -29,7 +29,8 @@ def load_audio(path: Path) -> np.ndarray:
 GOI_Y = (
     "Video giới thiệu bất động sản: căn hộ, nhà phố, biệt thự, đất nền, "
     "view sông, view hồ bơi, mét vuông, phòng ngủ, sổ hồng, giá chỉ, tỷ, "
-    "triệu, hotline, chủ đầu tư, pháp lý."
+    "triệu, hotline, chủ đầu tư, pháp lý, CĐT Vinhomes, "
+    "Vinhomes Green Paradise, Vinhomes Hạ Long Xanh, Lâm Oanh."
 )
 
 
