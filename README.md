@@ -1,9 +1,9 @@
-# Video bất động sản ngắn (TikTok, Reels)
+# Video bất động sản – Lâm Oanh Vinhomes
 
 Bộ công cụ:
 - **FFmpeg**: cắt, ghép, chèn nhạc, xuất video
 - **Whisper** (faster-whisper, mô hình `large-v3-turbo`): tự tạo phụ đề tiếng Việt
-- **Remotion**: chữ chạy, khung giá, motion graphic (khung dọc 1080×1920)
+- **Remotion**: chữ chạy, khung giá, motion graphic (khung ngang 1920×1080, 60fps)
 - **Font Be Vietnam Pro**: đủ dấu tiếng Việt, đóng gói sẵn trong dự án
 
 ## Cài đặt lần đầu

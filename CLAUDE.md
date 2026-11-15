@@ -3,7 +3,7 @@
 ## Thông tin chung
 - Người xem: khách mua nhà, nhà đầu tư 25–55 tuổi
 - Ngôn ngữ: tiếng Việt, giọng miền Bắc
-- Định dạng mặc định: dọc 9:16, 1080x1920, 30fps, dài khoảng 60 giây
+- Định dạng mặc định: ngang 16:9, 1920x1080, 60fps, dài 60 giây – hơn 1 phút 30 giây
 - Luôn trả lời tôi bằng tiếng Việt, dễ hiểu
 
 ## Phong cách học từ video tham khảo (thamkhao/)
@@ -23,6 +23,7 @@
 ## Phụ đề
 - Font: Be Vietnam Pro, đậm, chữ trắng viền đen
 - Vị trí: 1/3 dưới màn hình, không che mặt, tránh vùng nút của TikTok
+  (khi xuất thêm bản dọc 9:16)
 - Tối đa 2 dòng, 7 chữ mỗi dòng
 - Tô màu vàng #FFD400 cho con số: giá, diện tích, % chiết khấu, khoảng cách
 - Viết đúng tên riêng: Vịnh Xanh, Ocean City, cá Koi, Mega Grand World,
@@ -30,7 +31,8 @@
 
 ## Màu và thương hiệu
 - Màu chủ đạo: xanh ngọc, phụ: vàng kim
-- Logo: tainguyen/logo.png ("LOGO V3 XANH.png" trên Drive), góc trên phải, độ trong 80%
+- Logo: "LOGO V3 XANH.png" trên Drive (public/thuonghieu/logo.png), góc trên phải,
+  độ trong 80%, đặt trên nền trắng mờ vì chữ logo xanh đậm
 - Màu hình: sáng, ấm, hơi tăng độ bão hòa cho cảnh xanh và biển
 
 ## Nhạc
@@ -49,7 +51,7 @@
 
 ## Quy trình làm việc
 - Trước khi render: gửi storyboard (bảng từng cảnh: giây, hình, phụ đề, hiệu ứng) để tôi duyệt
-- Xuất bản xem thử 720p trước, tôi đồng ý mới xuất 1080p
+- Xuất bản xem thử 720p (1280x720) trước, tôi đồng ý mới xuất 1080p
 - Không bao giờ xóa hay ghi đè file trong thư mục goc trên Drive
 - Kiểm tra chính tả phụ đề, đặc biệt con số và tên dự án
 

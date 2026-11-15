@@ -39,7 +39,7 @@ export type BatDongSanProps = {
   phuDe: Caption[]; // từ file .json do scripts/phude.py tạo ra
 };
 
-const FPS = 30;
+export const FPS = 60;
 const GIAY_KET = 3;
 
 // Độ dài video = độ dài file quay gốc
@@ -58,7 +58,7 @@ const CauMoc: React.FC<{ text: string }> = ({ text }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const vao = spring({ frame, fps, config: { damping: 200 } });
-  const ra = interpolate(frame, [75, 90], [1, 0], {
+  const ra = interpolate(frame, [2.5 * fps, 3 * fps], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -67,7 +67,7 @@ const CauMoc: React.FC<{ text: string }> = ({ text }) => {
       style={{
         justifyContent: "center",
         alignItems: "center",
-        padding: "0 80px",
+        padding: "0 200px",
         opacity: ra,
         background: `rgba(0,0,0,${0.35 * ra})`,
       }}
@@ -78,7 +78,7 @@ const CauMoc: React.FC<{ text: string }> = ({ text }) => {
           opacity: vao,
           textAlign: "center",
           color: "white",
-          fontSize: 104,
+          fontSize: 120,
           fontWeight: 800,
           lineHeight: 1.15,
           textShadow: "0 6px 24px rgba(0,0,0,0.6)",
@@ -107,19 +107,19 @@ const KhungGia: React.FC<Pick<BatDongSanProps, "gia" | "thongTin">> = ({
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const vao = spring({ frame, fps, config: { damping: 200 } });
-  const ra = interpolate(frame, [durationInFrames - 12, durationInFrames], [0, 1], {
+  const ra = interpolate(frame, [durationInFrames - 0.4 * fps, durationInFrames], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.in(Easing.cubic),
   });
-  const x = (1 - vao) * -1100 + ra * -1100;
+  const x = (1 - vao) * -1000 + ra * -1000;
   return (
     <div
       style={{
         position: "absolute",
-        left: 60,
-        right: 200,
-        top: 330,
+        left: 80,
+        width: 720,
+        top: 220,
         transform: `translateX(${x}px)`,
         background: "rgba(0, 40, 38, 0.85)",
         borderLeft: `12px solid ${MAU.vangKim}`,
@@ -231,7 +231,7 @@ const hienThi = (w: string) => w.replace(/(\d)m2\b/g, "$1m²");
 // Cỡ chữ tự nhỏ lại khi dòng dài, để luôn nằm gọn trong 1 dòng
 const coChu = (dong: Caption[][]) => {
   const dai = Math.max(...dong.map((d) => d.map((w) => w.text).join("").trim().length));
-  return Math.min(66, Math.floor(840 / (dai * 0.56)));
+  return Math.min(64, Math.floor(1500 / (dai * 0.56)));
 };
 
 const PhuDe: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
@@ -245,16 +245,16 @@ const PhuDe: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
     <div
       style={{
         position: "absolute",
-        top: 1260, // 1/3 dưới, chừa vùng nút TikTok (đáy ~330px, phải ~160px)
-        left: 70,
-        right: 170,
+        bottom: 80, // 1/3 dưới khung ngang 1920x1080
+        left: 160,
+        right: 160,
         textAlign: "center",
         fontSize: coChu(t.dong),
         fontWeight: 800,
         lineHeight: 1.3,
         whiteSpace: "nowrap",
         color: "white",
-        WebkitTextStroke: "10px black",
+        WebkitTextStroke: "9px black",
         paintOrder: "stroke",
         textShadow: "0 4px 12px rgba(0,0,0,0.6)",
       }}
@@ -282,8 +282,8 @@ const PhuDe: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
 const KetThuc: React.FC<Pick<BatDongSanProps, "ten" | "soDienThoai" | "cauKetThuc">> = (p) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const nen = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
-  const hien = (tre: number) => spring({ frame: frame - tre, fps, config: { damping: 200 } });
+  const nen = interpolate(frame, [0, 0.3 * fps], [0, 1], { extrapolateRight: "clamp" });
+  const hien = (tre: number) => spring({ frame: frame - tre * (fps / 30), fps, config: { damping: 200 } });
   const muc = (tre: number): React.CSSProperties => ({
     opacity: hien(tre),
     transform: `translateY(${(1 - hien(tre)) * 40}px)`,
@@ -291,7 +291,7 @@ const KetThuc: React.FC<Pick<BatDongSanProps, "ten" | "soDienThoai" | "cauKetThu
   return (
     <AbsoluteFill
       style={{
-        background: `linear-gradient(180deg, ${MAU.xanhNgoc}EE, ${MAU.xanhNgocDam}F5)`,
+        background: `linear-gradient(135deg, ${MAU.xanhNgoc}EE, ${MAU.xanhNgocDam}F5)`,
         opacity: nen,
         justifyContent: "center",
         alignItems: "center",
@@ -300,12 +300,12 @@ const KetThuc: React.FC<Pick<BatDongSanProps, "ten" | "soDienThoai" | "cauKetThu
         padding: "0 90px",
       }}
     >
-      <div style={{ ...muc(4), fontSize: 96, fontWeight: 800 }}>{p.ten}</div>
+      <div style={{ ...muc(4), fontSize: 100, fontWeight: 800 }}>{p.ten}</div>
       <div style={{ ...muc(8), height: 6, width: 220, background: MAU.vangKim, margin: "24px 0" }} />
-      <div style={{ ...muc(12), fontSize: 110, fontWeight: 800, color: MAU.vangSo, letterSpacing: 2 }}>
+      <div style={{ ...muc(12), fontSize: 130, fontWeight: 800, color: MAU.vangSo, letterSpacing: 2 }}>
         {p.soDienThoai.replace(/(\d{4})(\d{3})(\d{3})/, "$1 $2 $3")}
       </div>
-      <div style={{ ...muc(18), fontSize: 46, fontWeight: 600, marginTop: 36, lineHeight: 1.35, textWrap: "balance" }}>
+      <div style={{ ...muc(18), fontSize: 50, fontWeight: 600, marginTop: 36, lineHeight: 1.35, textWrap: "balance" }}>
         {p.cauKetThuc}
       </div>
     </AbsoluteFill>
@@ -317,11 +317,15 @@ export const BatDongSan: React.FC<BatDongSanProps> = (p) => {
   const ketThucTu = durationInFrames - GIAY_KET * fps;
   return (
     <AbsoluteFill style={{ backgroundColor: "black", fontFamily: FONT }}>
-      <OffthreadVideo src={staticFile(p.video)} />
+      {/* Màu hình: sáng, ấm, hơi tăng độ bão hòa */}
+      <OffthreadVideo
+        src={staticFile(p.video)}
+        style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(1.05) saturate(1.18) sepia(0.06)" }}
+      />
       <AbsoluteFill
         style={{
           background:
-            "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 30%, transparent 55%, rgba(0,0,0,0.5) 100%)",
+            "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 22%, transparent 65%, rgba(0,0,0,0.45) 100%)",
         }}
       />
 
@@ -347,10 +351,20 @@ export const BatDongSan: React.FC<BatDongSanProps> = (p) => {
       </Sequence>
 
       {p.logo ? (
-        <Img
-          src={staticFile(p.logo)}
-          style={{ position: "absolute", top: 60, right: 60, height: 120, opacity: 0.8 }}
-        />
+        // Logo chữ xanh đậm → đặt trên nền trắng mờ để đọc được trên mọi cảnh
+        <div
+          style={{
+            position: "absolute",
+            top: 40,
+            right: 50,
+            opacity: 0.8,
+            background: "rgba(255,255,255,0.85)",
+            borderRadius: 14,
+            padding: "12px 20px",
+          }}
+        >
+          <Img src={staticFile(p.logo)} style={{ height: 64, display: "block" }} />
+        </div>
       ) : null}
     </AbsoluteFill>
   );
@@ -363,16 +377,16 @@ const TieuDe: React.FC<{ tieuDe: string; diaChi: string }> = ({ tieuDe, diaChi }
     <div
       style={{
         position: "absolute",
-        top: 110,
-        left: 60,
-        right: 220,
+        top: 50,
+        left: 70,
+        right: 500,
         opacity: hien,
         color: "white",
         textShadow: "0 3px 12px rgba(0,0,0,0.6)",
       }}
     >
-      <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.15 }}>{tieuDe}</div>
-      <div style={{ fontSize: 36, fontWeight: 400, marginTop: 8, color: "#e0f2f1" }}>{diaChi}</div>
+      <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1.15 }}>{tieuDe}</div>
+      <div style={{ fontSize: 32, fontWeight: 400, marginTop: 8, color: "#e0f2f1" }}>{diaChi}</div>
     </div>
   );
 };
