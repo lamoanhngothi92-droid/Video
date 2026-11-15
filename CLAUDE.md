@@ -34,6 +34,7 @@
 - 3 giây đầu phải có câu "móc" + chữ to giữa màn hình
 
 ## Phụ đề
+- Dùng CẢ HAI: chữ khóa to kiểu video mẫu cạnh MC + phụ đề đủ câu nhỏ gọn ở dưới
 - Font: Be Vietnam Pro, đậm, chữ trắng viền đen
 - Vị trí: 1/3 dưới màn hình, không che mặt, tránh vùng nút của TikTok
   (khi xuất thêm bản dọc 9:16)
@@ -59,8 +60,9 @@
 - Không dùng hiệu ứng lòe loẹt, giữ cảm giác sang trọng
 
 ## Kết thúc
-- 3 giây cuối: Lâm Oanh + số điện thoại 0346032032 + câu kêu gọi
-  "Lâm Oanh – Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes"
+- 3 giây cuối: giữ cảnh MC chào; tên Lâm Oanh + số điện thoại 0346032032 + câu
+  kêu gọi "Lâm Oanh – Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes"
+  trượt vào đè lên hình (không dùng cảnh nền màu riêng), rồi logo 1 giây
 
 ## Quy trình làm việc
 - Trước khi render: gửi storyboard (bảng từng cảnh: giây, hình, phụ đề, hiệu ứng) để tôi duyệt
