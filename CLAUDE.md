@@ -63,7 +63,7 @@
   Thêm tên dự án vào GOI_Y trong scripts/phude.py.
 - Remotion: mẫu ở src/BatDongSan.tsx, đặt thông số trong src/Root.tsx.
   Xem thử: `npm run dev` · Xuất: `npm run render`
-  · Bản 720p: thêm `--scale=0.6667`
+  · Bản xem thử 720p: `npm run render:720`
 - Font: Be Vietnam Pro đóng gói sẵn (src/fonts.ts), không cần mạng.
 - FFmpeg tự giảm nhạc khi có tiếng nói: dùng bộ lọc `sidechaincompress`
   (lời nói điều khiển âm lượng nhạc).

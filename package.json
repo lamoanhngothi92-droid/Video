@@ -7,7 +7,7 @@
     "dev": "remotion studio",
     "phude": ".venv/bin/python scripts/phude.py",
     "render": "remotion render src/index.ts BatDongSan out/bat-dong-san.mp4",
-    "render:720": "remotion render src/index.ts BatDongSan out/bat-dong-san-720p.mp4 --scale=0.6667",
+    "render:720": "remotion render src/index.ts BatDongSan out/.tam.mp4 && ffmpeg -v error -y -i out/.tam.mp4 -vf scale=720:1280 -c:v libx264 -crf 23 -c:a copy out/bat-dong-san-720p.mp4 && rm out/.tam.mp4",
     "still": "remotion still src/index.ts BatDongSan out/thumb.png --frame=60",
     "upgrade": "remotion upgrade"
   },
