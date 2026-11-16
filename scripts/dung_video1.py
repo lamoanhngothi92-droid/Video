@@ -39,6 +39,13 @@ SUA = {
     "205807": {15: "kính"},
 }
 
+# Bản gốc 4K tương ứng (dò bằng so khớp âm thanh, điểm khớp ≥ 0,96)
+GOC_4K = {"205807": "0302", "205904": "0297", "205945": "0275", "210027": "0256", "210054": "0232"}
+TN_4K = {"205614": "0313", "205624": "0312", "205633": "0309", "205643": "0306", "205705": "0305",
+         "205729": "0304", "205757": "0303", "205821": "0298", "210114": "0228", "210131": "0224",
+         "210213": "0222", "210240": "0220", "210258": "0219", "210308": "0218"}
+# 210324 (cành thông + nắng, cảnh kết) chưa có bản 4K → dùng 205614 (cùng kiểu cảnh) đoạn sau
+
 # Thứ tự cảnh chính (A-roll) theo kịch bản
 THU_TU = ["210054", "210027", "205945", "205904", "205807"]
 
@@ -81,10 +88,18 @@ def main():
     )
     nguon = {f"goc_{k}": goc(k) for k in THU_TU}
     nguon.update({f"tn_{p.stem.split('_')[3]}": p for p in sorted(TN.glob("*.MOV"))})
+    # Ưu tiên bản gốc 4K (goc4k/, tainguyen4k/). Bản gốc dài hơn bản xuất cũ 0,1s ở đầu
+    # (đã dò bằng so khớp âm thanh) → cắt bỏ 0,1s để thời gian khớp y như cũ.
+    ban4k = {**{f"goc_{k}": Path(f"goc4k/{v}.mp4") for k, v in GOC_4K.items()},
+             **{f"tn_{k}": Path(f"tainguyen4k/{v}.mp4") for k, v in TN_4K.items()}}
+    loc4k = loc.replace("unsharp=5:5:0.5:5:5:0.0,", "")  # 4K thu nhỏ đã rất nét, không cần làm nét
     for ten, p in nguon.items():
         dich = OUT / f"{ten}.mp4"
+        p4k = ban4k.get(ten)
+        dung4k = p4k is not None and p4k.exists()
         if not dich.exists():
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(p), "-vf", loc,
+            vao = ["-ss", "0.1", "-i", str(p4k)] if dung4k else ["-i", str(p)]
+            subprocess.run(["ffmpeg", "-v", "error", "-y", *vao, "-vf", loc4k if dung4k else loc,
                             "-c:v", "libx264", "-preset", "medium", "-crf", "17",
                             "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", str(dich)],
                            check=True)
@@ -174,7 +189,7 @@ def main():
     them_clip("205807")
     ten_tu = moc[("205807", 0)][0]
     kw("205807", 9, [["nho", "văn phòng bán hàng"], ["to", "VINHOMES"]], den=("205807", 16), vt="giua")
-    cen_canh("210324", t, t + 4.5)
+    cen_canh("205614", t, t + 4.5, vao=4.6)
     canh.append({"src": None, "from": t, "dur": 4.5})
     t += 4.5
     logo_tu = t
