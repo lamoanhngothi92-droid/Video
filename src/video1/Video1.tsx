@@ -414,6 +414,35 @@ const NhunTheoNhac: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   return <AbsoluteFill style={{ transform: `scale(${zoom})` }}>{children}</AbsoluteFill>;
 };
 
+// Ô ảnh tiện ích (Vincom, Vinmec, Vinschool, Grand World) trượt vào bên trái, mép dưới mờ dần
+const AnhTienIch: React.FC<{ src: string; dau: boolean; cuoi: boolean }> = ({ src, dau, cuoi }) => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const v = dau ? spring({ frame, fps, config: { damping: 200 } }) : interpolate(frame, [0, 8], [0, 1], { extrapolateRight: "clamp" });
+  const ra = cuoi ? interpolate(frame, [durationInFrames - 12, durationInFrames], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
+  const zoom = interpolate(frame, [0, durationInFrames], [1.0, 1.05]);
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 90,
+        top: 120,
+        width: 820,
+        aspectRatio: "1152 / 610",
+        borderRadius: 18,
+        overflow: "hidden",
+        opacity: Math.min(v, ra),
+        transform: dau ? `translateX(${(1 - v) * -900}px)` : undefined,
+        boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
+        WebkitMaskImage: "linear-gradient(180deg, black 93%, transparent 100%)",
+        maskImage: "linear-gradient(180deg, black 93%, transparent 100%)",
+      }}
+    >
+      <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})`, transformOrigin: "50% 30%" }} />
+    </div>
+  );
+};
+
 export const Video1: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black", fontFamily: FONT }}>
@@ -468,6 +497,11 @@ export const Video1: React.FC = () => {
       {data.chuKhoa.map((k, i) => (
         <Sequence key={`w${i}`} from={f(k.from)} durationInFrames={f(k.dur)} layout="none">
           <ChuKhoa dong={k.dong as Dong[]} vt={k.vt} />
+        </Sequence>
+      ))}
+      {data.anh.map((x, i) => (
+        <Sequence key={`a${i}`} from={f(x.from)} durationInFrames={f(x.dur)} layout="none">
+          <AnhTienIch src={x.src} dau={i === 0} cuoi={i === data.anh.length - 1} />
         </Sequence>
       ))}
       <PhuDe phuDe={data.phuDe as Caption[]} coToiDa={44} day={42} />

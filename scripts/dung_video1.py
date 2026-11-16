@@ -184,8 +184,12 @@ def main():
         if chu:
             ket = chum[n + 1][0] - 1
             kw("205945", i, [["to", chu]], den=("205945", ket), vt="giua")
-    kw("205945", 51, [["to", "VINCOM · VINMEC · VINSCHOOL"]], den=("205945", 53), vt="giua")
-    kw("205945", 55, [["nho", "đặc biệt"], ["to", "MEGA GRAND WORLD"]], den=("205945", 60), vt="giua")
+    # Ảnh tiện ích hiện đúng lúc MC nhắc tên (cắt từ bản dựng "Thắng Oanh Cá Koi")
+    anh = []
+    for i, ten, den in [(49, "vincom", 52), (52, "vinmec", 53), (53, "vinschool", 58), (58, "grandworld", None)]:
+        a0 = moc[("205945", i)][0] - 0.1
+        a1 = moc[("205945", den)][0] - 0.1 if den else t
+        anh.append({"src": f"v1/tienich/{ten}.png", "from": a0, "dur": a1 - a0})
     # --- Cảnh 9–10: giá (đoạn sau có punch-in để che chỗ cắt)
     them_clip("205904", punch_in_doan_sau=True)
     s = moc[("205904", 5)][0]
@@ -258,6 +262,8 @@ def main():
             sfx.append({"ten": "ding", "from": k["from"] + 0.1, "vol": 0.22})
         elif len(k["dong"]) > 1:
             sfx.append({"ten": "pop", "from": k["from"] + 0.1, "vol": 0.4})
+    for x in anh:
+        sfx.append({"ten": "swish", "from": x["from"] - 0.05, "vol": 0.3})
     for k in khung:
         sfx.append({"ten": "whoosh", "from": k["from"] - 0.1, "vol": 0.35})
         sfx.append({"ten": "ding", "from": k["from"] + 0.35, "vol": 0.22})
@@ -275,7 +281,7 @@ def main():
 
     data = {
         "tongGiay": round(t, 3),
-        "sfx": loc_sfx, "chuyen": chuyen, "nhip": nhip, "nhacBung": NHAC_BUNG,
+        "sfx": loc_sfx, "chuyen": chuyen, "anh": anh, "nhip": nhip, "nhacBung": NHAC_BUNG,
         "canh": canh, "chen": chen, "phuDe": phude, "chuKhoa": chukhoa, "khung": khung,
         "thanhTen": {"from": ten_tu, "dur": logo_tu - ten_tu},
         "logoCuoi": {"from": logo_tu, "dur": t - logo_tu},

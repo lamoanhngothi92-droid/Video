@@ -127,14 +127,29 @@
    "vol": 0.132
   },
   {
+   "ten": "swish",
+   "from": 31.409999999999997,
+   "vol": 0.099
+  },
+  {
+   "ten": "swish",
+   "from": 32.35,
+   "vol": 0.099
+  },
+  {
+   "ten": "swish",
+   "from": 32.769999999999996,
+   "vol": 0.099
+  },
+  {
    "ten": "whoosh",
    "from": 33.05,
    "vol": 0.132
   },
   {
-   "ten": "pop",
-   "from": 33.64,
-   "vol": 0.132
+   "ten": "swish",
+   "from": 33.989999999999995,
+   "vol": 0.099
   },
   {
    "ten": "whoosh",
@@ -204,6 +219,28 @@
   },
   {
    "from": 48.43000000000001
+  }
+ ],
+ "anh": [
+  {
+   "src": "v1/tienich/vincom.png",
+   "from": 31.459999999999997,
+   "dur": 0.9400000000000013
+  },
+  {
+   "src": "v1/tienich/vinmec.png",
+   "from": 32.4,
+   "dur": 0.4199999999999946
+  },
+  {
+   "src": "v1/tienich/vinschool.png",
+   "from": 32.81999999999999,
+   "dur": 1.2199999999999989
+  },
+  {
+   "src": "v1/tienich/grandworld.png",
+   "from": 34.03999999999999,
+   "dur": 1.1100000000000136
   }
  ],
  "nhip": [
@@ -2024,32 +2061,6 @@
     [
      "to",
      "PICKLEBALL"
-    ]
-   ],
-   "vt": "giua"
-  },
-  {
-   "from": 31.919999999999998,
-   "dur": 1.629999999999999,
-   "dong": [
-    [
-     "to",
-     "VINCOM · VINMEC · VINSCHOOL"
-    ]
-   ],
-   "vt": "giua"
-  },
-  {
-   "from": 33.54,
-   "dur": 1.7100000000000009,
-   "dong": [
-    [
-     "nho",
-     "đặc biệt"
-    ],
-    [
-     "to",
-     "MEGA GRAND WORLD"
     ]
    ],
    "vt": "giua"
