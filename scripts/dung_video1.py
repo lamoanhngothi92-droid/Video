@@ -136,7 +136,11 @@ def main():
 
     # --- Cảnh 1–2: câu móc
     them_clip("210054")
-    cen_canh("205643", moc[("210054", 14)][0] - 0.05, t)
+    koi_tu = moc[("210054", 21)][0] - 0.05  # "…hồ cá Koi ngay trước cửa"
+    cen_canh("205643", moc[("210054", 14)][0] - 0.05, koi_tu)
+    # Cận cảnh đàn cá Koi (từ bản dựng "Thắng Oanh Cá Koi")
+    chen.append({"src": "v1/tn_cakoi.mp4", "from": koi_tu, "in": max(0.0, 1.75 - (t - koi_tu)),
+                 "dur": t - koi_tu, "hoa": True})
     kw("210054", 2, [["nho", "Người ta bỏ"], ["so", "CẢ TỶ"]], den=("210054", 6), vt="trai")
     kw("210054", 8, [["nho", "để làm"], ["to", "HỒ KOI"]], den=("210054", 13), vt="phai")
     kw("210054", 14, [["nho", "ở đây"], ["to", "CÓ SẴN"]], den=("210054", 23), vt="giua")
@@ -152,8 +156,10 @@ def main():
     vx = moc[("210027", 32)][0] - 0.05  # "mà ở Vịnh Xanh, cộng đồng cư dân…"
     cen_canh("210240", b0, vx)
     # Phối cảnh toàn khu + chữ "Shophouse VỊNH XANH" (lấy từ video cũ "Thắng Oanh Shop Vịnh Xanh")
-    chen.append({"src": "v1/tn_vinhxanh.mp4", "from": vx, "in": 0.0, "dur": 1.95})
-    cen_canh("210258", vx + 1.95, t)
+    # Hồ cá Koi nhìn từ trên cao, chữ "Vịnh Xanh – Ocean Park 3" (từ bản dựng "Thắng Oanh Cá Koi")
+    chen.append({"src": "v1/tn_hovinhxanh.mp4", "from": vx, "in": 0.0, "dur": 1.6, "hoa": True})
+    cen_canh("210258", vx + 1.6, t)
+    chen[-1]["hoa"] = True
     kw("210027", 23, [["nho", "biểu tượng của"], ["to", "THỊNH VƯỢNG"]], den=("210027", 31), vt="giua")
     kw("210027", 46, [["nho", "cùng chung một"], ["to", "VẬN KHÍ"]], den=("210027", 50), vt="giua")
     # --- Cảnh 6–8
@@ -163,7 +169,7 @@ def main():
     khung.append({"from": s, "dur": 3.0, "tieuDe": "VỊNH XANH", "kieu": "ngang",
                   "muc": [["so", "10,5 ha"], ["so", "747 căn"], ["chu", "3 mặt giáp sông"]]})
     # Cảnh 2 MC nhìn ra hồ + dãy nhà phố (210114) cho câu "compound khép kín, an ninh 24/7"
-    cen_canh("210114", moc[("205945", 14)][0] - 0.05, moc[("205945", 23)][0] - 0.05, vao=0.6)
+    cen_canh("210114", moc[("205945", 14)][0] - 0.05, moc[("205945", 36)][0] - 0.05, vao=0.6)
     kw("205945", 18, [["to", "AN NINH"], ["so", "24/7"]], den=("205945", 20), vt="trai")
     kw("205945", 23, [["nho", "ngoài hồ Koi"], ["to", "CÒN GÌ?"]], den=("205945", 31), vt="phai")
     chum = [(36, "205624", "SUỐI CẠN"), (38, "205705", "VƯỜN YOGA"), (40, "205729", "TENNIS"),
@@ -173,6 +179,8 @@ def main():
         a = moc[("205945", i)][0] - 0.05
         b = moc[("205945", chum[n + 1][0])][0] - 0.05 if n + 1 < len(chum) else t
         cen_canh(src, a, b, vao=vao_rieng.get(src, 0.4))
+        if n == 0:
+            chen[-1]["hoa"] = True  # mờ chồng từ cảnh 2 MC nhìn ra hồ sang chùm tiện ích
         if chu:
             ket = chum[n + 1][0] - 1
             kw("205945", i, [["to", chu]], den=("205945", ket), vt="giua")
@@ -202,7 +210,7 @@ def main():
     O_NHIP = 4 * PHACH
     def bat_nhip(x):
         g = round(x / PHACH) * PHACH
-        return g if abs(g - x) <= 0.2 else x
+        return x  # không còn nhạc nền → giữ cắt theo lời nói
     chen.sort(key=lambda c: c["from"])
     lo_trong = [(c["from"], c["from"] + c["dur"]) for c in canh if not c["src"]]
     for c in chen:
@@ -219,9 +227,19 @@ def main():
 
     # 4) Hiệu ứng chuyển cảnh + âm thanh hiệu ứng (SFX)
     sfx, chuyen = [], []
+    DISSOLVE = 0.3
     for i, c in enumerate(chen):
         lien = i > 0 and abs(chen[i - 1]["from"] + chen[i - 1]["dur"] - c["from"]) < 0.05
         c["mo"] = not lien
+        if lien and c.get("hoa"):  # mờ chồng mềm sang cảnh trước (kiểu bản dựng của kênh)
+            chen[i - 1]["dur"] += DISSOLVE
+            c["mo"] = True
+    def co_mc(x):  # đoạn MC đang chạy ở x và còn tiếp tục sau đó ít nhất 0,3s
+        return any(k["src"] and k["from"] <= x and x + 0.55 < k["from"] + k["dur"] for k in canh)
+    for i, c in enumerate(chen):
+        ket = c["from"] + c["dur"]
+        tiep = i + 1 < len(chen) and chen[i + 1]["from"] <= ket + 0.05
+        c["ra"] = (not tiep) and co_mc(ket - 0.25)  # mờ dần về cảnh MC
         if lien:
             sfx.append({"ten": "swish", "from": c["from"] - 0.05, "vol": 0.35})
         else:

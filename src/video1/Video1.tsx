@@ -43,7 +43,7 @@ const CanhChinh: React.FC<{ src: string; vao: number; zoom: number; dai: number 
 };
 
 // ===== Cảnh chèn (flycam / phối cảnh) – không tiếng, zoom chậm =====
-const CanhChen: React.FC<{ src: string; vao: number; mo: boolean }> = ({ src, vao, mo }) => {
+const CanhChen: React.FC<{ src: string; vao: number; mo: boolean; ra?: boolean }> = ({ src, vao, mo, ra }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   const cham = interpolate(frame, [0, durationInFrames], [1.0, 1.07]);
@@ -52,7 +52,11 @@ const CanhChen: React.FC<{ src: string; vao: number; mo: boolean }> = ({ src, va
   // Không giật: vào từ cảnh MC thì mờ dần mượt 12 khung; cảnh nối tiếp thì cắt thẳng
   const zoom = cham;
   const nhoe = 0;
-  const hien = mo ? interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) }) : 1;
+  const vao18 = mo ? interpolate(frame, [0, 18], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) }) : 1;
+  const ra18 = ra
+    ? interpolate(frame, [durationInFrames - 18, durationInFrames], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) })
+    : 1;
+  const hien = Math.min(vao18, ra18);
   return (
     <AbsoluteFill style={{ opacity: hien }}>
       <OffthreadVideo
@@ -426,6 +430,7 @@ export const Video1: React.FC = () => {
             src={c.src}
             vao={c.in}
             mo={c.mo}
+            ra={(c as { ra?: boolean }).ra}
           />
         </Sequence>
       ))}
