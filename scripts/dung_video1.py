@@ -149,9 +149,11 @@ def main():
     them_clip("210027")
     kw("210027", 11, [["nho", "có cá Koi là có"], ["tay", "Tài Lộc"]], den=("210027", 14), vt="trai")
     b0 = moc[("210027", 15)][0] - 0.05
-    giua = moc[("210027", 36)][0] - 0.05
-    cen_canh("210240", b0, giua)
-    cen_canh("210258", giua, t)
+    vx = moc[("210027", 32)][0] - 0.05  # "mà ở Vịnh Xanh, cộng đồng cư dân…"
+    cen_canh("210240", b0, vx)
+    # Phối cảnh toàn khu + chữ "Shophouse VỊNH XANH" (lấy từ video cũ "Thắng Oanh Shop Vịnh Xanh")
+    chen.append({"src": "v1/tn_vinhxanh.mp4", "from": vx, "in": 0.0, "dur": 1.95})
+    cen_canh("210258", vx + 1.95, t)
     kw("210027", 23, [["nho", "biểu tượng của"], ["to", "THỊNH VƯỢNG"]], den=("210027", 31), vt="giua")
     kw("210027", 46, [["nho", "cùng chung một"], ["to", "VẬN KHÍ"]], den=("210027", 50), vt="giua")
     # --- Cảnh 6–8
@@ -243,8 +245,6 @@ def main():
         sfx.append({"ten": "ding", "from": k["from"] + 0.35, "vol": 0.22})
     sfx.append({"ten": "whoosh", "from": ten_tu - 0.1, "vol": 0.25})
     sfx.append({"ten": "chime", "from": logo_tu, "vol": 0.4})
-    sfx.append({"ten": "riser", "from": NHAC_BUNG - 1.2, "vol": 0.5})
-    chuyen.append({"from": NHAC_BUNG, "loe": True})
     # bỏ âm trùng nhau quá sát (< 0,15s)
     sfx.sort(key=lambda x: x["from"])
     loc_sfx = []

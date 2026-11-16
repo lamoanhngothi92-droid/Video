@@ -22,6 +22,7 @@ export const MAU = {
   xanhNgoc: "#00A19A", // màu chủ đạo
   xanhNgocDam: "#00534F",
   vangKim: "#D4AF37", // màu phụ
+  xanhDuongNgoc: "#1ECBE1", // chữ khóa to (giống video cũ của kênh)
 };
 
 export type BatDongSanProps = {

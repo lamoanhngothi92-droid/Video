@@ -49,10 +49,10 @@ const CanhChen: React.FC<{ src: string; vao: number; mo: boolean }> = ({ src, va
   const cham = interpolate(frame, [0, durationInFrames], [1.0, 1.07]);
   // Vào từ cảnh MC: hiệu ứng phóng + nhòe chuyển động (zoom blur) 10 khung.
   // Cảnh chèn nối tiếp nhau (chùm nhanh): cắt thẳng, chỉ "giật" phóng nhẹ.
-  const vao10 = interpolate(frame, [0, mo ? 10 : 6], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
-  const zoom = cham * (mo ? 1.18 - 0.18 * vao10 : 1.05 - 0.05 * vao10);
-  const nhoe = mo ? 14 * (1 - vao10) : 0;
-  const hien = mo ? Math.min(1, vao10 * 2) : 1;
+  // Không giật: vào từ cảnh MC thì mờ dần mượt 12 khung; cảnh nối tiếp thì cắt thẳng
+  const zoom = cham;
+  const nhoe = 0;
+  const hien = mo ? interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) }) : 1;
   return (
     <AbsoluteFill style={{ opacity: hien }}>
       <OffthreadVideo
@@ -76,7 +76,7 @@ const kieu = (loai: string): React.CSSProperties => {
     case "tay":
       return { fontFamily: FONT_TAY, fontSize: 150, fontWeight: 700, color: MAU.vangKim, lineHeight: 1.0 };
     default:
-      return { fontSize: 112, fontWeight: 800, fontStyle: "italic", color: "white", lineHeight: 1.02 };
+      return { fontSize: 112, fontWeight: 800, fontStyle: "italic", color: MAU.xanhDuongNgoc, lineHeight: 1.02 };
   }
 };
 
@@ -413,7 +413,6 @@ const NhunTheoNhac: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 export const Video1: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black", fontFamily: FONT }}>
-      <NhunTheoNhac>
       {data.canh.map((c, i) =>
         c.src ? (
           <Sequence key={`c${i}`} from={f(c.from)} durationInFrames={f(c.dur)}>
@@ -421,7 +420,6 @@ export const Video1: React.FC = () => {
           </Sequence>
         ) : null,
       )}
-      </NhunTheoNhac>
       {data.chen.map((c, i) => (
         <Sequence key={`b${i}`} from={f(c.from)} durationInFrames={f(c.dur)}>
           <CanhChen
