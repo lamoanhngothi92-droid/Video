@@ -356,9 +356,7 @@ const ThanhTen: React.FC = () => {
       <div style={{ width: 3, background: MAU.vangKim, transform: `scaleY(${vach})`, transformOrigin: "top" }} />
       <div style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 18, opacity: v(6), transform: `translateX(${(1 - v(6)) * -24}px)` }}>
-          <span style={{ color: "white", fontSize: 36, fontWeight: 600, letterSpacing: 1 }}>Lâm Oanh</span>
-          <span style={{ color: MAU.vangKim, fontSize: 22 }}>|</span>
-          <span style={{ color: MAU.vangSo, fontSize: 36, fontWeight: 600, letterSpacing: 2 }}>0346 032 032</span>
+          <span style={{ color: "white", fontSize: 36, fontWeight: 600, letterSpacing: 1 }}>Lâm Oanh Vinhomes</span>
         </div>
         <div
           style={{
