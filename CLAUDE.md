@@ -50,7 +50,8 @@
 - Màu hình: sáng, ấm, hơi tăng độ bão hòa cho cảnh xanh và biển
 
 ## Nhạc
-- Nhạc nền dễ viral, âm lượng thấp (khoảng -20 dB) để nghe rõ lời
+- Mặc định xuất KHÔNG nhạc nền – tôi tự thêm nhạc khi đăng
+- (Nếu cần) nhạc nền dễ viral, âm lượng thấp (khoảng -20 dB) để nghe rõ lời
 - Tự giảm nhạc khi có tiếng nói
 - Nhạc trend có bản quyền: Claude không tự tải; chèn trong app TikTok/Reels lúc
   đăng, hoặc dùng file nhạc bạn đặt trong tainguyen/nhac/
@@ -58,8 +59,13 @@
   `.venv/bin/python scripts/taonhac.py public/nhac/<ten>.wav --giay <độ dài>`
 
 ## Motion graphic (Remotion)
-- Khung thông tin giá / diện tích trượt vào từ trái, hiện 2–3 giây
+- Khung thông tin giá / diện tích trượt vào từ trái, hiện 2–3 giây; không che MC
 - Không dùng hiệu ứng lòe loẹt, giữ cảm giác sang trọng
+- KHÔNG hiệu ứng giật (nhún theo nhịp, phóng giật, chớp trắng, zoom-blur). Chuyển cảnh mờ dần /
+  mờ chồng mềm; cảnh chèn phóng chậm
+- Chữ khóa TO màu xanh dương ngọc #1ECBE1; số vàng #FFD400; chữ nhỏ nghiêng trắng
+- Ảnh tiện ích (Vincom, Vinmec…): khung lớn bo góc viền vàng kim, phía không có MC, nhãn trên nền kính tối
+- Âm thanh hiệu ứng nhẹ, tinh tế (lướt, gõ marimba, pop, ting, chuông); không dùng tiếng "vút/xoẹt"
 
 ## Kết thúc
 - 3 giây cuối: giữ cảnh MC chào; tên Lâm Oanh + số điện thoại 0346032032 + câu
@@ -84,15 +90,15 @@
 - goc/, tainguyen/, thamkhao/ không đưa lên GitHub (file nặng)
 
 ## Công cụ (ghi chú kỹ thuật cho Claude)
-- Tải từ Drive: dùng công cụ Google Drive, giới hạn 10 MB mỗi file; file lưu dạng
-  base64 JSON → giải mã ra video.
+- Quy trình đầy đủ: skill `/video-bds` (.claude/skills/video-bds/SKILL.md)
+- Tải từ Drive: công cụ Google Drive ≤ 10 MB (base64 JSON → giải mã). File lớn hơn (4K):
+  hỏi tôi đồng ý tạm mở link rồi tải bằng curl; nhắc tôi khóa lại. Luôn dùng file gốc 4K.
 - Phụ đề: `npm run phude -- <file>` (faster-whisper large-v3-turbo, tiếng Việt)
   → ra .srt và .json. Luôn rà và sửa .json trước khi dựng. Lỗi hay gặp:
   "bí cà bôn" → pickleball, "dư căn" → giữ căn. Thêm tên mới vào GOI_Y
   trong scripts/phude.py.
 - Remotion: mẫu ở src/BatDongSan.tsx, đặt thông số trong src/Root.tsx.
-  Xem thử: `npm run dev` · Bản xem thử 720p: `npm run render:720`
-  · Bản chính 1080p: `npm run render`
+  Video theo kịch bản: `scripts/dung_videoN.py` + `src/videoN/` + `bash scripts/xuat_videoN.sh 720|1080`
 - Font: Be Vietnam Pro đóng gói sẵn (src/fonts.ts), không cần mạng.
 - FFmpeg tự giảm nhạc khi có tiếng nói: dùng bộ lọc `sidechaincompress`
   (lời nói điều khiển âm lượng nhạc).
