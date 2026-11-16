@@ -225,22 +225,30 @@
   {
    "src": "v1/tienich/vincom.png",
    "from": 31.459999999999997,
-   "dur": 0.9400000000000013
+   "dur": 1.1900000000000013,
+   "nho": "Trung tâm thương mại",
+   "to": "VINCOM MEGA MALL"
   },
   {
    "src": "v1/tienich/vinmec.png",
    "from": 32.4,
-   "dur": 0.4199999999999946
+   "dur": 0.6699999999999946,
+   "nho": "Bệnh viện quốc tế",
+   "to": "VINMEC"
   },
   {
    "src": "v1/tienich/vinschool.png",
    "from": 32.81999999999999,
-   "dur": 1.2199999999999989
+   "dur": 1.4699999999999989,
+   "nho": "Hệ thống giáo dục liên cấp",
+   "to": "VINSCHOOL"
   },
   {
    "src": "v1/tienich/grandworld.png",
    "from": 34.03999999999999,
-   "dur": 1.1100000000000136
+   "dur": 1.1100000000000136,
+   "nho": "Quần thể vui chơi giải trí",
+   "to": "MEGA GRAND WORLD"
   }
  ],
  "nhip": [

@@ -414,31 +414,77 @@ const NhunTheoNhac: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   return <AbsoluteFill style={{ transform: `scale(${zoom})` }}>{children}</AbsoluteFill>;
 };
 
-// Ô ảnh tiện ích (Vincom, Vinmec, Vinschool, Grand World) trượt vào bên trái, mép dưới mờ dần
-const AnhTienIch: React.FC<{ src: string; dau: boolean; cuoi: boolean }> = ({ src, dau, cuoi }) => {
+// Khung ảnh tiện ích: lớn bên trái (hướng MC chỉ tay), viền vàng kim mảnh, ánh sáng lướt,
+// nhãn chữ nhỏ nghiêng + tên lớn xanh dương ngọc. Ảnh sau trượt nhẹ lên, mờ chồng ảnh trước.
+const AnhTienIch: React.FC<{ src: string; nho: string; to: string; dau: boolean; cuoi: boolean }> = ({
+  src,
+  nho,
+  to,
+  dau,
+  cuoi,
+}) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
-  const v = dau ? spring({ frame, fps, config: { damping: 200 } }) : interpolate(frame, [0, 8], [0, 1], { extrapolateRight: "clamp" });
-  const ra = cuoi ? interpolate(frame, [durationInFrames - 12, durationInFrames], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
-  const zoom = interpolate(frame, [0, durationInFrames], [1.0, 1.05]);
+  const vaoDau = spring({ frame, fps, config: { damping: 200 } });
+  const vaoTiep = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const v = dau ? vaoDau : vaoTiep;
+  // ảnh cuối mờ dần; các ảnh khác giữ nguyên để ảnh sau mờ chồng lên, riêng nhãn tên mờ đi trước
+  const ra = cuoi
+    ? interpolate(frame, [durationInFrames - 14, durationInFrames], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+    : 1;
+  const nhanRa = cuoi ? 1 : interpolate(frame, [durationInFrames - 15, durationInFrames - 6], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const zoom = interpolate(frame, [0, durationInFrames], [1.02, 1.1]);
+  const sang = interpolate(frame, [4, 30], [-40, 140], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const nhan = spring({ frame: frame - 6, fps, config: { damping: 200 } });
+  const RONG = 760;
   return (
     <div
       style={{
         position: "absolute",
-        left: 90,
-        top: 120,
-        width: 820,
-        aspectRatio: "1152 / 610",
-        borderRadius: 18,
-        overflow: "hidden",
+        right: 110,
+        top: 130,
+        width: RONG,
         opacity: Math.min(v, ra),
-        transform: dau ? `translateX(${(1 - v) * -900}px)` : undefined,
-        boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
-        WebkitMaskImage: "linear-gradient(180deg, black 93%, transparent 100%)",
-        maskImage: "linear-gradient(180deg, black 93%, transparent 100%)",
+        transform: dau ? `translateX(${(1 - v) * 1000}px)` : `translateY(${(1 - v) * 36}px) scale(${0.97 + 0.03 * v})`,
       }}
     >
-      <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})`, transformOrigin: "50% 30%" }} />
+      <div
+        style={{
+          position: "relative",
+          width: RONG,
+          aspectRatio: "760 / 428",
+          borderRadius: 20,
+          overflow: "hidden",
+          boxShadow: "0 18px 50px rgba(0,0,0,0.45)",
+        }}
+      >
+        <Img src={staticFile(src)} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${zoom})` }} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(115deg, transparent ${sang - 12}%, rgba(255,255,255,0.45) ${sang}%, transparent ${sang + 12}%)`,
+          }}
+        />
+        <div style={{ position: "absolute", inset: 0, borderRadius: 20, border: `2px solid ${MAU.vangKim}` }} />
+      </div>
+      <div
+        style={{
+          marginTop: 16,
+          display: "inline-block",
+          padding: "14px 26px 16px",
+          borderRadius: 14,
+          background: "linear-gradient(135deg, rgba(4,32,40,0.78), rgba(4,32,40,0.55))",
+          backdropFilter: "blur(6px)",
+          opacity: Math.min(nhan, nhanRa),
+          transform: `translateY(${(1 - nhan) * 16}px)`,
+          boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+        }}
+      >
+        <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 30, fontWeight: 300, fontStyle: "italic" }}>{nho}</div>
+        <div style={{ width: 100 * nhan, height: 3, background: MAU.vangKim, margin: "8px 0 6px" }} />
+        <div style={{ color: MAU.xanhDuongNgoc, fontSize: 58, fontWeight: 800, letterSpacing: 1 }}>{to}</div>
+      </div>
     </div>
   );
 };
@@ -501,7 +547,7 @@ export const Video1: React.FC = () => {
       ))}
       {data.anh.map((x, i) => (
         <Sequence key={`a${i}`} from={f(x.from)} durationInFrames={f(x.dur)} layout="none">
-          <AnhTienIch src={x.src} dau={i === 0} cuoi={i === data.anh.length - 1} />
+          <AnhTienIch src={x.src} nho={x.nho} to={x.to} dau={i === 0} cuoi={i === data.anh.length - 1} />
         </Sequence>
       ))}
       <PhuDe phuDe={data.phuDe as Caption[]} coToiDa={44} day={42} />

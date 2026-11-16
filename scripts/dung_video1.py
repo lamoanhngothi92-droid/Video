@@ -186,10 +186,15 @@ def main():
             kw("205945", i, [["to", chu]], den=("205945", ket), vt="giua")
     # Ảnh tiện ích hiện đúng lúc MC nhắc tên (cắt từ bản dựng "Thắng Oanh Cá Koi")
     anh = []
-    for i, ten, den in [(49, "vincom", 52), (52, "vinmec", 53), (53, "vinschool", 58), (58, "grandworld", None)]:
+    for i, ten, den, nho, to in [
+        (49, "vincom", 52, "Trung tâm thương mại", "VINCOM MEGA MALL"),
+        (52, "vinmec", 53, "Bệnh viện quốc tế", "VINMEC"),
+        (53, "vinschool", 58, "Hệ thống giáo dục liên cấp", "VINSCHOOL"),
+        (58, "grandworld", None, "Quần thể vui chơi giải trí", "MEGA GRAND WORLD"),
+    ]:
         a0 = moc[("205945", i)][0] - 0.1
-        a1 = moc[("205945", den)][0] - 0.1 if den else t
-        anh.append({"src": f"v1/tienich/{ten}.png", "from": a0, "dur": a1 - a0})
+        a1 = moc[("205945", den)][0] - 0.1 + 0.25 if den else t  # chồng 0,25s để mờ chồng sang ảnh sau
+        anh.append({"src": f"v1/tienich/{ten}.png", "from": a0, "dur": a1 - a0, "nho": nho, "to": to})
     # --- Cảnh 9–10: giá (đoạn sau có punch-in để che chỗ cắt)
     them_clip("205904", punch_in_doan_sau=True)
     s = moc[("205904", 5)][0]
