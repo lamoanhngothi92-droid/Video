@@ -249,14 +249,15 @@ def main():
         ket = c["from"] + c["dur"]
         tiep = i + 1 < len(chen) and chen[i + 1]["from"] <= ket + 0.05
         c["ra"] = (not tiep) and co_mc(ket - 0.25)  # mờ dần về cảnh MC
-        if lien:
-            sfx.append({"ten": "swish", "from": c["from"] - 0.05, "vol": 0.35})
+        if not c["mo"]:  # cắt thẳng trong chùm cảnh → tiếng gõ marimba nhẹ
+            dem_go = sum(1 for x in sfx if x["ten"].startswith("go")) % 6 + 1
+            sfx.append({"ten": f"go{dem_go}", "from": c["from"], "vol": 0.3})
         else:
-            sfx.append({"ten": "whoosh", "from": c["from"] - 0.2, "vol": 0.4})
+            sfx.append({"ten": "luot", "from": c["from"] - 0.3, "vol": 0.35})
     for c in canh:  # đầu mỗi đoạn MC mới (trừ đoạn đầu) có vệt sáng chuyển cảnh
         if c["src"] and c["from"] > 0 and c.get("dau"):
             chuyen.append({"from": c["from"]})
-            sfx.append({"ten": "whoosh", "from": c["from"] - 0.25, "vol": 0.35})
+            sfx.append({"ten": "luot", "from": c["from"] - 0.35, "vol": 0.3})
     for n, k in enumerate(chukhoa):
         loai = [d[0] for d in k["dong"]]
         if n == 0:
@@ -267,18 +268,18 @@ def main():
             sfx.append({"ten": "ding", "from": k["from"] + 0.1, "vol": 0.22})
         elif len(k["dong"]) > 1:
             sfx.append({"ten": "pop", "from": k["from"] + 0.1, "vol": 0.4})
-    for x in anh:
-        sfx.append({"ten": "swish", "from": x["from"] - 0.05, "vol": 0.3})
+    for n, x in enumerate(anh):
+        sfx.append({"ten": f"go{n + 3}", "from": x["from"] + 0.05, "vol": 0.3})
     for k in khung:
-        sfx.append({"ten": "whoosh", "from": k["from"] - 0.1, "vol": 0.35})
+        sfx.append({"ten": "luot", "from": k["from"] - 0.15, "vol": 0.3})
         sfx.append({"ten": "ding", "from": k["from"] + 0.35, "vol": 0.22})
-    sfx.append({"ten": "whoosh", "from": ten_tu - 0.1, "vol": 0.25})
+    sfx.append({"ten": "luot", "from": ten_tu - 0.15, "vol": 0.25})
     sfx.append({"ten": "chime", "from": logo_tu, "vol": 0.4})
     # bỏ âm trùng nhau quá sát (< 0,15s)
     sfx.sort(key=lambda x: x["from"])
     loc_sfx = []
     for x in sfx:
-        gan = 0.4 if x["ten"] == "whoosh" else 0.15
+        gan = 0.5 if x["ten"] == "luot" else 0.15
         if loc_sfx and x["ten"] == loc_sfx[-1]["ten"] and x["from"] - loc_sfx[-1]["from"] < gan:
             continue
         # tiếng hiệu ứng nhỏ hơn giọng MC khoảng 8–10 dB

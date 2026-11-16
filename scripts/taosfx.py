@@ -123,6 +123,19 @@ def main():
     tt = t(d)[: len(x)]
     tone = np.sin(2 * np.pi * np.cumsum(220 * 2 ** (tt / d * 2)) / SR) * 0.25
     save("riser", (x + tone) * (tt / d) ** 2.2, 0.7)
+    # luot: làn gió nhẹ, êm, trầm (thay tiếng "vút" khi chuyển cảnh)
+    d = 0.8
+    x = bandsweep(d, 250, 1400, 1.0)
+    tt = t(d)[: len(x)]
+    save("luot", x * np.sin(np.pi * tt / d) ** 2.5, 0.45)
+
+    # go1..go6: tiếng gõ marimba mềm, mỗi nốt cao dần (thay tiếng "xoẹt" ở chùm cảnh)
+    for k, hz in enumerate([523.3, 587.3, 659.3, 784.0, 880.0, 1046.5], 1):
+        d = 0.6
+        tt = t(d)
+        x = (np.sin(2 * np.pi * hz * tt) + 0.25 * np.sin(2 * np.pi * hz * 4 * tt) * np.exp(-tt * 30)) * np.exp(-tt * 9)
+        x[:40] *= np.linspace(0, 1, 40)
+        save(f"go{k}", x, 0.5)
     print("Đã tạo:", ", ".join(sorted(p.stem for p in OUT.glob("*.wav"))))
 
 
