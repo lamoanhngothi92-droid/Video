@@ -80,6 +80,75 @@ const kieu = (loai: string): React.CSSProperties => {
   }
 };
 
+// Đếm số lên: "10,5 ha" → 0 … 10,5 (giữ nguyên số chữ số thập phân)
+const demSo = (chu: string, p: number) =>
+  chu.includes("/") ? chu : chu.replace(/\d+(?:,\d+)?/, (m) => {
+    const tp = m.includes(",") ? m.split(",")[1].length : 0;
+    const v = parseFloat(m.replace(",", ".")) * Math.min(1, Math.max(0, p));
+    return v.toFixed(tp).replace(".", ",");
+  });
+
+// Chữ TO: từng ký tự bật lên lần lượt (nhanh, mượt)
+const ChuChay: React.FC<{ chu: string; tre: number; style: React.CSSProperties }> = ({ chu, tre, style }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <div style={{ ...style, whiteSpace: "pre" }}>
+      {Array.from(chu).map((c, i) => {
+        const v = spring({ frame: frame - tre - i * 1.2, fps, config: { damping: 15, stiffness: 220 } });
+        return (
+          <span
+            key={i}
+            style={{
+              display: "inline-block",
+              opacity: Math.min(1, v * 1.5),
+              transform: `translateY(${(1 - v) * 34}px)`,
+              filter: `blur(${(1 - Math.min(1, v)) * 6}px)`,
+            }}
+          >
+            {c}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
+
+// Hạt lấp lánh vàng bay lên (dùng cho Tài Lộc / Thịnh Vượng / Vận Khí)
+const LapLanh: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <div style={{ position: "absolute", inset: -60, pointerEvents: "none" }}>
+      {Array.from({ length: 22 }).map((_, i) => {
+        const r = (k: number) => {
+          const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453;
+          return x - Math.floor(x);
+        };
+        const t = (frame + r(1) * 60) / 60;
+        const y = 100 - ((t * 35 + r(2) * 100) % 100);
+        const nhay = 0.5 + 0.5 * Math.sin(frame * 0.35 + i);
+        const co = 4 + r(3) * 8;
+        return (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: `${r(4) * 100}%`,
+              top: `${y}%`,
+              width: co,
+              height: co,
+              borderRadius: "50%",
+              background: "radial-gradient(circle, #fff7d6 0%, #FFD400 45%, rgba(255,212,0,0) 70%)",
+              opacity: nhay * interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" }),
+              boxShadow: "0 0 10px rgba(255,212,0,0.8)",
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
 const ChuKhoa: React.FC<{ dong: Dong[]; vt: string }> = ({ dong, vt }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -93,10 +162,38 @@ const ChuKhoa: React.FC<{ dong: Dong[]; vt: string }> = ({ dong, vt }) => {
       : vt === "phai"
         ? { right: 120, top: 250, alignItems: "flex-end", textAlign: "right" }
         : { left: 0, right: 0, top: 260, alignItems: "center", textAlign: "center" };
+  const lapLanh = dong.some(([l, c]) => l === "tay" || /THỊNH VƯỢNG|VẬN KHÍ/.test(c));
+  const anhSang = interpolate(frame, [8, 40], [-60, 160], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <div style={{ position: "absolute", display: "flex", flexDirection: "column", opacity: ra, ...viTri }}>
+      {lapLanh ? <LapLanh /> : null}
       {dong.map(([loai, chu], i) => {
-        const v = spring({ frame: frame - i * 7, fps, config: { damping: 14, stiffness: 160 } });
+        const tre = i * 7;
+        const v = spring({ frame: frame - tre, fps, config: { damping: 14, stiffness: 160 } });
+        if (loai === "to") {
+          return <ChuChay key={i} chu={chu} tre={tre} style={{ ...kieu(loai), textShadow: BONG }} />;
+        }
+        if (loai === "so") {
+          // Số vàng: đếm lên + vệt sáng lướt qua mặt chữ
+          return (
+            <div
+              key={i}
+              style={{
+                ...kieu(loai),
+                color: "transparent",
+                backgroundImage: `linear-gradient(105deg, ${MAU.vangSo} ${anhSang - 25}%, #fff8d0 ${anhSang}%, ${MAU.vangSo} ${anhSang + 25}%)`,
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                filter: "drop-shadow(0 4px 14px rgba(0,0,0,0.55))",
+                opacity: Math.min(1, v * 1.4),
+                transform: `translateY(${(1 - v) * 40}px) scale(${0.85 + 0.15 * v})`,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {demSo(chu, interpolate(frame, [tre, tre + 0.6 * fps], [0, 1], { easing: Easing.out(Easing.cubic) }))}
+            </div>
+          );
+        }
         return (
           <div
             key={i}
@@ -156,7 +253,7 @@ const KhungNgang: React.FC<{ tieuDe: string; muc: Dong[] }> = ({ tieuDe, muc }) 
                 fontWeight: loai === "so" ? 800 : 600,
               }}
             >
-              {chu}
+              {loai === "so" ? demSo(chu, interpolate(frame, [8 + i * 6, 8 + i * 6 + 0.7 * fps], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })) : chu}
             </span>
           </div>
         );
@@ -166,6 +263,12 @@ const KhungNgang: React.FC<{ tieuDe: string; muc: Dong[] }> = ({ tieuDe, muc }) 
 };
 
 // ===== Vệt sáng ấm quét ngang khi chuyển đoạn (light leak) =====
+const ChopSang: React.FC = () => {
+  const frame = useCurrentFrame();
+  const o = interpolate(frame, [0, 2, 16], [0, 0.45, 0], { extrapolateRight: "clamp" });
+  return <AbsoluteFill style={{ background: "#fffaf0", opacity: o }} />;
+};
+
 const VetSang: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
@@ -221,7 +324,7 @@ const Khung: React.FC<{ tieuDe: string; muc: Dong[] }> = ({ tieuDe, muc }) => {
               : { color: "white", fontSize: 44, fontWeight: 600, lineHeight: 1.4 };
         return (
           <div key={i} style={{ ...s, opacity: v, transform: `translateX(${(1 - v) * -30}px)` }}>
-            {chu}
+            {/\d/.test(chu) ? demSo(chu, interpolate(frame, [8 + i * 6, 8 + i * 6 + 0.7 * fps], [0, 1], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })) : chu}
           </div>
         );
       })}
@@ -283,16 +386,34 @@ const LogoCuoi: React.FC = () => {
   const v = spring({ frame, fps, config: { damping: 200 } });
   return (
     <AbsoluteFill style={{ background: "#071a19", justifyContent: "center", alignItems: "center" }}>
-      <div style={{ opacity: v, transform: `scale(${0.92 + 0.08 * v})` }}>
+      <div style={{ position: "relative", opacity: v, transform: `scale(${0.92 + 0.08 * v})`, overflow: "hidden", borderRadius: 14 }}>
         <Logo cao={150} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(110deg, transparent ${interpolate(frame, [10, 45], [-40, 120], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) - 15}%, rgba(255,255,255,0.85) ${interpolate(frame, [10, 45], [-40, 120], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}%, transparent ${interpolate(frame, [10, 45], [-40, 120], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) + 15}%)`,
+          }}
+        />
       </div>
     </AbsoluteFill>
   );
 };
 
+// Phóng nhẹ 3% đúng mỗi ô nhịp rồi trả về (cảm giác "nhún" theo nhạc, không giật)
+const NhunTheoNhac: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const frame = useCurrentFrame();
+  const t = frame / FPS;
+  const truoc = data.nhip.filter((b) => b <= t);
+  const tu = truoc.length ? t - truoc[truoc.length - 1] : 99;
+  const zoom = 1 + 0.03 * Math.exp(-tu * 7);
+  return <AbsoluteFill style={{ transform: `scale(${zoom})` }}>{children}</AbsoluteFill>;
+};
+
 export const Video1: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black", fontFamily: FONT }}>
+      <NhunTheoNhac>
       {data.canh.map((c, i) =>
         c.src ? (
           <Sequence key={`c${i}`} from={f(c.from)} durationInFrames={f(c.dur)}>
@@ -300,6 +421,7 @@ export const Video1: React.FC = () => {
           </Sequence>
         ) : null,
       )}
+      </NhunTheoNhac>
       {data.chen.map((c, i) => (
         <Sequence key={`b${i}`} from={f(c.from)} durationInFrames={f(c.dur)}>
           <CanhChen
@@ -312,6 +434,11 @@ export const Video1: React.FC = () => {
       {data.chuyen.map((c, i) => (
         <Sequence key={`l${i}`} from={Math.max(0, f(c.from) - 12)} durationInFrames={36} layout="none">
           <VetSang />
+          {(c as { loe?: boolean }).loe ? (
+            <Sequence from={12} durationInFrames={20} layout="none">
+              <ChopSang />
+            </Sequence>
+          ) : null}
         </Sequence>
       ))}
       {data.sfx.map((x, i) => (

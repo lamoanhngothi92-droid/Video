@@ -195,8 +195,27 @@ def main():
     logo_tu = t
     t += 1.2
 
-    # 3) Hiệu ứng chuyển cảnh + âm thanh hiệu ứng (SFX)
+    # 3) Lưới nhịp nhạc 124 BPM: cảnh chèn đổi đúng nhịp (xê dịch tối đa 0,2s)
+    PHACH = 60 / 124
+    O_NHIP = 4 * PHACH
+    def bat_nhip(x):
+        g = round(x / PHACH) * PHACH
+        return g if abs(g - x) <= 0.2 else x
     chen.sort(key=lambda c: c["from"])
+    lo_trong = [(c["from"], c["from"] + c["dur"]) for c in canh if not c["src"]]
+    for c in chen:
+        # cảnh chèn che chỗ không có hình MC thì giữ nguyên, tránh lộ màn đen
+        if any(abs(c["from"] - a) < 0.05 or abs(c["from"] + c["dur"] - b) < 0.05 for a, b in lo_trong):
+            continue
+        dau, cuoi = bat_nhip(c["from"]), bat_nhip(c["from"] + c["dur"])
+        c["in"] += max(0.0, dau - c["from"]) if dau > c["from"] else 0.0
+        c["from"], c["dur"] = dau, cuoi - dau
+    NHAC_BUNG = 3 * O_NHIP  # nhạc bùng ở ô nhịp thứ 3 (khớp scripts/taonhac.py --intro 3)
+    # Ô nhịp để hình MC "nhún" nhẹ theo nhạc (chỉ khi nhạc sôi động)
+    nhip = [round(b * O_NHIP, 3) for b in range(3, int(t / O_NHIP) + 1)
+            if not (18 <= b < 20)]
+
+    # 4) Hiệu ứng chuyển cảnh + âm thanh hiệu ứng (SFX)
     sfx, chuyen = [], []
     for i, c in enumerate(chen):
         lien = i > 0 and abs(chen[i - 1]["from"] + chen[i - 1]["dur"] - c["from"]) < 0.05
@@ -224,6 +243,8 @@ def main():
         sfx.append({"ten": "ding", "from": k["from"] + 0.35, "vol": 0.22})
     sfx.append({"ten": "whoosh", "from": ten_tu - 0.1, "vol": 0.25})
     sfx.append({"ten": "chime", "from": logo_tu, "vol": 0.4})
+    sfx.append({"ten": "riser", "from": NHAC_BUNG - 1.2, "vol": 0.5})
+    chuyen.append({"from": NHAC_BUNG, "loe": True})
     # bỏ âm trùng nhau quá sát (< 0,15s)
     sfx.sort(key=lambda x: x["from"])
     loc_sfx = []
@@ -236,7 +257,7 @@ def main():
 
     data = {
         "tongGiay": round(t, 3),
-        "sfx": loc_sfx, "chuyen": chuyen,
+        "sfx": loc_sfx, "chuyen": chuyen, "nhip": nhip, "nhacBung": NHAC_BUNG,
         "canh": canh, "chen": chen, "phuDe": phude, "chuKhoa": chukhoa, "khung": khung,
         "thanhTen": {"from": ten_tu, "dur": logo_tu - ten_tu},
         "logoCuoi": {"from": logo_tu, "dur": t - logo_tu},

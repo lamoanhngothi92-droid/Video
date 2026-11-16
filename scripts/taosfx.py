@@ -117,6 +117,12 @@ def main():
         x[s:] += np.sin(2 * np.pi * fr * tt[: len(tt) - s]) * np.exp(-tt[: len(tt) - s] * 2.2)
     x[:100] *= np.linspace(0, 1, 100)
     save("chime", x, 0.55)
+    # riser: tiếng vút lên 1,2s trước khi nhạc bùng
+    d = 1.2
+    x = bandsweep(d, 400, 9000, 1.6)
+    tt = t(d)[: len(x)]
+    tone = np.sin(2 * np.pi * np.cumsum(220 * 2 ** (tt / d * 2)) / SR) * 0.25
+    save("riser", (x + tone) * (tt / d) ** 2.2, 0.7)
     print("Đã tạo:", ", ".join(sorted(p.stem for p in OUT.glob("*.wav"))))
 
 

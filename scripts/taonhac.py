@@ -101,20 +101,19 @@ def place(buf, sample, pos, gain=1.0):
     buf[i:j] += sample[: j - i] * gain
 
 
-def build(total_sec):
+def build(total_sec, intro=4, nghi_tu=16, nghi_dai=4, ket_tu=None):
     bars = int(np.ceil(total_sec / BAR))
+    ket_tu = ket_tu if ket_tu is not None else bars - 4
     n = int(bars * BAR * SR) + SR
     drums, bass, pad, lead = (np.zeros(n) for _ in range(4))
     K, C, H, HO = kick(), clap(), hat(), hat(True)
 
     def section(b):
-        if b < 4:
+        if b < intro:
             return "intro"
-        if b < 16:
-            return "drop"
-        if b < 20:
+        if nghi_tu <= b < nghi_tu + nghi_dai:
             return "break"
-        if b < bars - 4:
+        if b < ket_tu:
             return "drop"
         return "outro"
 
@@ -178,8 +177,12 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("out")
     p.add_argument("--giay", type=float, default=62)
+    p.add_argument("--intro", type=int, default=4, help="số ô nhịp mở đầu nhẹ")
+    p.add_argument("--nghi-tu", type=int, default=16, help="ô nhịp bắt đầu đoạn dịu")
+    p.add_argument("--nghi-dai", type=int, default=4)
+    p.add_argument("--ket-tu", type=int, default=None, help="ô nhịp bắt đầu đoạn kết")
     a = p.parse_args()
-    x = build(a.giay)
+    x = build(a.giay, a.intro, a.nghi_tu, a.nghi_dai, a.ket_tu)
     stereo = np.stack([x, np.roll(x, 90)], axis=1)  # tách nhẹ 2 kênh cho rộng
     with wave.open(a.out, "wb") as w:
         w.setnchannels(2)
