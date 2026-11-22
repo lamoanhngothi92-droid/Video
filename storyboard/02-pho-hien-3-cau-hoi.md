@@ -6,7 +6,11 @@ trong 1 khung trắng mờ bo tròn nhỏ, góc trên phải, cách đỉnh ~8% 
 Nguồn: bản nháp "Thắng Oanh Phố Hiến nháp.mov" (đã có sẵn ảnh chèn phía trên + bảng chính sách – giữ lại)
 + cảnh phụ DJI (sa bàn) thay đoạn dính cốc nước (bản nháp 0:19–0:29).
 
-Ký hiệu: **TO ĐẬM** = chữ in hoa xanh ngọc #1ECBE1 · *nghiêng* = chữ nhỏ trắng · 🟡 = số vàng #FFD400 · ✍ = chữ viết tay vàng kim
+Ký hiệu: **TO ĐẬM** = chữ in hoa xanh dương ngọc #1ECBE1 · *nghiêng* = chữ nhỏ trắng · 🟡 = số vàng cam · ✍ = chữ viết tay vàng cam
+
+Màu chữ kiểu hot trend (người dùng chốt): chữ khóa TO xanh dương ngọc #1ECBE1, viền xanh than đậm
+#062A3A dày + quầng sáng ngọc nhẹ; con số và chữ viết tay màu vàng cam chuyển sắc
+#FFE14D → #FFB300 → #FF8A00, viền nâu đậm + quầng sáng cam nhẹ. Phụ đề: chữ trắng viền đen, số vàng cam #FFC107.
 
 | # | Giây (mới) | Hình | Lời MC | Chữ khóa / hiệu ứng |
 |---|---|---|---|---|
