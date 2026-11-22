@@ -32,7 +32,8 @@ GOI_Y = (
     "hecta, sổ hồng, giá chỉ, tỷ, triệu, vay 70%, vốn tự có, hỗ trợ lãi suất, "
     "chiết khấu, giáp sông, an ninh 24/7, hồ cá Koi, vườn yoga, sân tennis, "
     "pickleball, Vincom, Vinmec, Vinschool, Mega Grand World, tài lộc, "
-    "thịnh vượng, CĐT Vinhomes, Lâm Oanh, Đức Thắng."
+    "thịnh vượng, CĐT Vinhomes, Lâm Oanh, Đức Thắng, Phố Hiến, Hưng Yên, Thái Bình, "
+    "Đại lộ Thương Cảng, liền kề thấp tầng, trụ sạc xe điện, phí quản lý, voucher."
 )
 
 
