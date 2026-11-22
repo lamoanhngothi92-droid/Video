@@ -33,9 +33,17 @@
  "chen": [
   {
    "src": "phu",
-   "from": 18.1,
-   "in": 10.0,
-   "dur": 3.55,
+   "from": 16.6,
+   "in": 1.0,
+   "dur": 5.05,
+   "mo": true,
+   "ra": true
+  },
+  {
+   "src": "phu",
+   "from": 58.89,
+   "in": 10.5,
+   "dur": 1.85,
    "mo": true,
    "ra": true
   }
@@ -2190,7 +2198,7 @@
   },
   {
    "ten": "luot",
-   "from": 18.0,
+   "from": 16.5,
    "vol": 0.1
   },
   {

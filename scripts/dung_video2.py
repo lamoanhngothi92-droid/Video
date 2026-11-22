@@ -74,8 +74,13 @@ def main():
 
     # Cảnh phụ sa bàn: mờ chồng từ cuối đoạn 1, che luôn phần sa bàn có cốc nước đầu đoạn 2
     d2 = canh[1]["from"]
-    chen = [{"src": "phu", "from": round(het_doan1 - XF, 3), "in": 10.0,
-             "dur": round(d2 + 0.85 - (het_doan1 - XF), 3), "mo": True, "ra": True}]
+    # (người dùng yêu cầu: thay các cảnh sa bàn bị ngược sáng bằng cảnh phụ)
+    # 1) Ngược sáng cửa kính 16,6–18,4 + đoạn cốc nước → Oanh đi dọc sa bàn (cảnh phụ từ giây 1,0)
+    bd1 = 16.6
+    chen = [{"src": "phu", "from": bd1, "in": 1.0, "dur": round(d2 + 0.85 - bd1, 3), "mo": True, "ra": True}]
+    # 2) Sa bàn bên cửa kính ngược sáng đầu đoạn 4 (75,9–77,6 trong bản nháp) → lia sa bàn (cảnh phụ từ giây 10,5)
+    d4 = canh[3]
+    chen.append({"src": "phu", "from": d4["from"], "in": 10.5, "dur": round(77.75 - d4["in"], 3), "mo": True, "ra": True})
 
     # Chữ khóa: (từ chữ, đến chữ, dòng, vị trí y (khung 1080x1920), căn)
     chukhoa = []
