@@ -1821,7 +1821,7 @@
      "ai cũng hiểu sai"
     ]
    ],
-   "y": 820,
+   "y": 590,
    "can": "giua"
   },
   {
@@ -2021,23 +2021,13 @@
   {
    "from": 6.94,
    "dur": 10.32,
-   "tieuDe": "VINHOMES PHỐ HIẾN",
-   "y": 760,
+   "tieuDe": "VINHOMES PHỐ HIẾN · GIÁP 3 MẶT ĐƯỜNG LỚN",
+   "y": 262,
    "muc": [
     {
      "at": 0.58,
-     "loai": "so",
-     "chu": "303 căn"
-    },
-    {
-     "at": 1.6,
-     "loai": "chu",
-     "chu": "liền kề thấp tầng"
-    },
-    {
-     "at": 2.64,
-     "loai": "chu",
-     "chu": "giáp 3 mặt đường lớn"
+     "loai": "duong",
+     "chu": "Liền kề thấp tầng|303 căn"
     },
     {
      "at": 3.96,
@@ -2144,7 +2134,7 @@
   {
    "src": "v2/tienich/sacxe.jpg",
    "from": 26.28,
-   "dur": 2.76,
+   "dur": 0.91,
    "nho": "Xanh – tiện lợi",
    "to": "TRỤ SẠC XE ĐIỆN",
    "web": true
@@ -2173,26 +2163,16 @@
   },
   {
    "ten": "go1",
-   "from": 8.54,
-   "vol": 0.09
-  },
-  {
-   "ten": "go2",
-   "from": 9.58,
-   "vol": 0.09
-  },
-  {
-   "ten": "go3",
    "from": 10.9,
    "vol": 0.09
   },
   {
-   "ten": "go4",
+   "ten": "go2",
    "from": 13.44,
    "vol": 0.09
   },
   {
-   "ten": "go5",
+   "ten": "go3",
    "from": 14.9,
    "vol": 0.09
   },

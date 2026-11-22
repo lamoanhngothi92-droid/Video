@@ -169,34 +169,34 @@ const Khung: React.FC<{ tieuDe: string; muc: Muc[]; y: number; hep: boolean }> =
         position: "absolute",
         left: 28,
         top: y,
-        width: hep ? 370 : 1024,
+        width: 1024,
         transform: `translateX(${x}px)`,
         background: "linear-gradient(135deg, rgba(4,30,40,0.80), rgba(4,30,40,0.62))",
         backdropFilter: "blur(10px)",
         border: `2px solid ${VANG_KIM}`,
         borderRadius: 24,
-        padding: hep ? "20px 22px 22px" : "20px 30px 24px",
+        padding: hep ? "14px 22px 16px" : "20px 30px 24px",
         boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
       }}
     >
       <div style={{ color: "#bff3f8", fontSize: 22, fontWeight: 600, letterSpacing: 3, marginBottom: 6 }}>{tieuDe}</div>
       <div style={{ width: 70, height: 3, background: VANG_KIM, marginBottom: 10 }} />
-      <div style={hep ? {} : { display: "grid", gridTemplateColumns: "1fr 1fr", columnGap: 26, rowGap: 6 }}>
+      <div style={{ display: "grid", gridTemplateColumns: hep ? "1fr 1fr 1fr 1fr" : "1fr 1fr", columnGap: hep ? 14 : 26, rowGap: 6 }}>
         {muc.map((m, i) => {
           const v = spring({ frame: frame - f(m.at), fps, config: { damping: 200 } });
           const s: React.CSSProperties = { opacity: v, transform: `translateX(${(1 - v) * -24}px)` };
-          if (m.loai === "so") return <div key={i} style={s}><SoVangCam chu={m.chu} co={64} /></div>;
+          if (m.loai === "so") return <div key={i} style={s}><SoVangCam chu={m.chu} co={hep ? 58 : 64} /></div>;
           if (m.loai === "duong") {
             const [nhan, so] = m.chu.split("|");
             return (
               <div key={i} style={{ ...s, display: "flex", flexDirection: "column", marginTop: 4 }}>
-                <span style={{ color: "white", fontSize: hep ? 27 : 28, fontWeight: 600, lineHeight: 1.2 }}>{nhan}</span>
-                <SoVangCam chu={so} co={hep ? 50 : 52} />
+                <span style={{ color: "white", fontSize: hep ? 22 : 28, fontWeight: 600, lineHeight: 1.15 }}>{nhan}</span>
+                <SoVangCam chu={so} co={hep ? 46 : 52} />
               </div>
             );
           }
           return (
-            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 29 : 30, fontWeight: 600, lineHeight: 1.3, marginTop: 2 }}>
+            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 26 : 30, fontWeight: 600, lineHeight: 1.3, marginTop: 2 }}>
               {m.chu}
             </div>
           );
@@ -331,14 +331,16 @@ const ThanhTen: React.FC = () => {
     <div
       style={{
         position: "absolute",
-        left: 40,
-        top: 1130,
-        opacity: ra,
-        transform: `translateX(${(1 - v(0)) * -700}px)`,
-        padding: "16px 26px 18px 22px",
-        borderLeft: `4px solid ${VANG_KIM}`,
-        borderRadius: 14,
-        background: "linear-gradient(90deg, rgba(4,30,40,0.78), rgba(4,30,40,0.35))",
+        left: 140,
+        right: 140,
+        top: 300,
+        textAlign: "center",
+        opacity: ra * Math.min(1, v(0) * 1.4),
+        transform: `translateY(${(1 - v(0)) * -30}px)`,
+        padding: "16px 22px 18px",
+        borderTop: `3px solid ${VANG_KIM}`,
+        borderRadius: 16,
+        background: "linear-gradient(180deg, rgba(4,30,40,0.72), rgba(4,30,40,0.5))",
         backdropFilter: "blur(8px)",
       }}
     >
@@ -346,7 +348,7 @@ const ThanhTen: React.FC = () => {
       <div style={{ opacity: v(8) }}>
         <SoVangCam chu="0346 032 032" co={50} />
       </div>
-      <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 21, letterSpacing: 0.5, marginTop: 2, opacity: v(12) }}>
+      <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 22, letterSpacing: 0.5, marginTop: 4, opacity: v(12) }}>
         Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes
       </div>
     </div>

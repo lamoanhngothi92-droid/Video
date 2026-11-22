@@ -89,7 +89,7 @@ def main():
         chukhoa.append({"from": round(T(i), 3), "dur": round(E(den) + them - T(i), 3), "dong": dong, "y": y, "can": can})
 
     kw(0, 10, [["nho", "Có"], ["so", "3"], ["to", "CÂU HỎI"], ["br", ""], ["nho", "về"], ["to2", "VINHOMES PHỐ HIẾN"]], 300)
-    kw(11, 19, [["tay", "ai cũng hiểu sai"]], 820, them=0.6)
+    kw(11, 19, [["tay", "ai cũng hiểu sai"]], 590, them=0.6)
     kw(20, 26, [["nho", "Thứ nhất"], ["br", ""], ["to", "VỊ TRÍ CÓ ĐẸP?"]], 250)
     kw(59, 65, [["nho", "Câu thứ hai"], ["br", ""], ["to", "Ở CÓ TIỆN?"]], 280)
     kw(82, 88, [["nho", "tất cả"], ["br", ""], ["to", "TRONG NỘI KHU"]], 270)
@@ -108,10 +108,10 @@ def main():
         khung.append({"from": round(T(i) - 0.1, 3), "dur": round(E(den) + them - T(i) + 0.1, 3), "tieuDe": tieu_de,
                       "y": y, "muc": [{"at": round(T(j) - T(i) + 0.1, 3), "loai": l, "chu": c} for j, l, c in muc]})
 
-    kh(27, 58, "VINHOMES PHỐ HIẾN", [
-        (30, "so", "303 căn"), (32, "chu", "liền kề thấp tầng"), (36, "chu", "giáp 3 mặt đường lớn"),
-        (42, "duong", "Cao tốc HY – TB|80,5m"), (50, "duong", "Đường Thành phố|47m"), (54, "duong", "Đại lộ Thương Cảng|34m"),
-    ], 760, them=0.8)
+    kh(27, 58, "VINHOMES PHỐ HIẾN · GIÁP 3 MẶT ĐƯỜNG LỚN", [
+        (30, "duong", "Liền kề thấp tầng|303 căn"), (42, "duong", "Cao tốc HY – TB|80,5m"),
+        (50, "duong", "Đường Thành phố|47m"), (54, "duong", "Đại lộ Thương Cảng|34m"),
+    ], 262, them=0.8)
     kh(125, 159, "TÀI CHÍNH LINH HOẠT", [
         (129, "duong", "Vay đến|70%"), (138, "chu", "Vốn tự có: phần nhỏ"),
         (145, "chu", "Lãi suất cố định thấp"), (154, "duong", "Hỗ trợ lãi suất|0%"),
@@ -130,7 +130,7 @@ def main():
           (78, "sacxe", "Xanh – tiện lợi", "TRỤ SẠC XE ĐIỆN", True)]
     for n, (i, ten, nho, to, web) in enumerate(ds):
         a0 = T(i) - 0.08
-        a1 = (T(ds[n + 1][0]) - 0.08 + 0.2) if n + 1 < len(ds) else E(88) + 0.3
+        a1 = (T(ds[n + 1][0]) - 0.08 + 0.2) if n + 1 < len(ds) else T(82) - 0.05
         anh.append({"src": f"v2/tienich/{ten}.jpg", "from": round(a0, 3), "dur": round(a1 - a0, 3),
                     "nho": nho, "to": to, "web": web})
 
