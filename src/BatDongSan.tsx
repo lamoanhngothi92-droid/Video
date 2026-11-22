@@ -159,7 +159,7 @@ const KhungGia: React.FC<Pick<BatDongSanProps, "gia" | "thongTin">> = ({
 const CHU_MOI_DONG = 7;
 const SO_DONG = 2;
 
-const laConSo = (w: string) =>
+export const laConSo = (w: string) =>
   /\d/.test(w) || /^(tỷ|triệu|nghìn|ngàn|m2|m²|km|%|phút|mét)[.,!?]?$/i.test(w.trim());
 
 type Trang = { batDau: number; ketThuc: number; dong: Caption[][] };
@@ -189,7 +189,7 @@ const chiaDong = (tu: Caption[]): Caption[][] => {
   return [tu.slice(0, cat), tu.slice(cat)];
 };
 
-const chiaTrang = (phuDe: Caption[]): Trang[] => {
+export const chiaTrang = (phuDe: Caption[]): Trang[] => {
   const trang: Trang[] = [];
   let hienTai: Caption[] = [];
   const dong = () => {
@@ -227,7 +227,7 @@ const chiaTrang = (phuDe: Caption[]): Trang[] => {
   return trang;
 };
 
-const hienThi = (w: string) => w.replace(/(\d)m2\b/g, "$1m²");
+export const hienThi = (w: string) => w.replace(/(\d)m2\b/g, "$1m²");
 
 // Cỡ chữ tự nhỏ lại khi dòng dài, để luôn nằm gọn trong 1 dòng
 const coChu = (dong: Caption[][]) => {

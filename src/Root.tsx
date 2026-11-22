@@ -3,10 +3,20 @@ import { HelloWorld } from "./HelloWorld";
 import { BatDongSan, FPS, tinhThoiLuong } from "./BatDongSan";
 import phuDeMau from "../public/test/vinh-xanh.json";
 import { Video1, FPS as FPS1, TONG_KHUNG } from "./video1/Video1";
+import { Video2, FPS as FPS2, TONG_KHUNG as TONG2 } from "./video2/Video2";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="Video2-PhoHien"
+        component={Video2}
+        durationInFrames={TONG2}
+        fps={FPS2}
+        width={1080}
+        height={1920}
+        defaultProps={{ nguon: "1080" as const }}
+      />
       <Composition
         id="Video1-VinhXanh-HoKoi"
         component={Video1}
