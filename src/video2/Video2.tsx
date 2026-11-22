@@ -113,7 +113,7 @@ const ChuKhoa: React.FC<{ dong: Dong[]; y: number; trai: number }> = ({ dong, y,
   dong.forEach(([loai, chu], k) => (loai === "br" ? hang.push([]) : hang[hang.length - 1].push({ loai, chu, k })));
   let dem = 0;
   return (
-    <div style={{ position: "absolute", left: trai, right: 30, top: y, opacity: ra, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+    <div style={{ position: "absolute", left: Math.max(90, trai), right: 90, top: y, opacity: ra, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
       {hang.map((h, i) => (
         <div key={i} style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 16 }}>
           {h.map(({ loai, chu, k }) => {
@@ -135,7 +135,7 @@ const ChuKhoa: React.FC<{ dong: Dong[]; y: number; trai: number }> = ({ dong, y,
                 </span>
               );
             // chữ TO: bật từng ký tự
-            const co = loai === "to2" ? 68 : chu.length > 13 ? 82 : 100;
+            const co = loai === "to2" ? 64 : chu.length > 13 ? 72 : 96;
             return (
               <span key={k} style={{ ...kieuTo(co), display: "inline-block" }}>
                 {Array.from(chu).map((c, j) => {
@@ -167,37 +167,37 @@ const Khung: React.FC<{ tieuDe: string; muc: Muc[]; y: number; hep: boolean }> =
     <div
       style={{
         position: "absolute",
-        left: hep ? undefined : 28,
-        right: hep ? 18 : undefined,
+        left: hep ? undefined : 90,
+        right: hep ? 86 : undefined,
         top: y,
-        width: hep ? 250 : 1024,
+        width: hep ? 215 : 900,
         transform: `translateX(${x}px)`,
         background: "linear-gradient(135deg, rgba(4,30,40,0.80), rgba(4,30,40,0.62))",
         backdropFilter: "blur(10px)",
         border: `2px solid ${VANG_KIM}`,
         borderRadius: 24,
-        padding: hep ? "14px 18px 16px" : "20px 30px 24px",
+        padding: hep ? "12px 14px 14px" : "18px 26px 22px",
         boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
       }}
     >
-      <div style={{ color: "#bff3f8", fontSize: hep ? 18 : 22, fontWeight: 600, letterSpacing: 3, marginBottom: 6 }}>{tieuDe}</div>
+      <div style={{ color: "#bff3f8", fontSize: hep ? 16 : 21, fontWeight: 600, letterSpacing: 3, marginBottom: 6 }}>{tieuDe}</div>
       <div style={{ width: 70, height: 3, background: VANG_KIM, marginBottom: 10 }} />
       <div style={{ display: "grid", gridTemplateColumns: hep ? "1fr" : "1fr 1fr", columnGap: 26, rowGap: hep ? 4 : 6 }}>
         {muc.map((m, i) => {
           const v = spring({ frame: frame - f(m.at), fps, config: { damping: 200 } });
           const s: React.CSSProperties = { opacity: v, transform: `translateX(${(1 - v) * -24}px)` };
-          if (m.loai === "so") return <div key={i} style={s}><SoVangCam chu={m.chu} co={hep ? 58 : 64} /></div>;
+          if (m.loai === "so") return <div key={i} style={s}><SoVangCam chu={m.chu} co={hep ? 40 : 60} /></div>;
           if (m.loai === "duong") {
             const [nhan, so] = m.chu.split("|");
             return (
               <div key={i} style={{ ...s, display: "flex", flexDirection: "column", marginTop: 4 }}>
-                <span style={{ color: "white", fontSize: hep ? 21 : 28, fontWeight: 600, lineHeight: 1.15 }}>{nhan}</span>
-                <SoVangCam chu={so} co={hep ? 42 : 52} />
+                <span style={{ color: "white", fontSize: hep ? 19 : 26, fontWeight: 600, lineHeight: 1.15 }}>{nhan}</span>
+                <SoVangCam chu={so} co={hep ? 38 : 48} />
               </div>
             );
           }
           return (
-            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 22 : 30, fontWeight: 600, lineHeight: 1.25, marginTop: 2 }}>
+            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 20 : 28, fontWeight: 600, lineHeight: 1.25, marginTop: 2 }}>
               {m.chu}
             </div>
           );
@@ -219,10 +219,10 @@ const AnhTienIch: React.FC<{ src: string; nho: string; to: string; web: boolean;
     <div
       style={{
         position: "absolute",
-        left: 40,
-        top: 40,
-        width: 1000,
-        height: 550,
+        left: 90,
+        top: 50,
+        width: 900,
+        height: 495,
         borderRadius: 28,
         overflow: "hidden",
         opacity: Math.min(v, ra),
@@ -296,10 +296,10 @@ const PhuDeDoc: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
       style={{
         position: "absolute",
         bottom: 430,
-        left: 60,
-        right: 140,
+        left: 100,
+        right: 150,
         textAlign: "center",
-        fontSize: Math.min(46, Math.floor(880 / (dai * 0.56))),
+        fontSize: Math.min(44, Math.floor(810 / (dai * 0.56))),
         fontWeight: 800,
         lineHeight: 1.3,
         whiteSpace: "nowrap",
@@ -402,7 +402,7 @@ export const Video2: React.FC<Video2Props> = ({ nguon }) => {
         <PhuDeDoc phuDe={data.phuDe as Caption[]} />
       </Sequence>
       <Sequence durationInFrames={f(data.ket.from)} layout="none">
-        <div style={{ position: "absolute", top: 150, right: 36 }}>
+        <div style={{ position: "absolute", top: 150, right: 96 }}>
           <HaiLogo cao={50} />
         </div>
       </Sequence>

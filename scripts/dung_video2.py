@@ -99,7 +99,7 @@ def main():
     kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 250)
     kw(112, 116, [["tay", "Chưa chắc đâu!"]], 270, them=0.5)
     kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 270)
-    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["so", "7,5%"]], 270)
+    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["br", ""], ["so", "7,5%"]], 250)
     kw(212, 218, [["tay", "Mỗi nhà"], ["br", ""], ["to", "MỘT DÒNG TIỀN"]], 280, them=0.4)
 
     # Khung thông tin trượt từ trái (cạnh MC). Mỗi mục hiện đúng lúc MC nói
