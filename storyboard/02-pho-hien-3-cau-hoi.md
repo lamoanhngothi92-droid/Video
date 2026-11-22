@@ -1,6 +1,8 @@
 # Storyboard – Video 2: Vinhomes Phố Hiến – 3 câu khách hỏi nhiều nhất
 
-Khung DỌC 9:16 · 2160x3840 (4K) · dài ≈ 71 giây · logo góc trên phải suốt video · không nhạc nền
+Khung DỌC 9:16 · 2160x3840 (4K) · dài ≈ 71 giây · không nhạc nền
+Logo suốt video: 2 logo "Tự Doanh Toàn Quốc" (IMG_0926) + "Vinhomes Vùng 3" (LOGO V3 XANH) đặt chung
+trong 1 khung trắng mờ bo tròn nhỏ, góc trên phải, cách đỉnh ~8% (tránh nút tìm kiếm của TikTok).
 Nguồn: bản nháp "Thắng Oanh Phố Hiến nháp.mov" (đã có sẵn ảnh chèn phía trên + bảng chính sách – giữ lại)
 + cảnh phụ DJI (sa bàn) thay đoạn dính cốc nước (bản nháp 0:19–0:29).
 
