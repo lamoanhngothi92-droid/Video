@@ -321,6 +321,14 @@ const PhuDeDoc: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
   );
 };
 
+// ===== Nền kính xanh ngọc che bảng chính sách đỏ của bản nháp =====
+const NenKinh: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { durationInFrames: d } = useVideoConfig();
+  const o = interpolate(frame, [0, 40, d - 6, d], [0, 1, 1, 0], { ...nuot, easing: Easing.inOut(Easing.quad) });
+  return <Img src={staticFile("v2/nen_kinh.png")} style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 900, opacity: o }} />;
+};
+
 // ===== Kết: hình dừng, mờ dần; "Lâm Oanh Vinhomes" hiện mờ mờ =====
 const Ket: React.FC<{ src: string; vao: number }> = ({ src, vao }) => {
   const frame = useCurrentFrame();
@@ -381,6 +389,9 @@ export const Video2: React.FC<Video2Props> = ({ nguon }) => {
           <Audio src={staticFile(`sfx/${x.ten}.wav`)} volume={x.vol} />
         </Sequence>
       ))}
+      <Sequence from={f(data.nenKinh.from)} durationInFrames={f(data.nenKinh.dur)} layout="none">
+        <NenKinh />
+      </Sequence>
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.18) 0%, transparent 18%, transparent 62%, rgba(0,0,0,0.30) 85%, rgba(0,0,0,0.15) 100%)" }} />
       {data.anh.map((x, i) => (
         <Sequence key={`a${i}`} from={f(x.from)} durationInFrames={f(x.dur)} layout="none">

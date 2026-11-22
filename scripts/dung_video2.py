@@ -96,10 +96,10 @@ def main():
     kw(82, 88, [["nho", "tất cả"], ["br", ""], ["to", "TRONG NỘI KHU"]], 270)
     kw(89, 97, [["nho", "đi học · đi khám · đi chợ"]], 300, them=0.1)
     kw(98, 103, [["tay", "không cần ra ngoài"]], 300, them=0.6)
-    kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 520)
-    kw(112, 116, [["tay", "Chưa chắc đâu!"]], 620, them=0.5)
-    kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 600)
-    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["so", "7,5%"]], 600)
+    kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 300)
+    kw(112, 116, [["tay", "Chưa chắc đâu!"]], 600, them=0.5)
+    kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 380)
+    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["so", "7,5%"]], 380)
     kw(212, 218, [["tay", "Mỗi nhà"], ["br", ""], ["to", "MỘT DÒNG TIỀN"]], 280, them=0.4)
 
     # Khung thông tin trượt từ trái (cạnh MC). Mỗi mục hiện đúng lúc MC nói
@@ -116,11 +116,11 @@ def main():
     kh(125, 159, "TÀI CHÍNH LINH HOẠT", [
         (129, "duong", "Vay đến|70%"), (138, "chu", "Vốn tự có: phần nhỏ"),
         (145, "chu", "Lãi suất cố định thấp"), (154, "duong", "Hỗ trợ lãi suất|0%"),
-    ], 500)
+    ], 330)
     kh(185, 211, "ƯU ĐÃI ĐI KÈM", [
         (186, "duong", "Tặng phí quản lý|24 tháng"), (192, "duong", "Voucher Vinhomes|30%"),
         (205, "duong", "Hạn đến|31/12/2026"),
-    ], 500, them=1.2)
+    ], 330, them=1.2)
 
     # Khung ảnh tiện ích (nửa trên, phủ đúng vùng ảnh chèn sẵn của bản nháp)
     anh = []
@@ -158,7 +158,12 @@ def main():
             continue
         loc.append({**x, "from": round(max(0.0, x["from"]), 3)})
 
+    # Nền kính xanh ngọc che bảng chính sách đỏ có sẵn trong bản nháp (47,5s → hết đoạn 3)
+    d3 = canh[2]
+    nen = {"from": round(d3["from"] + 47.5 - d3["in"], 3), "dur": round(d3["dur"] - (47.5 - d3["in"]), 3)}
+
     data = {
+        "nenKinh": nen,
         "tongGiay": round(t, 3), "canh": canh, "chen": chen, "phuDe": phude, "chuKhoa": chukhoa,
         "khung": khung, "anh": anh, "sfx": loc,
         "thanhTen": {"from": round(T(235) - 0.1, 3), "dur": round(ket_tu - T(235) + 0.1, 3)},
