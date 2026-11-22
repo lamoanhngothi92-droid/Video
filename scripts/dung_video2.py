@@ -2,7 +2,7 @@
 
 Chạy:  python3 scripts/dung_video2.py
 Nguồn (đã chỉnh màu, chạy lệnh FFmpeg trong README/skill):
-  public/v2/mc_1080.mp4, mc_2160.mp4   – bản nháp MC (goc4k/pho_hien_mc.mov)
+  public/v2/mc_1080.mp4, mc_2160.mp4   – bản nháp MC không bảng CSBH (goc4k/1121.mov, khớp từng khung với pho_hien_mc.mov)
   public/v2/phu_1080.mp4, phu_2160.mp4 – cảnh phụ sa bàn (thay đoạn dính cốc nước)
   public/v2/tienich/*.jpg              – ảnh tiện ích (Wikimedia Commons, CC) + ảnh sân thể thao cắt từ bản nháp
 Kết quả: src/video2/data.json (khung 1080x1920; xuất 4K bằng --scale=2)
@@ -96,10 +96,10 @@ def main():
     kw(82, 88, [["nho", "tất cả"], ["br", ""], ["to", "TRONG NỘI KHU"]], 270)
     kw(89, 97, [["nho", "đi học · đi khám · đi chợ"]], 300, them=0.1)
     kw(98, 103, [["tay", "không cần ra ngoài"]], 300, them=0.6)
-    kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 300)
-    kw(112, 116, [["tay", "Chưa chắc đâu!"]], 600, them=0.5)
-    kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 380)
-    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["so", "7,5%"]], 380)
+    kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 250)
+    kw(112, 116, [["tay", "Chưa chắc đâu!"]], 270, them=0.5)
+    kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 270)
+    kw(171, 176, [["nho", "thanh toán sớm"], ["br", ""], ["to", "CHIẾT KHẤU"], ["so", "7,5%"]], 270)
     kw(212, 218, [["tay", "Mỗi nhà"], ["br", ""], ["to", "MỘT DÒNG TIỀN"]], 280, them=0.4)
 
     # Khung thông tin trượt từ trái (cạnh MC). Mỗi mục hiện đúng lúc MC nói
@@ -109,18 +109,18 @@ def main():
         khung.append({"from": round(T(i) - 0.1, 3), "dur": round(E(den) + them - T(i) + 0.1, 3), "tieuDe": tieu_de,
                       "y": y, "muc": [{"at": round(T(j) - T(i) + 0.1, 3), "loai": l, "chu": c} for j, l, c in muc]})
 
-    kh(27, 58, "VINHOMES PHỐ HIẾN · GIÁP 3 MẶT ĐƯỜNG LỚN", [
-        (30, "duong", "Liền kề thấp tầng|303 căn"), (42, "duong", "Cao tốc HY – TB|80,5m"),
-        (50, "duong", "Đường Thành phố|47m"), (54, "duong", "Đại lộ Thương Cảng|34m"),
-    ], 262, them=0.8)
+    kh(27, 58, "VINHOMES PHỐ HIẾN", [
+        (30, "so", "303 căn"), (32, "chu", "liền kề thấp tầng"), (36, "chu", "Giáp 3 mặt đường:"),
+        (42, "duong", "Cao tốc HY – TB|80,5m"), (50, "duong", "Đường Thành phố|47m"), (54, "duong", "Đại lộ Thương Cảng|34m"),
+    ], 600, them=0.8)
     kh(125, 159, "TÀI CHÍNH LINH HOẠT", [
         (129, "duong", "Vay đến|70%"), (138, "chu", "Vốn tự có: phần nhỏ"),
         (145, "chu", "Lãi suất cố định thấp"), (154, "duong", "Hỗ trợ lãi suất|0%"),
-    ], 330)
+    ], 255)
     kh(185, 211, "ƯU ĐÃI ĐI KÈM", [
         (186, "duong", "Tặng phí quản lý|24 tháng"), (192, "duong", "Voucher Vinhomes|30%"),
         (205, "duong", "Hạn đến|31/12/2026"),
-    ], 330, them=1.2)
+    ], 255, them=1.2)
 
     # Khung ảnh tiện ích (nửa trên, phủ đúng vùng ảnh chèn sẵn của bản nháp)
     anh = []
@@ -158,12 +158,7 @@ def main():
             continue
         loc.append({**x, "from": round(max(0.0, x["from"]), 3)})
 
-    # Nền kính xanh ngọc che bảng chính sách đỏ có sẵn trong bản nháp (47,5s → hết đoạn 3)
-    d3 = canh[2]
-    nen = {"from": round(d3["from"] + 47.5 - d3["in"], 3), "dur": round(d3["dur"] - (47.5 - d3["in"]), 3)}
-
     data = {
-        "nenKinh": nen,
         "tongGiay": round(t, 3), "canh": canh, "chen": chen, "phuDe": phude, "chuKhoa": chukhoa,
         "khung": khung, "anh": anh, "sfx": loc,
         "thanhTen": {"from": round(T(235) - 0.1, 3), "dur": round(ket_tu - T(235) + 0.1, 3)},

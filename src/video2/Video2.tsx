@@ -162,26 +162,27 @@ const Khung: React.FC<{ tieuDe: string; muc: Muc[]; y: number; hep: boolean }> =
   const { fps, durationInFrames } = useVideoConfig();
   const vao = spring({ frame, fps, config: { damping: 200 } });
   const ra = interpolate(frame, [durationInFrames - 0.35 * fps, durationInFrames], [0, 1], { ...nuot, easing: Easing.in(Easing.cubic) });
-  const x = (1 - vao) * -1100 + ra * -1100;
+  const x = hep ? (1 - vao) * 400 + ra * 400 : (1 - vao) * -1100 + ra * -1100;
   return (
     <div
       style={{
         position: "absolute",
-        left: 28,
+        left: hep ? undefined : 28,
+        right: hep ? 18 : undefined,
         top: y,
-        width: 1024,
+        width: hep ? 250 : 1024,
         transform: `translateX(${x}px)`,
         background: "linear-gradient(135deg, rgba(4,30,40,0.80), rgba(4,30,40,0.62))",
         backdropFilter: "blur(10px)",
         border: `2px solid ${VANG_KIM}`,
         borderRadius: 24,
-        padding: hep ? "14px 22px 16px" : "20px 30px 24px",
+        padding: hep ? "14px 18px 16px" : "20px 30px 24px",
         boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
       }}
     >
-      <div style={{ color: "#bff3f8", fontSize: 22, fontWeight: 600, letterSpacing: 3, marginBottom: 6 }}>{tieuDe}</div>
+      <div style={{ color: "#bff3f8", fontSize: hep ? 18 : 22, fontWeight: 600, letterSpacing: 3, marginBottom: 6 }}>{tieuDe}</div>
       <div style={{ width: 70, height: 3, background: VANG_KIM, marginBottom: 10 }} />
-      <div style={{ display: "grid", gridTemplateColumns: hep ? "1fr 1fr 1fr 1fr" : "1fr 1fr", columnGap: hep ? 14 : 26, rowGap: 6 }}>
+      <div style={{ display: "grid", gridTemplateColumns: hep ? "1fr" : "1fr 1fr", columnGap: 26, rowGap: hep ? 4 : 6 }}>
         {muc.map((m, i) => {
           const v = spring({ frame: frame - f(m.at), fps, config: { damping: 200 } });
           const s: React.CSSProperties = { opacity: v, transform: `translateX(${(1 - v) * -24}px)` };
@@ -190,13 +191,13 @@ const Khung: React.FC<{ tieuDe: string; muc: Muc[]; y: number; hep: boolean }> =
             const [nhan, so] = m.chu.split("|");
             return (
               <div key={i} style={{ ...s, display: "flex", flexDirection: "column", marginTop: 4 }}>
-                <span style={{ color: "white", fontSize: hep ? 22 : 28, fontWeight: 600, lineHeight: 1.15 }}>{nhan}</span>
-                <SoVangCam chu={so} co={hep ? 46 : 52} />
+                <span style={{ color: "white", fontSize: hep ? 21 : 28, fontWeight: 600, lineHeight: 1.15 }}>{nhan}</span>
+                <SoVangCam chu={so} co={hep ? 42 : 52} />
               </div>
             );
           }
           return (
-            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 26 : 30, fontWeight: 600, lineHeight: 1.3, marginTop: 2 }}>
+            <div key={i} style={{ ...s, color: "white", fontSize: hep ? 22 : 30, fontWeight: 600, lineHeight: 1.25, marginTop: 2 }}>
               {m.chu}
             </div>
           );
@@ -321,14 +322,6 @@ const PhuDeDoc: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
   );
 };
 
-// ===== Nền kính xanh ngọc che bảng chính sách đỏ của bản nháp =====
-const NenKinh: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { durationInFrames: d } = useVideoConfig();
-  const o = interpolate(frame, [0, 40, d - 6, d], [0, 1, 1, 0], { ...nuot, easing: Easing.inOut(Easing.quad) });
-  return <Img src={staticFile("v2/nen_kinh.png")} style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 900, opacity: o }} />;
-};
-
 // ===== Kết: hình dừng, mờ dần; "Lâm Oanh Vinhomes" hiện mờ mờ =====
 const Ket: React.FC<{ src: string; vao: number }> = ({ src, vao }) => {
   const frame = useCurrentFrame();
@@ -389,9 +382,6 @@ export const Video2: React.FC<Video2Props> = ({ nguon }) => {
           <Audio src={staticFile(`sfx/${x.ten}.wav`)} volume={x.vol} />
         </Sequence>
       ))}
-      <Sequence from={f(data.nenKinh.from)} durationInFrames={f(data.nenKinh.dur)} layout="none">
-        <NenKinh />
-      </Sequence>
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.18) 0%, transparent 18%, transparent 62%, rgba(0,0,0,0.30) 85%, rgba(0,0,0,0.15) 100%)" }} />
       {data.anh.map((x, i) => (
         <Sequence key={`a${i}`} from={f(x.from)} durationInFrames={f(x.dur)} layout="none">

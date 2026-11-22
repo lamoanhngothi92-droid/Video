@@ -1,8 +1,4 @@
 {
- "nenKinh": {
-  "from": 33.14,
-  "dur": 26.05
- },
  "tongGiay": 72.09,
  "canh": [
   {
@@ -1956,7 +1952,7 @@
      "LÀ LỜI NHẤT?"
     ]
    ],
-   "y": 300,
+   "y": 250,
    "can": "giua",
    "trai": 30
   },
@@ -1969,7 +1965,7 @@
      "Chưa chắc đâu!"
     ]
    ],
-   "y": 600,
+   "y": 270,
    "can": "giua",
    "trai": 30
   },
@@ -1990,7 +1986,7 @@
      "VÔ CÙNG LINH HOẠT"
     ]
    ],
-   "y": 380,
+   "y": 270,
    "can": "giua",
    "trai": 30
   },
@@ -2015,7 +2011,7 @@
      "7,5%"
     ]
    ],
-   "y": 380,
+   "y": 270,
    "can": "giua",
    "trai": 30
   },
@@ -2045,13 +2041,23 @@
   {
    "from": 6.94,
    "dur": 10.32,
-   "tieuDe": "VINHOMES PHỐ HIẾN · GIÁP 3 MẶT ĐƯỜNG LỚN",
-   "y": 262,
+   "tieuDe": "VINHOMES PHỐ HIẾN",
+   "y": 600,
    "muc": [
     {
      "at": 0.58,
-     "loai": "duong",
-     "chu": "Liền kề thấp tầng|303 căn"
+     "loai": "so",
+     "chu": "303 căn"
+    },
+    {
+     "at": 1.6,
+     "loai": "chu",
+     "chu": "liền kề thấp tầng"
+    },
+    {
+     "at": 2.64,
+     "loai": "chu",
+     "chu": "Giáp 3 mặt đường:"
     },
     {
      "at": 3.96,
@@ -2074,7 +2080,7 @@
    "from": 38.79,
    "dur": 8.1,
    "tieuDe": "TÀI CHÍNH LINH HOẠT",
-   "y": 330,
+   "y": 255,
    "muc": [
     {
      "at": 0.74,
@@ -2102,7 +2108,7 @@
    "from": 51.77,
    "dur": 8.48,
    "tieuDe": "ƯU ĐÃI ĐI KÈM",
-   "y": 330,
+   "y": 255,
    "muc": [
     {
      "at": 0.44,
@@ -2187,16 +2193,26 @@
   },
   {
    "ten": "go1",
-   "from": 10.9,
+   "from": 8.54,
    "vol": 0.09
   },
   {
    "ten": "go2",
-   "from": 13.44,
+   "from": 9.58,
    "vol": 0.09
   },
   {
    "ten": "go3",
+   "from": 10.9,
+   "vol": 0.09
+  },
+  {
+   "ten": "go4",
+   "from": 13.44,
+   "vol": 0.09
+  },
+  {
+   "ten": "go5",
    "from": 14.9,
    "vol": 0.09
   },
