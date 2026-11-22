@@ -96,6 +96,8 @@ def main():
     kw(82, 88, [["nho", "tất cả"], ["br", ""], ["to", "TRONG NỘI KHU"]], 270)
     kw(89, 97, [["nho", "đi học · đi khám · đi chợ"]], 300, them=0.1)
     kw(98, 103, [["tay", "không cần ra ngoài"]], 300, them=0.6)
+    # tắt trước khi mờ chồng sang cảnh Thắng trước logo (đoạn 3)
+    chukhoa[-1]["dur"] = round(canh[2]["from"] - 0.05 - chukhoa[-1]["from"], 3)
     kw(104, 111, [["nho", "Thứ ba"], ["br", ""], ["to", "VAY"], ["so", "0%"], ["br", ""], ["to", "LÀ LỜI NHẤT?"]], 250)
     kw(112, 116, [["tay", "Chưa chắc đâu!"]], 270, them=0.5)
     kw(117, 124, [["nho", "chính sách"], ["br", ""], ["to", "VÔ CÙNG LINH HOẠT"]], 270)

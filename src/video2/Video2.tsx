@@ -289,7 +289,7 @@ const PhuDeDoc: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
   const t = trang.find((p) => ms >= p.batDau && ms < p.ketThuc);
   if (!t) return null;
   const chuCuoi = t.dong[t.dong.length - 1];
-  if (ms > chuCuoi[chuCuoi.length - 1].endMs + 800) return null; // im lặng lâu → tắt phụ đề
+  if (ms > chuCuoi[chuCuoi.length - 1].endMs + 300) return null; // im lặng lâu → tắt phụ đề
   const dai = Math.max(...t.dong.map((d) => d.map((w) => w.text).join("").trim().length));
   return (
     <div
