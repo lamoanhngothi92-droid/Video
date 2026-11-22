@@ -17,7 +17,7 @@ if [ "$CO" = "720" ]; then
   echo "Xong: out/video2-pho-hien-720p.mp4"
 else
   P='{"nguon":"2160"}'
-  npx remotion render src/index.ts $ID out/.v2_hinh4k.mp4 --props="$P" --scale=2 --crf=16 --x264-preset=medium --log=error
+  npx remotion render src/index.ts $ID out/.v2_hinh4k.mp4 --props="$P" --scale=2 --crf=16 --x264-preset=medium --concurrency=2 --offthreadvideo-cache-size-in-bytes=1500000000 --log=error
   npx remotion render src/index.ts $ID out/.v2_loi.wav --codec=wav --log=error
   ffmpeg -v error -y -i out/.v2_hinh4k.mp4 -i out/.v2_loi.wav -filter_complex "[1:a]loudnorm=I=-16:TP=-1.5:LRA=11[a]" \
     -map 0:v -map "[a]" -c:v copy -c:a aac -b:a 256k -movflags +faststart out/video2-pho-hien-4k.mp4
