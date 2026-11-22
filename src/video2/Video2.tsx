@@ -104,7 +104,7 @@ const kieuTo = (co: number): React.CSSProperties => ({
 
 type Dong = [string, string];
 
-const ChuKhoa: React.FC<{ dong: Dong[]; y: number }> = ({ dong, y }) => {
+const ChuKhoa: React.FC<{ dong: Dong[]; y: number; trai: number }> = ({ dong, y, trai }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const ra = interpolate(frame, [durationInFrames - 7, durationInFrames], [1, 0], nuot);
@@ -113,7 +113,7 @@ const ChuKhoa: React.FC<{ dong: Dong[]; y: number }> = ({ dong, y }) => {
   dong.forEach(([loai, chu], k) => (loai === "br" ? hang.push([]) : hang[hang.length - 1].push({ loai, chu, k })));
   let dem = 0;
   return (
-    <div style={{ position: "absolute", left: 30, right: 30, top: y, opacity: ra, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+    <div style={{ position: "absolute", left: trai, right: 30, top: y, opacity: ra, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
       {hang.map((h, i) => (
         <div key={i} style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: 16 }}>
           {h.map(({ loai, chu, k }) => {
@@ -428,7 +428,7 @@ export const Video2: React.FC<Video2Props> = ({ nguon }) => {
       ))}
       {data.chuKhoa.map((k, i) => (
         <Sequence key={`w${i}`} from={f(k.from)} durationInFrames={f(k.dur)} layout="none">
-          <ChuKhoa dong={k.dong as Dong[]} y={k.y} />
+          <ChuKhoa dong={k.dong as Dong[]} y={k.y} trai={k.trai} />
         </Sequence>
       ))}
       <Sequence durationInFrames={f(data.ket.from)} layout="none">

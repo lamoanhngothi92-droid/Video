@@ -85,11 +85,12 @@ def main():
     # Chữ khóa: (từ chữ, đến chữ, dòng, vị trí y (khung 1080x1920), căn)
     chukhoa = []
 
-    def kw(i, den, dong, y, can="giua", them=0.25):
-        chukhoa.append({"from": round(T(i), 3), "dur": round(E(den) + them - T(i), 3), "dong": dong, "y": y, "can": can})
+    def kw(i, den, dong, y, can="giua", them=0.25, trai=30):
+        chukhoa.append({"from": round(T(i), 3), "dur": round(E(den) + them - T(i), 3), "dong": dong, "y": y, "can": can,
+                        "trai": trai})
 
-    kw(0, 10, [["nho", "Có"], ["so", "3"], ["to", "CÂU HỎI"], ["br", ""], ["nho", "về"], ["to2", "VINHOMES PHỐ HIẾN"]], 300)
-    kw(11, 19, [["tay", "ai cũng hiểu sai"]], 590, them=0.6)
+    kw(0, 10, [["nho", "Có"], ["so", "3"], ["to", "CÂU HỎI"], ["br", ""], ["nho", "về"], ["to2", "VINHOMES PHỐ HIẾN"]], 300, them=0.05)
+    kw(11, 19, [["tay", "ai cũng"], ["br", ""], ["tay", "hiểu sai"]], 820, them=-0.12, trai=650)
     kw(20, 26, [["nho", "Thứ nhất"], ["br", ""], ["to", "VỊ TRÍ CÓ ĐẸP?"]], 250)
     kw(59, 65, [["nho", "Câu thứ hai"], ["br", ""], ["to", "Ở CÓ TIỆN?"]], 280)
     kw(82, 88, [["nho", "tất cả"], ["br", ""], ["to", "TRONG NỘI KHU"]], 270)
