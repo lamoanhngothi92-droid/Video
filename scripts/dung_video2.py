@@ -150,7 +150,6 @@ def main():
             sfx.append({"ten": f"go{n % 6 + 1}", "from": k["from"] + m["at"], "vol": 0.09})
     for n, x in enumerate(anh):
         sfx.append({"ten": f"go{n + 1}", "from": x["from"] + 0.04, "vol": 0.1})
-    sfx.append({"ten": "luot", "from": T(235) - 0.15, "vol": 0.08})
     sfx.append({"ten": "chime", "from": ket_tu + 0.1, "vol": 0.13})
     sfx.sort(key=lambda x: x["from"])
     loc = []

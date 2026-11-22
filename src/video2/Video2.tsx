@@ -321,40 +321,6 @@ const PhuDeDoc: React.FC<{ phuDe: Caption[] }> = ({ phuDe }) => {
   );
 };
 
-// ===== Thanh tên khi chào =====
-const ThanhTen: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { fps, durationInFrames: d } = useVideoConfig();
-  const v = (tre: number) => spring({ frame: frame - tre, fps, config: { damping: 200 } });
-  const ra = interpolate(frame, [d - 8, d], [1, 0], nuot);
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: 140,
-        right: 140,
-        top: 300,
-        textAlign: "center",
-        opacity: ra * Math.min(1, v(0) * 1.4),
-        transform: `translateY(${(1 - v(0)) * -30}px)`,
-        padding: "16px 22px 18px",
-        borderTop: `3px solid ${VANG_KIM}`,
-        borderRadius: 16,
-        background: "linear-gradient(180deg, rgba(4,30,40,0.72), rgba(4,30,40,0.5))",
-        backdropFilter: "blur(8px)",
-      }}
-    >
-      <div style={{ color: "white", fontSize: 38, fontWeight: 700, opacity: v(4) }}>Lâm Oanh – Đức Thắng</div>
-      <div style={{ opacity: v(8) }}>
-        <SoVangCam chu="0346 032 032" co={50} />
-      </div>
-      <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 22, letterSpacing: 0.5, marginTop: 4, opacity: v(12) }}>
-        Liên hệ trực tiếp từ văn phòng bán hàng CĐT Vinhomes
-      </div>
-    </div>
-  );
-};
-
 // ===== Kết: hình dừng, mờ dần; "Lâm Oanh Vinhomes" hiện mờ mờ =====
 const Ket: React.FC<{ src: string; vao: number }> = ({ src, vao }) => {
   const frame = useCurrentFrame();
@@ -433,9 +399,6 @@ export const Video2: React.FC<Video2Props> = ({ nguon }) => {
       ))}
       <Sequence durationInFrames={f(data.ket.from)} layout="none">
         <PhuDeDoc phuDe={data.phuDe as Caption[]} />
-      </Sequence>
-      <Sequence from={f(data.thanhTen.from)} durationInFrames={f(data.thanhTen.dur)} layout="none">
-        <ThanhTen />
       </Sequence>
       <Sequence durationInFrames={f(data.ket.from)} layout="none">
         <div style={{ position: "absolute", top: 150, right: 36 }}>
