@@ -182,15 +182,14 @@ def main():
     # ===== 7–8. Hội trường → diễn giả nói về thị trường =====
     broll("0704", 4.0, 1.1, 3.0, 1.3, vol=0.25, mo=True)
     s = broll("0700", 2.7, 3.0, 1.0, 1.0, vol=1.0, phude_tu=(10, 20))
-    kw(s + 0.1, s + 1.6, [["so", "01"], ["nho", "tiềm năng"], ["to", "THỊ TRƯỜNG HẠ LONG"]], vt="traiduoi", co=0.75,
-       mau="cam")
+    kw(s + 0.1, s + 1.6, [["so", "01"], ["nho", "tiềm năng"], ["to", "THỊ TRƯỜNG HẠ LONG"]], vt="traiduoi", co=0.75)
 
     # ===== 9. Chùm chính sách bán hàng =====
     s = broll("0723", 1.0, 1.9, 2.5, 1.0, vol=0.25, mo=True)
     broll("0733", 0.5, 1.9, 2.0, 1.0, vol=0.25)
     s2 = broll("0735", 2.0, 2.1, 2.5, 1.0, vol=0.25)
     broll("0742", 3.5, 1.7, 2.0, 1.0, vol=0.25)
-    kw(s + 0.2, s + 1.7, [["so", "02"], ["to", "CHÍNH SÁCH"], ["to", "BÁN HÀNG MỚI"]], vt="thap", co=0.85, mau="cam")
+    kw(s + 0.2, s + 1.7, [["so", "02"], ["to", "CHÍNH SÁCH"], ["to", "BÁN HÀNG MỚI"]], vt="thap", co=0.85)
     kw(s2 + 0.2, s2 + 1.6, [["nho", "tiêu chuẩn"], ["to", "BÀN GIAO HOÀN THIỆN"]], vt="thap", co=0.85, mau="cam")
 
     # ===== 10. Chùm bốc thăm – trao quà =====
