@@ -66,7 +66,7 @@ const CanhChen: React.FC<{ src: string; mo: boolean; ra: boolean; vol: number }>
 type Dong = [string, string];
 
 // Chữ TO: từng ký tự trượt lên + hết nhòe, giãn chữ nhẹ dần về, vạch vàng cam chạy dưới chân
-const ChuTo: React.FC<{ chu: string; tre: number; co: number }> = ({ chu, tre, co }) => {
+const ChuTo: React.FC<{ chu: string; tre: number; co: number; cam?: boolean }> = ({ chu, tre, co, cam }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const gian = interpolate(frame - tre, [0, 30], [10, 1], { ...kep, easing: Easing.out(Easing.cubic) });
@@ -83,7 +83,8 @@ const ChuTo: React.FC<{ chu: string; tre: number; co: number }> = ({ chu, tre, c
           lineHeight: 1.04,
           letterSpacing: gian,
           whiteSpace: "pre",
-          textShadow: BONG,
+          textShadow: cam ? undefined : BONG,
+          filter: cam ? "drop-shadow(0 4px 10px rgba(0,0,0,0.7)) drop-shadow(0 1px 2px rgba(0,0,0,0.6))" : undefined,
         }}
       >
         {Array.from(chu).map((c, i) => {
@@ -96,6 +97,14 @@ const ChuTo: React.FC<{ chu: string; tre: number; co: number }> = ({ chu, tre, c
                 opacity: Math.min(1, v * 1.5),
                 transform: `translateY(${(1 - v) * 38}px)`,
                 filter: `blur(${(1 - Math.min(1, v)) * 7}px)`,
+                ...(cam
+                  ? {
+                      color: "transparent",
+                      backgroundImage: `linear-gradient(180deg, ${VANG} 20%, ${CAM} 100%)`,
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                    }
+                  : {}),
               }}
             >
               {c}
@@ -118,7 +127,9 @@ const ChuTo: React.FC<{ chu: string; tre: number; co: number }> = ({ chu, tre, c
           height: 7 * co,
           marginTop: 2,
           borderRadius: 4,
-          background: `linear-gradient(90deg, ${VANG}, ${CAM} 70%, rgba(255,154,31,0))`,
+          background: cam
+            ? `linear-gradient(90deg, ${XANH}, ${XANH} 70%, rgba(30,203,225,0))`
+            : `linear-gradient(90deg, ${VANG}, ${CAM} 70%, rgba(255,154,31,0))`,
           transform: `scaleX(${vach})`,
           transformOrigin: "left",
           boxShadow: "0 2px 10px rgba(0,0,0,0.35)",
@@ -128,7 +139,7 @@ const ChuTo: React.FC<{ chu: string; tre: number; co: number }> = ({ chu, tre, c
   );
 };
 
-const ChuKhoa: React.FC<{ dong: Dong[]; vt: string; co: number }> = ({ dong, vt, co }) => {
+const ChuKhoa: React.FC<{ dong: Dong[]; vt: string; co: number; cam: boolean }> = ({ dong, vt, co, cam }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const ra = interpolate(frame, [durationInFrames - 10, durationInFrames], [1, 0], kep);
@@ -161,7 +172,7 @@ const ChuKhoa: React.FC<{ dong: Dong[]; vt: string; co: number }> = ({ dong, vt,
       {dong.map(([loai, chu], i) => {
         const tre = i * 7;
         const v = spring({ frame: frame - tre, fps, config: { damping: 14, stiffness: 160 } });
-        if (loai === "to") return <ChuTo key={i} chu={chu} tre={tre} co={co} />;
+        if (loai === "to") return <ChuTo key={i} chu={chu} tre={tre} co={co} cam={cam} />;
         if (loai === "so") {
           return (
             <div
@@ -379,7 +390,7 @@ export const Video3: React.FC<Props> = ({ thuMuc }) => {
       />
       {data.chuKhoa.map((k, i) => (
         <Sequence key={`w${i}`} from={f(k.from)} durationInFrames={f(k.dur)} layout="none">
-          <ChuKhoa dong={k.dong as Dong[]} vt={k.vt} co={k.co} />
+          <ChuKhoa dong={k.dong as Dong[]} vt={k.vt} co={k.co} cam={k.mau === "cam"} />
         </Sequence>
       ))}
       {data.the.map((x, i) => (

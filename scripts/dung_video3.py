@@ -120,8 +120,9 @@ def main():
             t += T
         return tu
 
-    def kw(tu, den, dong, vt="giua", co=1.0):
-        chukhoa.append({"from": tu, "dur": den - tu, "dong": dong, "vt": vt, "co": co})
+    def kw(tu, den, dong, vt="giua", co=1.0, mau="xanh"):
+        """mau="cam": chữ to vàng cam – dùng trên nền màn LED / slide xanh cho nổi."""
+        chukhoa.append({"from": tu, "dur": den - tu, "dong": dong, "vt": vt, "co": co, "mau": mau})
 
     def tu_chu(k, i):
         return moc[(k, i)][0]
@@ -134,7 +135,7 @@ def main():
     broll("0742", 0.5, 0.9, 3.0, 1.6, vol=0.35)
     broll("0704", 1.0, 1.0, 3.0, 1.2, vol=0.35)
     kw(0.0, 1.42, [["nho", "sáng nay"], ["to", "ĐÔNG KÍN KHÁCH"]], vt="tam", co=1.15)
-    kw(1.42, t + 0.05, [["tay", "Dấu ấn"], ["to", "DI SẢN"]], vt="tam", co=1.25)
+    kw(1.42, t + 0.05, [["tay", "Dấu ấn"], ["to", "DI SẢN"]], vt="tam", co=1.25, mau="cam")
     hook_het = t
 
     # ===== 2–4. MC trước sảnh =====
@@ -164,7 +165,7 @@ def main():
     broll("0718", 17.0, 1.3, 3.0, 1.2, vol=0.25)
     broll("0681", 0.4, 1.3, 2.0, 1.0, vol=0.25)
     broll("0697", 5.5, 1.5, 2.0, 0.8, vol=0.25, ra=True)
-    kw(s + 0.3, s + 3.2, [["nho", "không khí"], ["to", "SÔI ĐỘNG"]], vt="tam")
+    kw(s + 0.3, s + 2.3, [["nho", "không khí"], ["to", "SÔI ĐỘNG"]], vt="tam")
     chum1 = (s, t)
 
     # ===== 6. MC bên sa bàn =====
@@ -181,15 +182,16 @@ def main():
     # ===== 7–8. Hội trường → diễn giả nói về thị trường =====
     broll("0704", 4.0, 1.1, 3.0, 1.3, vol=0.25, mo=True)
     s = broll("0700", 2.7, 3.0, 1.0, 1.0, vol=1.0, phude_tu=(10, 20))
-    kw(s + 0.1, s + 2.9, [["so", "01"], ["nho", "tiềm năng"], ["to", "THỊ TRƯỜNG HẠ LONG"]], vt="traiduoi", co=0.75)
+    kw(s + 0.1, s + 1.6, [["so", "01"], ["nho", "tiềm năng"], ["to", "THỊ TRƯỜNG HẠ LONG"]], vt="traiduoi", co=0.75,
+       mau="cam")
 
     # ===== 9. Chùm chính sách bán hàng =====
     s = broll("0723", 1.0, 1.9, 2.5, 1.0, vol=0.25, mo=True)
     broll("0733", 0.5, 1.9, 2.0, 1.0, vol=0.25)
     s2 = broll("0735", 2.0, 2.1, 2.5, 1.0, vol=0.25)
     broll("0742", 3.5, 1.7, 2.0, 1.0, vol=0.25)
-    kw(s + 0.2, s2 - 0.1, [["so", "02"], ["to", "CHÍNH SÁCH"], ["to", "BÁN HÀNG MỚI"]], vt="thap", co=0.85)
-    kw(s2 + 0.2, t - 0.1, [["nho", "tiêu chuẩn"], ["to", "BÀN GIAO HOÀN THIỆN"]], vt="thap", co=0.85)
+    kw(s + 0.2, s + 1.7, [["so", "02"], ["to", "CHÍNH SÁCH"], ["to", "BÁN HÀNG MỚI"]], vt="thap", co=0.85, mau="cam")
+    kw(s2 + 0.2, s2 + 1.6, [["nho", "tiêu chuẩn"], ["to", "BÀN GIAO HOÀN THIỆN"]], vt="thap", co=0.85, mau="cam")
 
     # ===== 10. Chùm bốc thăm – trao quà =====
     s = broll("0745", 0.3, 2.1, 2.0, 1.0, vol=0.3, mo=True)
@@ -197,15 +199,15 @@ def main():
     s2 = broll("0750", 1.0, 1.8, 3.0, 1.0, vol=0.3)
     broll("0751", 1.0, 2.5, 5.0, 1.0, vol=0.3)
     broll("0752", 2.0, 2.5, 6.0, 1.0, vol=0.3)
-    kw(s + 0.2, s + 2.4, [["nho", "bốc thăm"], ["to", "MAY MẮN"]], vt="tren")
-    kw(s2 + 0.1, s2 + 2.6, [["nho", "rất nhiều"], ["to", "QUÀ TẶNG HẤP DẪN"]], vt="tren", co=0.9)
+    kw(s + 0.2, s + 1.6, [["nho", "bốc thăm"], ["to", "MAY MẮN"]], vt="tren", mau="cam")
+    kw(s2 + 0.1, s2 + 1.6, [["nho", "rất nhiều"], ["to", "QUÀ TẶNG HẤP DẪN"]], vt="tren", co=0.9, mau="cam")
     qua = (s, t)
 
     # ===== 11. Ảnh đội ngũ + ảnh tập thể (giữ tiếng đếm 1, 2, 3) =====
     s = broll("0671", 1.0, 2.5, 2.0, 1.0, vol=0.3, mo=True)
-    kw(s + 0.2, s + 2.4, [["tay", "Dấu ấn"], ["to", "DI SẢN"]], vt="tren")
+    kw(s + 0.2, s + 1.6, [["tay", "Dấu ấn"], ["to", "DI SẢN"]], vt="tren", mau="cam")
     s = broll("0754", 0.45, 3.1, 1.0, 1.0, vol=1.0)
-    kw(s + 0.3, s + 3.0, [["to", "KIẾN TẠO TƯƠNG LAI"]], vt="tren", co=0.85)
+    kw(s + 0.3, s + 1.8, [["to", "KIẾN TẠO TƯƠNG LAI"]], vt="tren", co=0.85, mau="cam")
 
     # ===== 12–13. Kết: ảnh tập thể vẫy tay chậm + thanh liên hệ + LÂM OANH VINHOMES mờ mờ =====
     s = broll("0756", 0.2, 7.4, 0.75, 0.75, vol=0.3, mo=True)
