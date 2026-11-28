@@ -371,6 +371,20 @@ const KetMoMo: React.FC = () => {
         >
           LÂM OANH <span style={{ color: XANH }}>VINHOMES</span>
         </div>
+        <div
+          style={{
+            marginTop: -6,
+            fontSize: 34,
+            fontWeight: 400,
+            letterSpacing: 2,
+            color: "rgba(255,255,255,0.92)",
+            opacity: interpolate(frame, [0.45 * fps, 1.2 * fps], [0, 1], kep),
+            transform: `translateY(${interpolate(frame, [0.45 * fps, 1.2 * fps], [16, 0], { ...kep, easing: Easing.out(Easing.cubic) })}px)`,
+            textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+          }}
+        >
+          Tư vấn trực tiếp từ văn phòng bán hàng CĐT Vinhomes
+        </div>
         <div style={{ opacity: chu * 0.8 }}>
           <Logo cao={70} tuDoanh />
         </div>
