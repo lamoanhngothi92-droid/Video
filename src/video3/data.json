@@ -1,0 +1,1464 @@
+{
+ "tongGiay": 64.48,
+ "sfx": [
+  {
+   "ten": "pop",
+   "from": 0.1,
+   "vol": 0.115
+  },
+  {
+   "ten": "go1",
+   "from": 0.95,
+   "vol": 0.092
+  },
+  {
+   "ten": "shimmer",
+   "from": 1.42,
+   "vol": 0.132
+  },
+  {
+   "ten": "go2",
+   "from": 1.85,
+   "vol": 0.092
+  },
+  {
+   "ten": "shimmer",
+   "from": 4.1899999999999995,
+   "vol": 0.132
+  },
+  {
+   "ten": "luot",
+   "from": 5.2299999999999995,
+   "vol": 0.099
+  },
+  {
+   "ten": "shimmer",
+   "from": 7.49,
+   "vol": 0.132
+  },
+  {
+   "ten": "ding",
+   "from": 9.59,
+   "vol": 0.083
+  },
+  {
+   "ten": "luot",
+   "from": 10.329999999999998,
+   "vol": 0.099
+  },
+  {
+   "ten": "pop",
+   "from": 10.679999999999998,
+   "vol": 0.115
+  },
+  {
+   "ten": "go3",
+   "from": 11.459999999999999,
+   "vol": 0.092
+  },
+  {
+   "ten": "go4",
+   "from": 12.299999999999999,
+   "vol": 0.092
+  },
+  {
+   "ten": "go5",
+   "from": 13.82,
+   "vol": 0.092
+  },
+  {
+   "ten": "pop",
+   "from": 14.22,
+   "vol": 0.115
+  },
+  {
+   "ten": "go6",
+   "from": 15.07,
+   "vol": 0.092
+  },
+  {
+   "ten": "go1",
+   "from": 16.32,
+   "vol": 0.092
+  },
+  {
+   "ten": "go2",
+   "from": 17.47,
+   "vol": 0.092
+  },
+  {
+   "ten": "go3",
+   "from": 18.77,
+   "vol": 0.092
+  },
+  {
+   "ten": "go4",
+   "from": 20.07,
+   "vol": 0.092
+  },
+  {
+   "ten": "ding",
+   "from": 22.54,
+   "vol": 0.083
+  },
+  {
+   "ten": "ding",
+   "from": 25.31,
+   "vol": 0.073
+  },
+  {
+   "ten": "ding",
+   "from": 26.59,
+   "vol": 0.073
+  },
+  {
+   "ten": "luot",
+   "from": 28.43,
+   "vol": 0.099
+  },
+  {
+   "ten": "go5",
+   "from": 29.78,
+   "vol": 0.092
+  },
+  {
+   "ten": "ding",
+   "from": 29.980000000000004,
+   "vol": 0.083
+  },
+  {
+   "ten": "luot",
+   "from": 32.53,
+   "vol": 0.099
+  },
+  {
+   "ten": "ding",
+   "from": 33.080000000000005,
+   "vol": 0.083
+  },
+  {
+   "ten": "go6",
+   "from": 34.68,
+   "vol": 0.092
+  },
+  {
+   "ten": "go1",
+   "from": 36.58,
+   "vol": 0.092
+  },
+  {
+   "ten": "pop",
+   "from": 36.88,
+   "vol": 0.115
+  },
+  {
+   "ten": "go2",
+   "from": 38.68,
+   "vol": 0.092
+  },
+  {
+   "ten": "luot",
+   "from": 40.13,
+   "vol": 0.099
+  },
+  {
+   "ten": "pop",
+   "from": 40.68000000000001,
+   "vol": 0.115
+  },
+  {
+   "ten": "go3",
+   "from": 42.480000000000004,
+   "vol": 0.092
+  },
+  {
+   "ten": "ding",
+   "from": 43.080000000000005,
+   "vol": 0.059
+  },
+  {
+   "ten": "go4",
+   "from": 44.68000000000001,
+   "vol": 0.092
+  },
+  {
+   "ten": "pop",
+   "from": 44.88000000000001,
+   "vol": 0.115
+  },
+  {
+   "ten": "ding",
+   "from": 45.28000000000001,
+   "vol": 0.059
+  },
+  {
+   "ten": "go5",
+   "from": 46.480000000000004,
+   "vol": 0.092
+  },
+  {
+   "ten": "ding",
+   "from": 47.080000000000005,
+   "vol": 0.059
+  },
+  {
+   "ten": "go6",
+   "from": 48.980000000000004,
+   "vol": 0.092
+  },
+  {
+   "ten": "ding",
+   "from": 49.580000000000005,
+   "vol": 0.059
+  },
+  {
+   "ten": "luot",
+   "from": 51.230000000000004,
+   "vol": 0.099
+  },
+  {
+   "ten": "shimmer",
+   "from": 51.68000000000001,
+   "vol": 0.132
+  },
+  {
+   "ten": "go1",
+   "from": 53.980000000000004,
+   "vol": 0.092
+  },
+  {
+   "ten": "pop",
+   "from": 54.38,
+   "vol": 0.115
+  },
+  {
+   "ten": "luot",
+   "from": 56.830000000000005,
+   "vol": 0.099
+  },
+  {
+   "ten": "luot",
+   "from": 57.330000000000005,
+   "vol": 0.083
+  },
+  {
+   "ten": "chime",
+   "from": 62.28,
+   "vol": 0.132
+  }
+ ],
+ "canh": [
+  {
+   "src": "v3/mc_0732.mp4",
+   "from": 2.85,
+   "in": 0.66,
+   "dur": 10.97,
+   "zoom": 1.0
+  },
+  {
+   "src": "v3/mc_0739.mp4",
+   "from": 21.22,
+   "in": 0.66,
+   "dur": 3.7700000000000005,
+   "zoom": 1.0
+  },
+  {
+   "src": "v3/mc_0739.mp4",
+   "from": 24.99,
+   "in": 4.6,
+   "dur": 3.990000000000001,
+   "zoom": 1.07
+  }
+ ],
+ "chen": [
+  {
+   "src": "v3/b_0697_1.mp4",
+   "from": 0.0,
+   "dur": 0.95,
+   "mo": false,
+   "ra": false,
+   "vol": 0.35,
+   "k": "0697"
+  },
+  {
+   "src": "v3/b_0742_1.mp4",
+   "from": 0.95,
+   "dur": 0.9,
+   "mo": false,
+   "ra": false,
+   "vol": 0.35,
+   "k": "0742"
+  },
+  {
+   "src": "v3/b_0704_1.mp4",
+   "from": 1.85,
+   "dur": 1.0,
+   "mo": false,
+   "ra": false,
+   "vol": 0.35,
+   "k": "0704"
+  },
+  {
+   "src": "v3/b_0718_1.mp4",
+   "from": 5.4799999999999995,
+   "dur": 2.2600000000000007,
+   "mo": true,
+   "ra": true,
+   "vol": 0,
+   "k": "0718"
+  },
+  {
+   "src": "v3/b_0713_1.mp4",
+   "from": 10.579999999999998,
+   "dur": 0.8800000000000008,
+   "mo": true,
+   "ra": false,
+   "vol": 0,
+   "k": "0713"
+  },
+  {
+   "src": "v3/b_0718_2.mp4",
+   "from": 11.459999999999999,
+   "dur": 0.8399999999999999,
+   "mo": false,
+   "ra": false,
+   "vol": 0,
+   "k": "0718"
+  },
+  {
+   "src": "v3/b_0743_1.mp4",
+   "from": 12.299999999999999,
+   "dur": 1.5200000000000014,
+   "mo": false,
+   "ra": false,
+   "vol": 0,
+   "k": "0743"
+  },
+  {
+   "src": "v3/b_0676_1.mp4",
+   "from": 13.82,
+   "dur": 1.25,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0676"
+  },
+  {
+   "src": "v3/b_0688_1.mp4",
+   "from": 15.07,
+   "dur": 1.25,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0688"
+  },
+  {
+   "src": "v3/b_0744_1.mp4",
+   "from": 16.32,
+   "dur": 1.15,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0744"
+  },
+  {
+   "src": "v3/b_0718_3.mp4",
+   "from": 17.47,
+   "dur": 1.3,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0718"
+  },
+  {
+   "src": "v3/b_0681_1.mp4",
+   "from": 18.77,
+   "dur": 1.3,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0681"
+  },
+  {
+   "src": "v3/b_0697_2.mp4",
+   "from": 20.07,
+   "dur": 1.8,
+   "mo": false,
+   "ra": true,
+   "vol": 0.25,
+   "k": "0697"
+  },
+  {
+   "src": "v3/b_0704_2.mp4",
+   "from": 28.68,
+   "dur": 1.1,
+   "mo": true,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0704"
+  },
+  {
+   "src": "v3/b_0700_1.mp4",
+   "from": 29.78,
+   "dur": 3.3,
+   "mo": false,
+   "ra": false,
+   "vol": 1.0,
+   "k": "0700"
+  },
+  {
+   "src": "v3/b_0723_1.mp4",
+   "from": 32.78,
+   "dur": 1.9,
+   "mo": true,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0723"
+  },
+  {
+   "src": "v3/b_0733_1.mp4",
+   "from": 34.68,
+   "dur": 1.9,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0733"
+  },
+  {
+   "src": "v3/b_0735_1.mp4",
+   "from": 36.58,
+   "dur": 2.1,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0735"
+  },
+  {
+   "src": "v3/b_0742_2.mp4",
+   "from": 38.68,
+   "dur": 2.0,
+   "mo": false,
+   "ra": false,
+   "vol": 0.25,
+   "k": "0742"
+  },
+  {
+   "src": "v3/b_0745_1.mp4",
+   "from": 40.38,
+   "dur": 2.1,
+   "mo": true,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0745"
+  },
+  {
+   "src": "v3/b_0749_1.mp4",
+   "from": 42.480000000000004,
+   "dur": 2.2,
+   "mo": false,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0749"
+  },
+  {
+   "src": "v3/b_0750_1.mp4",
+   "from": 44.68000000000001,
+   "dur": 1.8,
+   "mo": false,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0750"
+  },
+  {
+   "src": "v3/b_0751_1.mp4",
+   "from": 46.480000000000004,
+   "dur": 2.5,
+   "mo": false,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0751"
+  },
+  {
+   "src": "v3/b_0752_1.mp4",
+   "from": 48.980000000000004,
+   "dur": 2.8,
+   "mo": false,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0752"
+  },
+  {
+   "src": "v3/b_0671_1.mp4",
+   "from": 51.480000000000004,
+   "dur": 2.5,
+   "mo": true,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0671"
+  },
+  {
+   "src": "v3/b_0754_1.mp4",
+   "from": 53.980000000000004,
+   "dur": 3.4,
+   "mo": false,
+   "ra": false,
+   "vol": 1.0,
+   "k": "0754"
+  },
+  {
+   "src": "v3/b_0756_1.mp4",
+   "from": 57.080000000000005,
+   "dur": 7.4,
+   "mo": true,
+   "ra": false,
+   "vol": 0.3,
+   "k": "0756"
+  }
+ ],
+ "phuDe": [
+  {
+   "text": " Sáng",
+   "startMs": 2970,
+   "endMs": 3490,
+   "timestampMs": 2970,
+   "confidence": 1
+  },
+  {
+   "text": " nay,",
+   "startMs": 3490,
+   "endMs": 3710,
+   "timestampMs": 3490,
+   "confidence": 1
+  },
+  {
+   "text": " dự",
+   "startMs": 3830,
+   "endMs": 3970,
+   "timestampMs": 3830,
+   "confidence": 1
+  },
+  {
+   "text": " án",
+   "startMs": 3970,
+   "endMs": 4190,
+   "timestampMs": 3970,
+   "confidence": 1
+  },
+  {
+   "text": " Vinhomes",
+   "startMs": 4190,
+   "endMs": 4530,
+   "timestampMs": 4190,
+   "confidence": 1
+  },
+  {
+   "text": " Global",
+   "startMs": 4530,
+   "endMs": 4870,
+   "timestampMs": 4530,
+   "confidence": 1
+  },
+  {
+   "text": " Gate",
+   "startMs": 4870,
+   "endMs": 5090,
+   "timestampMs": 4870,
+   "confidence": 1
+  },
+  {
+   "text": " Hạ",
+   "startMs": 5090,
+   "endMs": 5350,
+   "timestampMs": 5090,
+   "confidence": 1
+  },
+  {
+   "text": " Long",
+   "startMs": 5350,
+   "endMs": 5530,
+   "timestampMs": 5350,
+   "confidence": 1
+  },
+  {
+   "text": " sẵn",
+   "startMs": 5530,
+   "endMs": 5870,
+   "timestampMs": 5530,
+   "confidence": 1
+  },
+  {
+   "text": " sàng",
+   "startMs": 5870,
+   "endMs": 6110,
+   "timestampMs": 5870,
+   "confidence": 1
+  },
+  {
+   "text": " đón",
+   "startMs": 6110,
+   "endMs": 6330,
+   "timestampMs": 6110,
+   "confidence": 1
+  },
+  {
+   "text": " chào",
+   "startMs": 6330,
+   "endMs": 6610,
+   "timestampMs": 6330,
+   "confidence": 1
+  },
+  {
+   "text": " quý",
+   "startMs": 6610,
+   "endMs": 6750,
+   "timestampMs": 6610,
+   "confidence": 1
+  },
+  {
+   "text": " khách",
+   "startMs": 6750,
+   "endMs": 6930,
+   "timestampMs": 6750,
+   "confidence": 1
+  },
+  {
+   "text": " tại",
+   "startMs": 6930,
+   "endMs": 7090,
+   "timestampMs": 6930,
+   "confidence": 1
+  },
+  {
+   "text": " sự",
+   "startMs": 7090,
+   "endMs": 7250,
+   "timestampMs": 7090,
+   "confidence": 1
+  },
+  {
+   "text": " kiện",
+   "startMs": 7250,
+   "endMs": 7490,
+   "timestampMs": 7250,
+   "confidence": 1
+  },
+  {
+   "text": " Dấu",
+   "startMs": 7490,
+   "endMs": 7730,
+   "timestampMs": 7490,
+   "confidence": 1
+  },
+  {
+   "text": " ấn",
+   "startMs": 7730,
+   "endMs": 7850,
+   "timestampMs": 7730,
+   "confidence": 1
+  },
+  {
+   "text": " Di",
+   "startMs": 7850,
+   "endMs": 7990,
+   "timestampMs": 7850,
+   "confidence": 1
+  },
+  {
+   "text": " sản",
+   "startMs": 7990,
+   "endMs": 8290,
+   "timestampMs": 7990,
+   "confidence": 1
+  },
+  {
+   "text": " –",
+   "startMs": 8290,
+   "endMs": 8410,
+   "timestampMs": 8290,
+   "confidence": 1
+  },
+  {
+   "text": " Kiến",
+   "startMs": 8410,
+   "endMs": 8550,
+   "timestampMs": 8410,
+   "confidence": 1
+  },
+  {
+   "text": " tạo",
+   "startMs": 8550,
+   "endMs": 8730,
+   "timestampMs": 8550,
+   "confidence": 1
+  },
+  {
+   "text": " Tương",
+   "startMs": 8730,
+   "endMs": 8950,
+   "timestampMs": 8730,
+   "confidence": 1
+  },
+  {
+   "text": " lai.",
+   "startMs": 8950,
+   "endMs": 9270,
+   "timestampMs": 8950,
+   "confidence": 1
+  },
+  {
+   "text": " Ngay",
+   "startMs": 9490,
+   "endMs": 9850,
+   "timestampMs": 9490,
+   "confidence": 1
+  },
+  {
+   "text": " từ",
+   "startMs": 9850,
+   "endMs": 9970,
+   "timestampMs": 9850,
+   "confidence": 1
+  },
+  {
+   "text": " 9h",
+   "startMs": 9970,
+   "endMs": 10210,
+   "timestampMs": 9970,
+   "confidence": 1
+  },
+  {
+   "text": " sáng,",
+   "startMs": 10210,
+   "endMs": 10530,
+   "timestampMs": 10210,
+   "confidence": 1
+  },
+  {
+   "text": " rất",
+   "startMs": 10630,
+   "endMs": 10730,
+   "timestampMs": 10630,
+   "confidence": 1
+  },
+  {
+   "text": " đông",
+   "startMs": 10730,
+   "endMs": 10870,
+   "timestampMs": 10730,
+   "confidence": 1
+  },
+  {
+   "text": " khách",
+   "startMs": 10870,
+   "endMs": 11030,
+   "timestampMs": 10870,
+   "confidence": 1
+  },
+  {
+   "text": " hàng",
+   "startMs": 11030,
+   "endMs": 11230,
+   "timestampMs": 11030,
+   "confidence": 1
+  },
+  {
+   "text": " đã",
+   "startMs": 11230,
+   "endMs": 11390,
+   "timestampMs": 11230,
+   "confidence": 1
+  },
+  {
+   "text": " có",
+   "startMs": 11390,
+   "endMs": 11510,
+   "timestampMs": 11390,
+   "confidence": 1
+  },
+  {
+   "text": " mặt",
+   "startMs": 11510,
+   "endMs": 11630,
+   "timestampMs": 11510,
+   "confidence": 1
+  },
+  {
+   "text": " tại",
+   "startMs": 11630,
+   "endMs": 11770,
+   "timestampMs": 11630,
+   "confidence": 1
+  },
+  {
+   "text": " sự",
+   "startMs": 11770,
+   "endMs": 11970,
+   "timestampMs": 11770,
+   "confidence": 1
+  },
+  {
+   "text": " kiện",
+   "startMs": 11970,
+   "endMs": 12210,
+   "timestampMs": 11970,
+   "confidence": 1
+  },
+  {
+   "text": " để",
+   "startMs": 12210,
+   "endMs": 12350,
+   "timestampMs": 12210,
+   "confidence": 1
+  },
+  {
+   "text": " cập",
+   "startMs": 12350,
+   "endMs": 12530,
+   "timestampMs": 12350,
+   "confidence": 1
+  },
+  {
+   "text": " nhật",
+   "startMs": 12530,
+   "endMs": 12650,
+   "timestampMs": 12530,
+   "confidence": 1
+  },
+  {
+   "text": " thông",
+   "startMs": 12650,
+   "endMs": 12810,
+   "timestampMs": 12650,
+   "confidence": 1
+  },
+  {
+   "text": " tin",
+   "startMs": 12810,
+   "endMs": 12990,
+   "timestampMs": 12810,
+   "confidence": 1
+  },
+  {
+   "text": " về",
+   "startMs": 12990,
+   "endMs": 13190,
+   "timestampMs": 12990,
+   "confidence": 1
+  },
+  {
+   "text": " dự",
+   "startMs": 13190,
+   "endMs": 13430,
+   "timestampMs": 13190,
+   "confidence": 1
+  },
+  {
+   "text": " án.",
+   "startMs": 13430,
+   "endMs": 13670,
+   "timestampMs": 13430,
+   "confidence": 1
+  },
+  {
+   "text": " Sự",
+   "startMs": 21340,
+   "endMs": 21860,
+   "timestampMs": 21340,
+   "confidence": 1
+  },
+  {
+   "text": " kiện",
+   "startMs": 21860,
+   "endMs": 22080,
+   "timestampMs": 21860,
+   "confidence": 1
+  },
+  {
+   "text": " chia",
+   "startMs": 22080,
+   "endMs": 22260,
+   "timestampMs": 22080,
+   "confidence": 1
+  },
+  {
+   "text": " sẻ",
+   "startMs": 22260,
+   "endMs": 22440,
+   "timestampMs": 22260,
+   "confidence": 1
+  },
+  {
+   "text": " tập",
+   "startMs": 22440,
+   "endMs": 22640,
+   "timestampMs": 22440,
+   "confidence": 1
+  },
+  {
+   "text": " trung",
+   "startMs": 22640,
+   "endMs": 22840,
+   "timestampMs": 22640,
+   "confidence": 1
+  },
+  {
+   "text": " vào",
+   "startMs": 22840,
+   "endMs": 23000,
+   "timestampMs": 22840,
+   "confidence": 1
+  },
+  {
+   "text": " hai",
+   "startMs": 23000,
+   "endMs": 23180,
+   "timestampMs": 23000,
+   "confidence": 1
+  },
+  {
+   "text": " phần",
+   "startMs": 23180,
+   "endMs": 23360,
+   "timestampMs": 23180,
+   "confidence": 1
+  },
+  {
+   "text": " nội",
+   "startMs": 23360,
+   "endMs": 23520,
+   "timestampMs": 23360,
+   "confidence": 1
+  },
+  {
+   "text": " dung",
+   "startMs": 23520,
+   "endMs": 23740,
+   "timestampMs": 23520,
+   "confidence": 1
+  },
+  {
+   "text": " mà",
+   "startMs": 23740,
+   "endMs": 23900,
+   "timestampMs": 23740,
+   "confidence": 1
+  },
+  {
+   "text": " khách",
+   "startMs": 23900,
+   "endMs": 24060,
+   "timestampMs": 23900,
+   "confidence": 1
+  },
+  {
+   "text": " hàng",
+   "startMs": 24060,
+   "endMs": 24220,
+   "timestampMs": 24060,
+   "confidence": 1
+  },
+  {
+   "text": " quan",
+   "startMs": 24220,
+   "endMs": 24400,
+   "timestampMs": 24220,
+   "confidence": 1
+  },
+  {
+   "text": " tâm",
+   "startMs": 24400,
+   "endMs": 24620,
+   "timestampMs": 24400,
+   "confidence": 1
+  },
+  {
+   "text": " nhất,",
+   "startMs": 24620,
+   "endMs": 24840,
+   "timestampMs": 24620,
+   "confidence": 1
+  },
+  {
+   "text": " tiềm",
+   "startMs": 25110,
+   "endMs": 25310,
+   "timestampMs": 25110,
+   "confidence": 1
+  },
+  {
+   "text": " năng",
+   "startMs": 25310,
+   "endMs": 25490,
+   "timestampMs": 25310,
+   "confidence": 1
+  },
+  {
+   "text": " của",
+   "startMs": 25490,
+   "endMs": 25630,
+   "timestampMs": 25490,
+   "confidence": 1
+  },
+  {
+   "text": " thị",
+   "startMs": 25630,
+   "endMs": 25810,
+   "timestampMs": 25630,
+   "confidence": 1
+  },
+  {
+   "text": " trường",
+   "startMs": 25810,
+   "endMs": 26050,
+   "timestampMs": 25810,
+   "confidence": 1
+  },
+  {
+   "text": " Hạ",
+   "startMs": 26050,
+   "endMs": 26210,
+   "timestampMs": 26050,
+   "confidence": 1
+  },
+  {
+   "text": " Long",
+   "startMs": 26210,
+   "endMs": 26390,
+   "timestampMs": 26210,
+   "confidence": 1
+  },
+  {
+   "text": " và",
+   "startMs": 26390,
+   "endMs": 26830,
+   "timestampMs": 26390,
+   "confidence": 1
+  },
+  {
+   "text": " chính",
+   "startMs": 26830,
+   "endMs": 27050,
+   "timestampMs": 26830,
+   "confidence": 1
+  },
+  {
+   "text": " sách",
+   "startMs": 27050,
+   "endMs": 27290,
+   "timestampMs": 27050,
+   "confidence": 1
+  },
+  {
+   "text": " bán",
+   "startMs": 27290,
+   "endMs": 27450,
+   "timestampMs": 27290,
+   "confidence": 1
+  },
+  {
+   "text": " hàng",
+   "startMs": 27450,
+   "endMs": 27590,
+   "timestampMs": 27450,
+   "confidence": 1
+  },
+  {
+   "text": " mới",
+   "startMs": 27590,
+   "endMs": 27850,
+   "timestampMs": 27590,
+   "confidence": 1
+  },
+  {
+   "text": " của",
+   "startMs": 27850,
+   "endMs": 28050,
+   "timestampMs": 27850,
+   "confidence": 1
+  },
+  {
+   "text": " dự",
+   "startMs": 28050,
+   "endMs": 28290,
+   "timestampMs": 28050,
+   "confidence": 1
+  },
+  {
+   "text": " án.",
+   "startMs": 28290,
+   "endMs": 28530,
+   "timestampMs": 28290,
+   "confidence": 1
+  },
+  {
+   "text": " Bất",
+   "startMs": 30010,
+   "endMs": 30410,
+   "timestampMs": 30010,
+   "confidence": 1
+  },
+  {
+   "text": " động",
+   "startMs": 30410,
+   "endMs": 30510,
+   "timestampMs": 30410,
+   "confidence": 1
+  },
+  {
+   "text": " sản",
+   "startMs": 30510,
+   "endMs": 30710,
+   "timestampMs": 30510,
+   "confidence": 1
+  },
+  {
+   "text": " dòng",
+   "startMs": 30710,
+   "endMs": 30890,
+   "timestampMs": 30710,
+   "confidence": 1
+  },
+  {
+   "text": " tiền",
+   "startMs": 30890,
+   "endMs": 31150,
+   "timestampMs": 30890,
+   "confidence": 1
+  },
+  {
+   "text": " là",
+   "startMs": 31150,
+   "endMs": 31530,
+   "timestampMs": 31150,
+   "confidence": 1
+  },
+  {
+   "text": " sự",
+   "startMs": 31530,
+   "endMs": 31710,
+   "timestampMs": 31530,
+   "confidence": 1
+  },
+  {
+   "text": " lựa",
+   "startMs": 31710,
+   "endMs": 31910,
+   "timestampMs": 31710,
+   "confidence": 1
+  },
+  {
+   "text": " chọn",
+   "startMs": 31910,
+   "endMs": 32130,
+   "timestampMs": 31910,
+   "confidence": 1
+  },
+  {
+   "text": " sáng",
+   "startMs": 32130,
+   "endMs": 32590,
+   "timestampMs": 32130,
+   "confidence": 1
+  },
+  {
+   "text": " suốt.",
+   "startMs": 32590,
+   "endMs": 32810,
+   "timestampMs": 32590,
+   "confidence": 1
+  }
+ ],
+ "chuKhoa": [
+  {
+   "from": 0.0,
+   "dur": 1.42,
+   "dong": [
+    [
+     "nho",
+     "sáng nay"
+    ],
+    [
+     "to",
+     "ĐÔNG KÍN KHÁCH"
+    ]
+   ],
+   "vt": "tam",
+   "co": 1.15
+  },
+  {
+   "from": 1.42,
+   "dur": 1.48,
+   "dong": [
+    [
+     "tay",
+     "Dấu ấn"
+    ],
+    [
+     "to",
+     "DI SẢN"
+    ]
+   ],
+   "vt": "tam",
+   "co": 1.25
+  },
+  {
+   "from": 4.1899999999999995,
+   "dur": 1.6399999999999997,
+   "dong": [
+    [
+     "nho",
+     "dự án"
+    ],
+    [
+     "to",
+     "VINHOMES GLOBAL GATE"
+    ],
+    [
+     "tay",
+     "Hạ Long"
+    ]
+   ],
+   "vt": "tren",
+   "co": 0.8
+  },
+  {
+   "from": 7.49,
+   "dur": 2.129999999999999,
+   "dong": [
+    [
+     "tay",
+     "Dấu ấn Di sản"
+    ],
+    [
+     "to",
+     "KIẾN TẠO TƯƠNG LAI"
+    ]
+   ],
+   "vt": "tren",
+   "co": 0.85
+  },
+  {
+   "from": 9.49,
+   "dur": 1.3399999999999999,
+   "dong": [
+    [
+     "nho",
+     "ngay từ"
+    ],
+    [
+     "so",
+     "9H SÁNG"
+    ]
+   ],
+   "vt": "trai",
+   "co": 1.0
+  },
+  {
+   "from": 10.579999999999998,
+   "dur": 1.7200000000000006,
+   "dong": [
+    [
+     "nho",
+     "rất"
+    ],
+    [
+     "to",
+     "ĐÔNG KHÁCH"
+    ]
+   ],
+   "vt": "giua",
+   "co": 1.0
+  },
+  {
+   "from": 12.299999999999999,
+   "dur": 1.9200000000000017,
+   "dong": [
+    [
+     "nho",
+     "cập nhật"
+    ],
+    [
+     "to",
+     "THÔNG TIN DỰ ÁN"
+    ]
+   ],
+   "vt": "giua",
+   "co": 1.0
+  },
+  {
+   "from": 14.120000000000001,
+   "dur": 2.8999999999999986,
+   "dong": [
+    [
+     "nho",
+     "không khí"
+    ],
+    [
+     "to",
+     "SÔI ĐỘNG"
+    ]
+   ],
+   "vt": "tam",
+   "co": 1.0
+  },
+  {
+   "from": 22.439999999999998,
+   "dur": 1.4800000000000004,
+   "dong": [
+    [
+     "nho",
+     "tập trung vào"
+    ],
+    [
+     "so",
+     "2 NỘI DUNG"
+    ]
+   ],
+   "vt": "phai",
+   "co": 0.9
+  },
+  {
+   "from": 29.880000000000003,
+   "dur": 2.799999999999997,
+   "dong": [
+    [
+     "so",
+     "01"
+    ],
+    [
+     "nho",
+     "tiềm năng"
+    ],
+    [
+     "to",
+     "THỊ TRƯỜNG HẠ LONG"
+    ]
+   ],
+   "vt": "traiduoi",
+   "co": 0.75
+  },
+  {
+   "from": 32.980000000000004,
+   "dur": 3.499999999999993,
+   "dong": [
+    [
+     "so",
+     "02"
+    ],
+    [
+     "to",
+     "CHÍNH SÁCH"
+    ],
+    [
+     "to",
+     "BÁN HÀNG MỚI"
+    ]
+   ],
+   "vt": "thap",
+   "co": 0.85
+  },
+  {
+   "from": 36.78,
+   "dur": 3.5,
+   "dong": [
+    [
+     "nho",
+     "tiêu chuẩn"
+    ],
+    [
+     "to",
+     "BÀN GIAO HOÀN THIỆN"
+    ]
+   ],
+   "vt": "thap",
+   "co": 0.85
+  },
+  {
+   "from": 40.580000000000005,
+   "dur": 2.1999999999999957,
+   "dong": [
+    [
+     "nho",
+     "bốc thăm"
+    ],
+    [
+     "to",
+     "MAY MẮN"
+    ]
+   ],
+   "vt": "tren",
+   "co": 1.0
+  },
+  {
+   "from": 44.78000000000001,
+   "dur": 2.5,
+   "dong": [
+    [
+     "nho",
+     "rất nhiều"
+    ],
+    [
+     "to",
+     "QUÀ TẶNG HẤP DẪN"
+    ]
+   ],
+   "vt": "tren",
+   "co": 0.9
+  },
+  {
+   "from": 51.68000000000001,
+   "dur": 2.1999999999999957,
+   "dong": [
+    [
+     "tay",
+     "Dấu ấn"
+    ],
+    [
+     "to",
+     "DI SẢN"
+    ]
+   ],
+   "vt": "tren",
+   "co": 1.0
+  },
+  {
+   "from": 54.28,
+   "dur": 2.700000000000003,
+   "dong": [
+    [
+     "to",
+     "KIẾN TẠO TƯƠNG LAI"
+    ]
+   ],
+   "vt": "tren",
+   "co": 0.85
+  }
+ ],
+ "the": [
+  {
+   "from": 25.06,
+   "dur": 4.17,
+   "so": "01",
+   "nho": "Tiềm năng",
+   "to": "THỊ TRƯỜNG HẠ LONG",
+   "hang": 0
+  },
+  {
+   "from": 26.34,
+   "dur": 2.8899999999999992,
+   "so": "02",
+   "nho": "Chính sách",
+   "to": "BÁN HÀNG MỚI",
+   "hang": 1
+  }
+ ],
+ "hookHet": 2.85,
+ "thanhTen": {
+  "from": 57.480000000000004,
+  "dur": 7.0
+ },
+ "logoCuoi": {
+  "from": 62.28,
+  "dur": 2.200000000000003
+ }
+}
