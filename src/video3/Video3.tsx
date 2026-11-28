@@ -325,8 +325,23 @@ const ThanhLienHe: React.FC = () => {
   );
 };
 
-const Logo: React.FC<{ cao: number }> = ({ cao }) => (
-  <div style={{ background: "rgba(255,255,255,0.88)", borderRadius: 14, padding: `${cao * 0.18}px ${cao * 0.3}px` }}>
+const Logo: React.FC<{ cao: number; tuDoanh?: boolean }> = ({ cao, tuDoanh }) => (
+  <div
+    style={{
+      background: "rgba(255,255,255,0.88)",
+      borderRadius: 14,
+      padding: `${cao * 0.18}px ${cao * 0.3}px`,
+      display: "flex",
+      alignItems: "center",
+      gap: cao * 0.3,
+    }}
+  >
+    {tuDoanh ? (
+      <>
+        <Img src={staticFile("thuonghieu/tudoanh.png")} style={{ height: cao * 1.05, display: "block" }} />
+        <div style={{ width: 2, height: cao * 0.85, background: "rgba(0,60,90,0.35)" }} />
+      </>
+    ) : null}
     <Img src={staticFile("thuonghieu/logo.png")} style={{ height: cao, display: "block" }} />
   </div>
 );
@@ -404,7 +419,7 @@ export const Video3: React.FC<Props> = ({ thuMuc }) => {
       </Sequence>
       <Sequence durationInFrames={f(data.logoCuoi.from)} layout="none">
         <div style={{ position: "absolute", top: 36, right: 46, opacity: 0.8 }}>
-          <Logo cao={58} />
+          <Logo cao={58} tuDoanh />
         </div>
       </Sequence>
       <Sequence from={f(data.logoCuoi.from)}>
