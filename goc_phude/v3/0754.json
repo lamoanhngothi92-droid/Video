@@ -1,0 +1,135 @@
+[
+ {
+  "text": " 1,",
+  "startMs": 690,
+  "endMs": 1190,
+  "timestampMs": 690,
+  "confidence": 0.352
+ },
+ {
+  "text": " 2,",
+  "startMs": 1190,
+  "endMs": 1670,
+  "timestampMs": 1190,
+  "confidence": 0.507
+ },
+ {
+  "text": " 3,",
+  "startMs": 1810,
+  "endMs": 1950,
+  "timestampMs": 1810,
+  "confidence": 0.979
+ },
+ {
+  "text": " mọi",
+  "startMs": 1950,
+  "endMs": 2090,
+  "timestampMs": 1950,
+  "confidence": 0.793
+ },
+ {
+  "text": " người",
+  "startMs": 2090,
+  "endMs": 2270,
+  "timestampMs": 2090,
+  "confidence": 0.999
+ },
+ {
+  "text": " đổi",
+  "startMs": 2270,
+  "endMs": 2550,
+  "timestampMs": 2270,
+  "confidence": 0.757
+ },
+ {
+  "text": " giá,",
+  "startMs": 2550,
+  "endMs": 2750,
+  "timestampMs": 2550,
+  "confidence": 0.672
+ },
+ {
+  "text": " quyết",
+  "startMs": 2810,
+  "endMs": 3050,
+  "timestampMs": 2810,
+  "confidence": 0.576
+ },
+ {
+  "text": " tâm",
+  "startMs": 3050,
+  "endMs": 3170,
+  "timestampMs": 3050,
+  "confidence": 0.995
+ },
+ {
+  "text": " đi",
+  "startMs": 3170,
+  "endMs": 3270,
+  "timestampMs": 3170,
+  "confidence": 0.853
+ },
+ {
+  "text": " ạ.",
+  "startMs": 3270,
+  "endMs": 3550,
+  "timestampMs": 3270,
+  "confidence": 0.723
+ },
+ {
+  "text": " Từ",
+  "startMs": 6740,
+  "endMs": 6840,
+  "timestampMs": 6740,
+  "confidence": 0.863
+ },
+ {
+  "text": " từ,",
+  "startMs": 6840,
+  "endMs": 7020,
+  "timestampMs": 6840,
+  "confidence": 0.998
+ },
+ {
+  "text": " cho",
+  "startMs": 7060,
+  "endMs": 7160,
+  "timestampMs": 7060,
+  "confidence": 0.181
+ },
+ {
+  "text": " anh",
+  "startMs": 7160,
+  "endMs": 7280,
+  "timestampMs": 7160,
+  "confidence": 0.994
+ },
+ {
+  "text": " dân",
+  "startMs": 7280,
+  "endMs": 7460,
+  "timestampMs": 7280,
+  "confidence": 0.509
+ },
+ {
+  "text": " gửi",
+  "startMs": 7460,
+  "endMs": 7660,
+  "timestampMs": 7460,
+  "confidence": 0.877
+ },
+ {
+  "text": " anh",
+  "startMs": 7660,
+  "endMs": 7820,
+  "timestampMs": 7660,
+  "confidence": 0.182
+ },
+ {
+  "text": " ạ.",
+  "startMs": 7820,
+  "endMs": 8000,
+  "timestampMs": 7820,
+  "confidence": 0.644
+ }
+]

@@ -1,0 +1,135 @@
+[
+ {
+  "text": " Các",
+  "startMs": 0,
+  "endMs": 140,
+  "timestampMs": 0,
+  "confidence": 0.591
+ },
+ {
+  "text": " bạn",
+  "startMs": 140,
+  "endMs": 240,
+  "timestampMs": 140,
+  "confidence": 0.318
+ },
+ {
+  "text": " hãy",
+  "startMs": 240,
+  "endMs": 380,
+  "timestampMs": 240,
+  "confidence": 0.632
+ },
+ {
+  "text": " đăng",
+  "startMs": 380,
+  "endMs": 640,
+  "timestampMs": 380,
+  "confidence": 0.684
+ },
+ {
+  "text": " ký",
+  "startMs": 640,
+  "endMs": 960,
+  "timestampMs": 640,
+  "confidence": 0.858
+ },
+ {
+  "text": " kênh",
+  "startMs": 960,
+  "endMs": 1020,
+  "timestampMs": 960,
+  "confidence": 0.994
+ },
+ {
+  "text": " để",
+  "startMs": 1020,
+  "endMs": 1020,
+  "timestampMs": 1020,
+  "confidence": 0.928
+ },
+ {
+  "text": " ủng",
+  "startMs": 1020,
+  "endMs": 1020,
+  "timestampMs": 1020,
+  "confidence": 0.869
+ },
+ {
+  "text": " hộ",
+  "startMs": 1020,
+  "endMs": 1060,
+  "timestampMs": 1020,
+  "confidence": 0.994
+ },
+ {
+  "text": " kênh",
+  "startMs": 1060,
+  "endMs": 1360,
+  "timestampMs": 1060,
+  "confidence": 0.961
+ },
+ {
+  "text": " của",
+  "startMs": 1360,
+  "endMs": 1500,
+  "timestampMs": 1360,
+  "confidence": 0.65
+ },
+ {
+  "text": " chúng",
+  "startMs": 1500,
+  "endMs": 1640,
+  "timestampMs": 1500,
+  "confidence": 0.35
+ },
+ {
+  "text": " mình",
+  "startMs": 1640,
+  "endMs": 3180,
+  "timestampMs": 1640,
+  "confidence": 0.843
+ },
+ {
+  "text": " nhận",
+  "startMs": 3180,
+  "endMs": 4320,
+  "timestampMs": 3180,
+  "confidence": 0.482
+ },
+ {
+  "text": " thêm",
+  "startMs": 4320,
+  "endMs": 5260,
+  "timestampMs": 4320,
+  "confidence": 0.713
+ },
+ {
+  "text": " những",
+  "startMs": 5260,
+  "endMs": 5940,
+  "timestampMs": 5260,
+  "confidence": 0.243
+ },
+ {
+  "text": " video",
+  "startMs": 5940,
+  "endMs": 6200,
+  "timestampMs": 5940,
+  "confidence": 0.339
+ },
+ {
+  "text": " mới",
+  "startMs": 6200,
+  "endMs": 6480,
+  "timestampMs": 6200,
+  "confidence": 0.68
+ },
+ {
+  "text": " nhé.",
+  "startMs": 6480,
+  "endMs": 8780,
+  "timestampMs": 6480,
+  "confidence": 0.62
+ }
+]

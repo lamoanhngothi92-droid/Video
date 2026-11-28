@@ -1,0 +1,149 @@
+[
+ {
+  "text": " tạo",
+  "startMs": 1010,
+  "endMs": 1050,
+  "timestampMs": 1010,
+  "confidence": 0.386
+ },
+ {
+  "text": " ra",
+  "startMs": 1050,
+  "endMs": 1230,
+  "timestampMs": 1050,
+  "confidence": 0.989
+ },
+ {
+  "text": " giá",
+  "startMs": 1230,
+  "endMs": 1390,
+  "timestampMs": 1230,
+  "confidence": 0.922
+ },
+ {
+  "text": " trị",
+  "startMs": 1390,
+  "endMs": 1530,
+  "timestampMs": 1390,
+  "confidence": 0.996
+ },
+ {
+  "text": " bất",
+  "startMs": 1530,
+  "endMs": 1710,
+  "timestampMs": 1530,
+  "confidence": 0.829
+ },
+ {
+  "text": " động",
+  "startMs": 1710,
+  "endMs": 1790,
+  "timestampMs": 1710,
+  "confidence": 0.535
+ },
+ {
+  "text": " sản",
+  "startMs": 1790,
+  "endMs": 2010,
+  "timestampMs": 1790,
+  "confidence": 0.997
+ },
+ {
+  "text": " trong",
+  "startMs": 2010,
+  "endMs": 2210,
+  "timestampMs": 2010,
+  "confidence": 0.96
+ },
+ {
+  "text": " tương",
+  "startMs": 2210,
+  "endMs": 2370,
+  "timestampMs": 2210,
+  "confidence": 0.996
+ },
+ {
+  "text": " lai.",
+  "startMs": 2370,
+  "endMs": 2650,
+  "timestampMs": 2370,
+  "confidence": 0.995
+ },
+ {
+  "text": " Bất",
+  "startMs": 2930,
+  "endMs": 3330,
+  "timestampMs": 2930,
+  "confidence": 0.99
+ },
+ {
+  "text": " động",
+  "startMs": 3330,
+  "endMs": 3430,
+  "timestampMs": 3330,
+  "confidence": 0.969
+ },
+ {
+  "text": " sản",
+  "startMs": 3430,
+  "endMs": 3630,
+  "timestampMs": 3430,
+  "confidence": 0.998
+ },
+ {
+  "text": " dòng",
+  "startMs": 3630,
+  "endMs": 3810,
+  "timestampMs": 3630,
+  "confidence": 0.434
+ },
+ {
+  "text": " tiền",
+  "startMs": 3810,
+  "endMs": 4070,
+  "timestampMs": 3810,
+  "confidence": 0.945
+ },
+ {
+  "text": " là",
+  "startMs": 4070,
+  "endMs": 4450,
+  "timestampMs": 4070,
+  "confidence": 0.848
+ },
+ {
+  "text": " sự",
+  "startMs": 4450,
+  "endMs": 4630,
+  "timestampMs": 4450,
+  "confidence": 0.966
+ },
+ {
+  "text": " lựa",
+  "startMs": 4630,
+  "endMs": 4830,
+  "timestampMs": 4630,
+  "confidence": 0.983
+ },
+ {
+  "text": " chọn",
+  "startMs": 4830,
+  "endMs": 5050,
+  "timestampMs": 4830,
+  "confidence": 0.998
+ },
+ {
+  "text": " sáng",
+  "startMs": 5050,
+  "endMs": 5510,
+  "timestampMs": 5050,
+  "confidence": 0.814
+ },
+ {
+  "text": " suất.",
+  "startMs": 5510,
+  "endMs": 5730,
+  "timestampMs": 5510,
+  "confidence": 0.561
+ }
+]

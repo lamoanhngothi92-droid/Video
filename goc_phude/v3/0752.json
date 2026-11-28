@@ -1,0 +1,107 @@
+[
+ {
+  "text": " Hãy",
+  "startMs": 50,
+  "endMs": 90,
+  "timestampMs": 50,
+  "confidence": 0.479
+ },
+ {
+  "text": " subscribe",
+  "startMs": 90,
+  "endMs": 710,
+  "timestampMs": 90,
+  "confidence": 0.96
+ },
+ {
+  "text": " cho",
+  "startMs": 710,
+  "endMs": 1990,
+  "timestampMs": 710,
+  "confidence": 0.996
+ },
+ {
+  "text": " kênh",
+  "startMs": 1990,
+  "endMs": 1990,
+  "timestampMs": 1990,
+  "confidence": 0.999
+ },
+ {
+  "text": " Ghiền",
+  "startMs": 1990,
+  "endMs": 1990,
+  "timestampMs": 1990,
+  "confidence": 0.963
+ },
+ {
+  "text": " Mì",
+  "startMs": 1990,
+  "endMs": 1990,
+  "timestampMs": 1990,
+  "confidence": 0.997
+ },
+ {
+  "text": " Gõ",
+  "startMs": 1990,
+  "endMs": 1990,
+  "timestampMs": 1990,
+  "confidence": 0.998
+ },
+ {
+  "text": " Để",
+  "startMs": 1990,
+  "endMs": 1990,
+  "timestampMs": 1990,
+  "confidence": 0.999
+ },
+ {
+  "text": " không",
+  "startMs": 1990,
+  "endMs": 2290,
+  "timestampMs": 1990,
+  "confidence": 0.998
+ },
+ {
+  "text": " bỏ",
+  "startMs": 2290,
+  "endMs": 2490,
+  "timestampMs": 2290,
+  "confidence": 0.999
+ },
+ {
+  "text": " lỡ",
+  "startMs": 5980,
+  "endMs": 6580,
+  "timestampMs": 5980,
+  "confidence": 0.999
+ },
+ {
+  "text": " những",
+  "startMs": 6580,
+  "endMs": 6660,
+  "timestampMs": 6580,
+  "confidence": 0.999
+ },
+ {
+  "text": " video",
+  "startMs": 6660,
+  "endMs": 7720,
+  "timestampMs": 6660,
+  "confidence": 0.997
+ },
+ {
+  "text": " hấp",
+  "startMs": 7720,
+  "endMs": 8200,
+  "timestampMs": 7720,
+  "confidence": 0.998
+ },
+ {
+  "text": " dẫn",
+  "startMs": 8200,
+  "endMs": 8280,
+  "timestampMs": 8200,
+  "confidence": 0.999
+ }
+]
