@@ -212,6 +212,11 @@ def main():
     # Giữ nguyên đoạn vẫy chào hô khẩu hiệu (tốc độ thật, đủ tiếng). Hô xong ở giây 4,65 của clip.
     s = broll("0756", 0.0, 6.0, 1.0, 1.0, vol=1.0, mo=True)
     ten_tu = s + 0.4
+    # Khẩu hiệu (chị gửi): "Tự doanh Toàn quốc, quyết thắng, quyết thắng" – thời gian từng chữ đo bằng Whisper
+    kh = [("Tự", 0.0, 0.7), ("doanh", 0.7, 1.1), ("Toàn", 1.1, 1.5), ("quốc,", 1.5, 1.96),
+          ("quyết", 2.24, 2.66), ("thắng,", 2.66, 3.1), ("quyết", 3.26, 3.62), ("thắng!", 3.62, 4.64)]
+    them_chu([{"i": 900 + n, "text": w, "start": a, "end": b} for n, (w, a, b) in enumerate(kh)], s, 0.0, "kh")
+    kw(s + 1.1, s + 4.6, [["nho", "Tự doanh Toàn quốc"], ["to", "QUYẾT THẮNG!"]], vt="tren", co=0.95, mau="cam")
     chen[-1]["dur"] += 0.3  # chạy tới gần hết clip (phần dư đã xuất sẵn)
     t += 0.3
     logo_tu = s + 4.65

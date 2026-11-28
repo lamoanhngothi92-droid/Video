@@ -246,6 +246,11 @@
    "vol": 0.083
   },
   {
+   "ten": "pop",
+   "from": 58.28000000000001,
+   "vol": 0.115
+  },
+  {
    "ten": "chime",
    "from": 61.730000000000004,
    "vol": 0.132
@@ -1170,6 +1175,62 @@
    "endMs": 32810,
    "timestampMs": 32590,
    "confidence": 1
+  },
+  {
+   "text": " Tự",
+   "startMs": 57080,
+   "endMs": 57780,
+   "timestampMs": 57080,
+   "confidence": 1
+  },
+  {
+   "text": " doanh",
+   "startMs": 57780,
+   "endMs": 58180,
+   "timestampMs": 57780,
+   "confidence": 1
+  },
+  {
+   "text": " Toàn",
+   "startMs": 58180,
+   "endMs": 58580,
+   "timestampMs": 58180,
+   "confidence": 1
+  },
+  {
+   "text": " quốc,",
+   "startMs": 58580,
+   "endMs": 59040,
+   "timestampMs": 58580,
+   "confidence": 1
+  },
+  {
+   "text": " quyết",
+   "startMs": 59320,
+   "endMs": 59740,
+   "timestampMs": 59320,
+   "confidence": 1
+  },
+  {
+   "text": " thắng,",
+   "startMs": 59740,
+   "endMs": 60180,
+   "timestampMs": 59740,
+   "confidence": 1
+  },
+  {
+   "text": " quyết",
+   "startMs": 60340,
+   "endMs": 60700,
+   "timestampMs": 60340,
+   "confidence": 1
+  },
+  {
+   "text": " thắng!",
+   "startMs": 60700,
+   "endMs": 61720,
+   "timestampMs": 60700,
+   "confidence": 1
   }
  ],
  "chuKhoa": [
@@ -1451,6 +1512,23 @@
    ],
    "vt": "tren",
    "co": 0.85,
+   "mau": "cam"
+  },
+  {
+   "from": 58.18000000000001,
+   "dur": 3.5,
+   "dong": [
+    [
+     "nho",
+     "Tự doanh Toàn quốc"
+    ],
+    [
+     "to",
+     "QUYẾT THẮNG!"
+    ]
+   ],
+   "vt": "tren",
+   "co": 0.95,
    "mau": "cam"
   }
  ],

@@ -284,7 +284,7 @@ const ThanhLienHe: React.FC = () => {
       style={{
         position: "absolute",
         left: 90,
-        bottom: 120,
+        bottom: 175,
         display: "flex",
         gap: 22,
         padding: "24px 40px 26px 26px",
