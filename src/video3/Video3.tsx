@@ -269,7 +269,7 @@ const TheNoiDung: React.FC<{ so: string; nho: string; to: string; hang: number }
 };
 
 // ===== Thanh liên hệ (đè lên ảnh tập thể) =====
-const ThanhLienHe: React.FC = () => {
+export const ThanhLienHe: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const v = (tre: number) => spring({ frame: frame - tre, fps, config: { damping: 200 } });
@@ -419,9 +419,7 @@ export const Video3: React.FC<Props> = ({ thuMuc }) => {
         </Sequence>
       ))}
       <PhuDe phuDe={data.phuDe as Caption[]} coToiDa={44} day={42} />
-      <Sequence from={f(data.thanhTen.from)} durationInFrames={f(data.thanhTen.dur)} layout="none">
-        <ThanhLienHe />
-      </Sequence>
+      {/* Thanh liên hệ (tên + số điện thoại) đã bỏ theo yêu cầu của chị Oanh */}
       <Sequence durationInFrames={f(data.logoCuoi.from)} layout="none">
         <div style={{ position: "absolute", top: 36, right: 46, opacity: 0.8 }}>
           <Logo cao={58} tuDoanh />

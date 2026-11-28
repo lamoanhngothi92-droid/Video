@@ -264,7 +264,6 @@ def main():
     for c in chen:
         if c["k"] in ("0749", "0750", "0751", "0752"):
             sfx.append({"ten": "ding", "from": c["from"] + 0.6, "vol": 0.18})
-    sfx.append({"ten": "luot", "from": ten_tu - 0.15, "vol": 0.25})
     sfx.append({"ten": "chime", "from": logo_tu, "vol": 0.4})
     sfx.sort(key=lambda x: x["from"])
     gon = []
