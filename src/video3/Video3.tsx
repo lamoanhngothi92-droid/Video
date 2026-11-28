@@ -372,7 +372,7 @@ const KetMoMo: React.FC = () => {
           LÂM OANH <span style={{ color: XANH }}>VINHOMES</span>
         </div>
         <div style={{ opacity: chu * 0.8 }}>
-          <Logo cao={70} />
+          <Logo cao={70} tuDoanh />
         </div>
       </AbsoluteFill>
       <AbsoluteFill style={{ background: "black", opacity: toi }} />
@@ -393,6 +393,11 @@ export const Video3: React.FC<Props> = ({ thuMuc }) => {
           <CanhChen src={doiThuMuc(c.src, thuMuc)} mo={c.mo} ra={c.ra} vol={c.vol} />
         </Sequence>
       ))}
+      <Sequence from={f(data.anhCuoi.from)} layout="none">
+        <AbsoluteFill>
+          <Img src={staticFile(doiThuMuc(data.anhCuoi.src, thuMuc))} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.06)" }} />
+        </AbsoluteFill>
+      </Sequence>
       {data.sfx.map((x, i) => (
         <Sequence key={`s${i}`} from={f(x.from)} layout="none">
           <Audio src={staticFile(`sfx/${x.ten}.wav`)} volume={x.vol} />

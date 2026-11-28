@@ -209,9 +209,14 @@ def main():
     kw(s + 0.3, s + 1.8, [["to", "KIẾN TẠO TƯƠNG LAI"]], vt="tren", co=0.85, mau="cam")
 
     # ===== 12–13. Kết: ảnh tập thể vẫy tay chậm + thanh liên hệ + LÂM OANH VINHOMES mờ mờ =====
-    s = broll("0756", 0.2, 7.4, 0.75, 0.75, vol=0.3, mo=True)
+    # Giữ nguyên đoạn vẫy chào hô khẩu hiệu (tốc độ thật, đủ tiếng). Hô xong ở giây 4,65 của clip.
+    s = broll("0756", 0.0, 6.0, 1.0, 1.0, vol=1.0, mo=True)
     ten_tu = s + 0.4
-    logo_tu = t - 2.2
+    chen[-1]["dur"] += 0.3  # chạy tới gần hết clip (phần dư đã xuất sẵn)
+    t += 0.3
+    logo_tu = s + 4.65
+    anh_cuoi = {"src": f"{OUT.name}/ket_0756.jpg", "from": t}  # giữ khung cuối làm nền chữ mờ
+    t += 0.8
     tong = t
 
     # ===== Kiểm tra dùng đủ 24 clip =====
@@ -291,8 +296,12 @@ def main():
         print("→", dich.name, f"tốc độ {s0}→{s1}")
         subprocess.run(cmd, check=True)
 
+    jpg = OUT / "ket_0756.jpg"
+    if not jpg.exists():
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-sseof", "-0.1", "-i", str(OUT / "b_0756_1.mp4"),
+                        "-frames:v", "1", "-q:v", "2", str(jpg)], check=True)
     data = {
-        "tongGiay": round(tong, 3), "sfx": gon, "canh": canh, "chen": chen, "phuDe": phude,
+        "anhCuoi": anh_cuoi, "tongGiay": round(tong, 3), "sfx": gon, "canh": canh, "chen": chen, "phuDe": phude,
         "chuKhoa": chukhoa, "the": the, "hookHet": hook_het,
         "thanhTen": {"from": ten_tu, "dur": tong - ten_tu},
         "logoCuoi": {"from": logo_tu, "dur": tong - logo_tu},
